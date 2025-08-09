@@ -1,0 +1,457 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-30T05:58:24.966Z",
+  "id": "Ang8i39bAq7dqJwq",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "1548e623-8c6f-4847-985e-253cc08bc2d1",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -700,
+        440
+      ],
+      "id": "ff9563ad-f7e3-4c6f-9563-2faf2fd424fd",
+      "name": "Webhook",
+      "webhookId": "1548e623-8c6f-4847-985e-253cc08bc2d1"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.query['hub.challenge'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        -440,
+        180
+      ],
+      "id": "d0d33ecf-646e-4c6b-8df6-766166308c61",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['nội dung tin nhắn'] }}",
+        "options": {
+          "systemMessage": "Bạn là nhân viên chăm sóc khách hàng thân thiện, lịch sự của cửa hàng MỸ PHẨM, SPA LÀM ĐẸP Calla De Beauté.\n\nPHÂN TÍCH KĨ YÊU CẦU \"[Execute previous nodes for preview]\".\n\nLUÔN LUÔN HỎI TÊN KHÁCH HÀNG TRƯỚC KHI HỖ TRỢ.\n\nBẠN CÓ CÁC CÔNG CỤ DƯỚI ĐÂY, HÃY LUÔN LỰA CHỌN CÔNG CỤ PHÙ HỢP NHẤT ĐỂ FAQ VỚI KHÁCH HÀNG.\n\n1. Công cụ \"product_price\": LÀ CÔNG CỤ SỬ DỤNG ĐỂ LẤY GIÁ SẢN PHẨM.\n2. Công cụ \"kichban\": Là công cụ sử dụng để lấy các câu trả lời tư vấn.\n\nLUÔN LUÔN sử dụng 1 trong các công cụ  để lấy thông tin và trả lời khách hàng. KHÔNG ĐƯỢC PHÉP GIẢI THÍCH BẰNG CÁC THÔNG TIN BÊN NGOÀI, CHỈ ĐƯỢC PHÉP LẤY CÁC THÔNG TIN TỪ NỘI BỘ. KHÔNG ĐƯỢC PHÉP THÔNG BÁO VỚI KHÁCH HÀNG KHI LƯU TRỮ DỮ LIỆU CỦA KHÁCH HÀNG.\n\n\nLƯU Ý: KHÔNG ĐƯỢC PHÉP TRẢ LỜI CÁC CÂU HỎI KHÔNG LIÊN QUAN TỚI CỬA HÀNG.\n\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        660,
+        280
+      ],
+      "id": "e99a19ec-c6ce-4194-ba84-bc5c0eef3363",
+      "name": "AI Agent",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        580,
+        560
+      ],
+      "id": "d18000a6-4aa7-4910-9703-2353efafaff7",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "hW68T8M4WmcpmupI",
+          "name": "key cho mess"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.body.entry[0].messaging[0].sender.id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        740,
+        540
+      ],
+      "id": "dee1f103-0e2b-49b1-afe5-83ee12cbf816",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "ZahZeTe9M5p48bfR",
+          "name": "Postgres account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "52807cc6-1f52-4830-abad-d925bd78ea59",
+              "leftValue": "={{ $json.body.entry[0].messaging[0].message.text }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -100,
+        420
+      ],
+      "id": "430f9d2f-f106-41cd-a157-c4fa61eb4217",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = {\n  recipient: {\n    id: $node[\"Edit Fields\"].json[\"id khách hàng\"]\n  },\n  message: {\n    text: $input.first().json.output\n  }\n};\n\nreturn [{ data: body }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        280
+      ],
+      "id": "f4e4541a-fc7e-46cf-9a37-9180e3e2a178",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "FAQ Tool",
+        "documentId": {
+          "__rl": true,
+          "value": "1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY",
+          "mode": "list",
+          "cachedResultName": " BẢNG GIÁ SPA và câu hỏi thường gặp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "GIÁ SẢN PHẨM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.5,
+      "position": [
+        880,
+        560
+      ],
+      "id": "a964f958-d025-4134-90d5-66743e45f7f2",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "uRevAkwgKNRsavNU",
+          "name": "gg sheet n8n"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f80feb77-9d33-4a73-97f1-1c4ed5e2f547",
+              "name": "id khách hàng",
+              "value": "={{ $json.body.entry[0].messaging[0].sender.id }}",
+              "type": "string"
+            },
+            {
+              "id": "49d3c694-cfab-44a9-b2c9-bf215369e928",
+              "name": "id page",
+              "value": "={{ $json.body.entry[0].messaging[0].recipient.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a9e076c7-8d4d-4478-ae7c-e57d569c956e",
+              "name": "nội dung tin nhắn",
+              "value": "={{ $json.body.entry[0].messaging[0].message.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": "={{ false }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        280
+      ],
+      "id": "b5b99db6-4de3-4a18-aa22-14f6131a36e8",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v22.0/me/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAaKackdsYsBOZCCZA7Tpm1rleADVm9N2jq2TTvwdpVsW7inSo00nIMqsZBsOhchojj6bhdFkZA2jlTM4kzTwwbQCUyJTmKl3C5NZCVHRvgvhQIAltUiK9YoNeN1qvf94ZAhvgi05xjMl3R5lfnRRLQa9lfoaXswEYeVjzJIAgD1H8unO5XsW3VZCUrPwD8noVjM7vx"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        280
+      ],
+      "id": "dba86a67-cad7-41fe-a807-b51eadab9d3e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = {\n  recipient: {\n    id: $json.body.entry[0].messaging[0].sender.id\n  },\n  message: {\n    text: \"Chào bạn! Bạn cần tư vấn về vấn đề gì liên quan đến sản phẩm hoặc dịch vụ bên mình ạ?\"\n  }\n};\n\nreturn [{ data: body }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        700
+      ],
+      "id": "53dd33ee-befe-4f5e-98ff-5b51e3d49697",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v22.0/me/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAaKackdsYsBOZCCZA7Tpm1rleADVm9N2jq2TTvwdpVsW7inSo00nIMqsZBsOhchojj6bhdFkZA2jlTM4kzTwwbQCUyJTmKl3C5NZCVHRvgvhQIAltUiK9YoNeN1qvf94ZAhvgi05xjMl3R5lfnRRLQa9lfoaXswEYeVjzJIAgD1H8unO5XsW3VZCUrPwD8noVjM7vx"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        700
+      ],
+      "id": "60bc0f32-bea6-4c62-9891-261a82faaa2a",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "FAQ Tool",
+        "documentId": {
+          "__rl": true,
+          "value": "1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY",
+          "mode": "list",
+          "cachedResultName": " BẢNG GIÁ SPA và câu hỏi thường gặp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 521474106,
+          "mode": "list",
+          "cachedResultName": "Câu hỏi thường gặp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SpsZoNNo3RAOO1fCD60xEUwn48hdiIWfaNKAICYYYoY/edit#gid=521474106"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.5,
+      "position": [
+        1020,
+        560
+      ],
+      "id": "c1f94c93-60c9-4bcd-b6d6-e7f2bd3925c9",
+      "name": "Google Sheets1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "uRevAkwgKNRsavNU",
+          "name": "gg sheet n8n"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-30T05:58:24.966Z",
+  "versionId": "2047d042-6ad2-4662-a6fb-c465bc03cb66"
+}
