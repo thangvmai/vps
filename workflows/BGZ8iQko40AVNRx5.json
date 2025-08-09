@@ -1,0 +1,687 @@
+{
+  "active": true,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Hoàn thành",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Đang xử lý",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Đang xử lý": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin đang xử lý",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hoàn thành": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin hoàn thành1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nhận tin": {
+      "main": [
+        [
+          {
+            "node": "Xác định id",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Xác định id": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-06T09:12:03.601Z",
+  "id": "BGZ8iQko40AVNRx5",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "4 - Hồng - Quản lý trạng thái đơn hàng trên Zalo",
+  "nodes": [
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=Đơn hàng  {{ $json.id }} đã cập nhật là \"Đang xử lý\".",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        576,
+        240
+      ],
+      "id": "903a7584-7c3f-48f6-b9a3-541c0f2d5bea",
+      "name": "Gửi tin đang xử lý",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=Đơn hàng  {{ $json.id }} đã cập nhật là \"Xong\".",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        576,
+        32
+      ],
+      "id": "0612d069-ac21-43de-8811-838cd3716d77",
+      "name": "Gửi tin hoàn thành1",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const message = $json.message.data.content || '';\nconst lines = message.split('\\n');\n\nconst done = [];\nconst todo = [];\n\nfor (const line of lines) {\n  const trimmed = line.trim();\n  const parts = trimmed.split(/\\s+/); // tách theo khoảng trắng\n  const orderId = parts[0];\n  const status = parts.slice(1).join(' ').toLowerCase();\n\n  if (status === 'xong') {\n    done.push(orderId);\n  } else if (status === 'đang xử lý') {\n    todo.push(orderId);\n  }\n}\n\nreturn [\n  {\n    json: {\n      done,\n      todo\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        128
+      ],
+      "id": "1a696b2c-e9d1-4f34-b643-104a57f611c5",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Nhận tin').item.json.message.data.content }}",
+                    "rightValue": "xong",
+                    "operator": {
+                      "type": "string",
+                      "operation": "endsWith"
+                    },
+                    "id": "1c8f63fa-d43b-4249-9f0a-36c025536925"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "xong"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "039b3586-7daa-4d4b-b13b-cdae87a44a7a",
+                    "leftValue": "={{ $('Nhận tin').item.json.message.data.content }}",
+                    "rightValue": "lý",
+                    "operator": {
+                      "type": "string",
+                      "operation": "endsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Đang xử lý"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        32,
+        128
+      ],
+      "id": "f71e8d58-c2c1-4d91-a174-7f3d9764bd4d",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Code').item.json.todo[0] }}",
+        "updateFields": {
+          "status": "processing"
+        },
+        "billingUi": {},
+        "couponLinesUi": {},
+        "feeLinesUi": {},
+        "lineItemsUi": {},
+        "metadataUi": {},
+        "shippingUi": {},
+        "shippingLinesUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        336,
+        240
+      ],
+      "id": "9a8a634e-d54a-45c6-b8e5-e8572e9c6cde",
+      "name": "Đang xử lý",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "e577gDNlBychcYZC",
+          "name": "WooCommerce account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Update",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 12401753,
+          "mode": "list",
+          "cachedResultName": "Thông Tin Đặt hàng",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=12401753"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Trạng thái": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tr_ng_th_i__using_to_match_', ``, 'string') }}",
+            "Mã đơn hàng": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('M____n_h_ng__using_to_match_', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "Mã đơn hàng"
+          ],
+          "schema": [
+            {
+              "id": "Sản phẩm",
+              "displayName": "Sản phẩm",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Số lượng",
+              "displayName": "Số lượng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Mã đơn hàng",
+              "displayName": "Mã đơn hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tên khách hàng",
+              "displayName": "Tên khách hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Địa Chỉ",
+              "displayName": "Địa Chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Sđt",
+              "displayName": "Sđt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Tổng tiền",
+              "displayName": "Tổng tiền",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phương thức thanh toán",
+              "displayName": "Phương thức thanh toán",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trạng thái",
+              "displayName": "Trạng thái",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Thời gian đặt",
+              "displayName": "Thời gian đặt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -240,
+        368
+      ],
+      "id": "db21cf51-952e-42d7-949d-50cc3abd3ba2",
+      "name": "Update",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 12401753,
+          "mode": "list",
+          "cachedResultName": "Thông Tin Đặt hàng",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=12401753"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -400,
+        368
+      ],
+      "id": "8d1e6816-cc8c-4cbb-ba81-37a03cc8aa34",
+      "name": "Get",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Nhận tin').item.json.message.data.content }}",
+        "options": {
+          "systemMessage": "=## TỔNG QUAN\n- Bạn là nhân viên kiểm tra trạng thái đơn hàng, bạn có thể thiết lập trạng thái cho đơn hàng.\n\n##Tool\n- Get: dùng để kiểm tra và thông tin\n- Update: dùng để cập nhật trạng thái \"Xong\" hoặc \"Chưa hoàn thành\".\n\n##Rule\n- nếu tin nhắn đến là kiểu \"Mã đơn hàng này xong\" thì cập nhật trạng thái mã đơn hàng đó là \"Xong\", chỉ 1 chữ Xong thôi.\n- nếu tin nhắn đến là kiểu \"Mã đơn hàng này chưa xong\" thì cập nhật trạng thái mã đơn hàng đó là \"Đang xử lý\", chỉ đang xử lý thôi.\n- Kiểm tra đúng mã đơn hàng để cập nhật.\n- Chỉ cập nhật và gửi thông tin đơn hàng yêu cầu thôi.\n\n\n- Current datetime: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        -496,
+        128
+      ],
+      "id": "bbdb0f60-c1aa-4eed-9f34-b95fd1708d47",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        368
+      ],
+      "id": "aa3a648e-c2cd-418f-b10a-f6a073e5bd1f",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "BO7ot0xlpIsFTFHb",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Code').item.json.done[0] }}",
+        "updateFields": {
+          "status": "completed"
+        },
+        "billingUi": {},
+        "couponLinesUi": {},
+        "feeLinesUi": {},
+        "lineItemsUi": {},
+        "metadataUi": {},
+        "shippingUi": {},
+        "shippingLinesUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        336,
+        32
+      ],
+      "id": "2330699c-2fa0-4108-94bf-396540fe647c",
+      "name": "Hoàn thành",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "e577gDNlBychcYZC",
+          "name": "WooCommerce account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "eventTypes": [
+          1
+        ]
+      },
+      "type": "n8n-nodes-zalo-tools.zaloMessageTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1424,
+        144
+      ],
+      "id": "32af8942-affe-4f0d-a935-479b9cec9dd3",
+      "name": "Nhận tin",
+      "webhookId": "cb62ae82-41ed-48d7-974d-0cd0dfd8db5f",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1b6364ed-69cf-4157-90d4-4bc70886e809",
+              "leftValue": "={{ $json.message.data.idTo }}",
+              "rightValue": "1065949318692196563",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "8cb75c4b-18ee-4e60-b471-796e0e1fd89c",
+              "leftValue": "={{ $json.message.data.uidFrom }}",
+              "rightValue": "6668958552947279252",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1168,
+        144
+      ],
+      "id": "58b46ef7-9c75-44f5-a603-d1889d2d6f40",
+      "name": "Xác định id"
+    },
+    {
+      "parameters": {
+        "content": "## Tách Chữ và số\n",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -944,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "cc61e115-2a7e-4b8d-b9e3-6be6304e8065",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Phân tích và cập nhật trên google sheet",
+        "height": 496,
+        "width": 464,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -608,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "dfa0851a-54db-4f25-94e3-4d68ff0750d2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Cập nhật trạng thái trên WooCommerce ",
+        "height": 480,
+        "width": 288
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        208,
+        -64
+      ],
+      "typeVersion": 1,
+      "id": "25216a8e-0036-4722-a09e-5e05ac7469c3",
+      "name": "Sticky Note2"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Zalo Message Trigger": {},
+    "node:Nhận tin": {
+      "isConnected": true,
+      "eventTypes": [
+        1
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-06T10:49:19.181Z",
+  "versionId": "268f1caa-a50a-448d-ac5a-c237bc37fe5d"
+}
