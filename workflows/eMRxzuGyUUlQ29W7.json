@@ -1,0 +1,1529 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Airtable1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Airtable1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Google Drive1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request5": {
+      "main": [
+        [
+          {
+            "node": "YouTube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube": {
+      "main": [
+        [
+          {
+            "node": "YouTube1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube1": {
+      "main": [
+        [
+          {
+            "node": "Airtable2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-30T05:58:26.268Z",
+  "id": "eMRxzuGyUUlQ29W7",
+  "isArchived": false,
+  "meta": null,
+  "name": "Short Video",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -20
+      ],
+      "id": "8119b8ef-8f89-4959-bce8-b5961acd7cac",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.together.xyz/v1/images/generations",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 292581f44d029ecbd9f8a2b626051ddc5b50f09a470585f8b07875bcb0f58bb8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "black-forest-labs/FLUX.1-schnell-Free"
+            },
+            {
+              "name": "prompt",
+              "value": "a super dog"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -340,
+        240
+      ],
+      "id": "fe0b5250-ee3c-453f-900a-0d7206c74af9",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.data[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        240
+      ],
+      "id": "57cb8e61-8d92-4402-8977-2d3dbfa7ed7d",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appQn0MwMSzU4KqnZ",
+          "mode": "list",
+          "cachedResultName": "Slide video",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblfr2dmViWkgUxe9",
+          "mode": "list",
+          "cachedResultName": "Vdeo",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ/tblfr2dmViWkgUxe9"
+        },
+        "filterByFormula": "NOT({Status}='Done')",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -100,
+        -20
+      ],
+      "id": "7b1f863b-7da0-4404-ad4b-6234afefa99d",
+      "name": "Airtable",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "9tXMabcssUEagF1q",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "92ac1523-f609-4ec2-add5-27cf7cce73ed",
+              "leftValue": "={{ $json.Status }}",
+              "rightValue": "Start",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        100,
+        -20
+      ],
+      "id": "89e25958-3c39-41f2-9b6a-964a14734727",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Idea }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an AI content strategist with expertise in video production, AI-generated media, and scriptwriting. Your task is to generate **all necessary assets** for a short-form video based on the provided scene count, seconds per scene, and style guidelines.\n\n### **Task: Generate Fully Synchronized Voiceover Script and Styled Image Prompts**\n\n**Output Format:** Your response must be valid JSON following the structure provided in the \"Updated Output Parser\" below. Do not include any extra text.\n\n**Scene Count:** Generate exactly {{ $json['Number of scenes'] }} scenes.\n\n**Voiceover Script:** Each scene must have a spoken line lasting approximately {{ $json['Second per scenes'] }} seconds. The script should be a single continuous text block where each scene's line flows naturally and engages the viewer. All `voiceOverText` must be written in Vietnamese.\n\n**Image Prompts:** Every scene must include an image prompt. **Each image prompt must explicitly incorporate the style** defined by **{{ $json.Style }}**. The style reference should be seamlessly embedded within the image prompt description.\n\n**Additional Requirements:**\n\n- The JSON output must have no additional text outside the JSON structure.\n\n- The template field and other variables should be maintained exactly as shown.\n\n**Example Considerations:**\n\n- If the number of scenes is 8, generate exactly 8 concise and impactful scenes, each with i s corresponding image prompt including the style reference.\n\n- If the number of scenes is 12, generate exactly 12 such scenes.\n\n**You must not modify** the following fields:\n  - `\"comment\"` (must remain: `Reel example`)\n  - `\"template\"` (must remain: `6WOXKuYVBEAkqakYcwyM`)\n  - `\"voice\"` (must remain: `{{ $json.Voice }}`)\n  - `\"imageModel\"` (must remain: `{{ $json['Image model'] }}`)\n  - `\"voiceModel\"` (must remain: `azure`)\n  - `\"subtitles\"` (must remain: `true`)"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        -320,
+        480
+      ],
+      "id": "0910db13-e6c5-45d0-a976-6275b29eacda",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"comment\": \"Reel example\",\n  \"template\": \"6WOXKuYVBEAkqakYcwyM\",\n  \"variables\": {\n    \"scenes\": [\n      {\n        \"imagePrompt\": \"\",\n        \"voiceOverText\": \"\"\n      },\n      {\n        \"imagePrompt\": \"\",\n        \"voiceOverText\": \"\"\n      }\n    ],\n    \"voice\": \"vi-VN-HoaiMyNeural\",\n    \"imageModel\": \"freepik-classic\",\n    \"voiceModel\": \"azure\",\n    \"subtitles\": true,\n    \"globalSubtitleStyle\": {\n    \"fontFamily\": \"Noto Sans\",\n    \"fontSize\": 26,\n    \"color\": \"#ffffff\"\n  }\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -140,
+        700
+      ],
+      "id": "f7536336-0766-42c2-933a-616b54d9da14",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -340,
+        700
+      ],
+      "id": "38842e98-aaf9-417f-8403-72ad21c6fbfc",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "pciq1o5X6dgFwhR8",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Airtable').item.json.Idea }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "182xVHN6KmH9VrFaFoD0ofE8TGmplgvrp",
+          "mode": "list",
+          "cachedResultName": "Short video",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/182xVHN6KmH9VrFaFoD0ofE8TGmplgvrp"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        740,
+        -40
+      ],
+      "id": "0738acfb-1cb0-4b3e-9481-3c0d41ee0e80",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "gWIvGK9N37PC5KbZ",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ $('AI Agent1').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        960,
+        -40
+      ],
+      "id": "39cd83cb-59de-47fc-9a6a-8ff9ebaa497d",
+      "name": "Edit Fields",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Idea }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are an AI content strategist with expertise in video production, AI-generated media, and scriptwriting. Your task is to generate **all necessary assets** for a short-form video based on the provided scene count, seconds per scene, and style guidelines.\n\n### **Task: Generate Fully Synchronized Voiceover Script and Styled Image Prompts**\n\n**Output Format:** Your response must be valid JSON following the structure provided in the \"Updated Output Parser\" below. Do not include any extra text.\n\n**Scene Count:** Generate exactly {{ $json['Number of scenes'] }} scenes.\n\n**Voiceover Script:** Each scene must have a spoken line lasting approximately {{ $json['Second per scenes'] }} seconds. The script should be a single continuous text block where each scene's line flows naturally and engages the viewer.\n\n**Image Prompts:** Every scene must include an image prompt. **Each image prompt must explicitly incorporate the style** defined by **{{ $json.Style }}**. The style reference should be seamlessly embedded within the image prompt description.\n\n**Additional Requirements:**\n\n- The JSON output must have no additional text outside the JSON structure.\n\n- The template field and other variables should be maintained exactly as shown.\n\n**Example Considerations:**\n\n- If the number of scenes is 8, generate exactly 8 concise and impactful scenes, each with i s corresponding image prompt including the style reference.\n\n- If the number of scenes is 12, generate exactly 12 such scenes.\n\n**You must not modify** the following fields:\n  - `\"comment\"` (must remain: `{{ $json.Idea }}`)\n  - `\"template\"` (must remain: `6EHBQFYGPXHfMCMBsgPY`)\n  - `\"voice\"` (must remain: `{{ $json.Voice }}`)\n  - `\"imageModel\"` (must remain: `{{ $json['Image model'] }}`)\n  - `\"voiceModel\"` (must remain: `azure`)"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        360,
+        -40
+      ],
+      "id": "79b08969-05d7-4de2-9337-2e8e1ee8b98a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"comment\": \"Reel example\",\n  \"template\": \"6WOXKuYVBEAkqakYcwyM\",\n  \"variables\": {\n    \"scenes\": [\n      {\n        \"imagePrompt\": \"\",\n        \"voiceOverText\": \"\"\n      },\n      {\n        \"imagePrompt\": \"\",\n        \"voiceOverText\": \"\"\n      }\n    ],\n    \"voice\": \"vi-VN-HoaiMyNeural\",\n    \"imageModel\": \"freepik-classic\",\n    \"voiceModel\": \"azure\"\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        540,
+        160
+      ],
+      "id": "bb301715-8c67-4978-aed0-bb25f808b021",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        340,
+        160
+      ],
+      "id": "f8a71065-e79f-4251-b5d2-c07632f87ce0",
+      "name": "Groq Chat Model1",
+      "credentials": {
+        "groqApi": {
+          "id": "pciq1o5X6dgFwhR8",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.json2video.com/v2/movies",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "BU1ZnCNn6egpJRIvI30AmtKXIXy5F0ZAQiQ1Yx3u"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('AI Agent1').item.json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1180,
+        -40
+      ],
+      "id": "fb02f00e-d5e5-497a-a3a1-4453b33c0907",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "amount": 90
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1400,
+        -40
+      ],
+      "id": "4cc1c8a4-58d7-4e06-a7eb-0892f78c9d89",
+      "name": "Wait",
+      "webhookId": "8d108bce-29d1-4e9e-ac53-52a0fb6200d3"
+    },
+    {
+      "parameters": {
+        "content": "## Setup Tiếng Việt",
+        "height": 420,
+        "width": 440
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -400,
+        420
+      ],
+      "typeVersion": 1,
+      "id": "41697ca4-827e-49d6-a0a9-5d3246d227b2",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Tạo ảnh",
+        "height": 220,
+        "width": 500
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -420,
+        180
+      ],
+      "typeVersion": 1,
+      "id": "2b77c158-5878-4851-a481-09bc21112d51",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "url": "https://api.json2video.com/v2/movies",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "project",
+              "value": "={{ $('HTTP Request2').item.json.project }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "BU1ZnCNn6egpJRIvI30AmtKXIXy5F0ZAQiQ1Yx3u"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1620,
+        -40
+      ],
+      "id": "010aebcb-3ef9-4b4c-b5a9-599980b56fcf",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an AI content strategist with expertise in digital media and YouTube optimization. Your task is to generate three essential assets for a YouTube video by leveraging the image prompts and voice-over text provided in the previous steps.\n\nSpecifically, you need to derive:\n\n1. **Title**: A catchy and descriptive title for the YouTube video that encapsulates the essence of both the image prompts and the voice-over text.\n\n2. **Description**: An engaging and detailed description for the YouTube video that synthesizes the key themes and narratives from the image prompts and voice-over text. This description should effectively explain the video's content, its value, and include a call-to-action.\n\n3. **Keywords**: A set of twenty highly relevant keywords (related to the content from the image prompts and voice-over text) provided as a single string, with each keyword separated by a comma.\n\nBellow are the image prompts and scenes from the video\n\n{{ $('Edit Fields').item.json.variables.scenes[0].imagePrompt }}\n\n{{ $('Edit Fields').item.json.variables.scenes[0].voiceOverText }}\n\n{{ $('Edit Fields').item.json.variables.scenes [1].imagePrompt }}\n\n{{ $('Edit Fields').item.json.variables.scenes[1].voiceOverText }}\n\n{{ $('Edit Fields').item.json.variables.scenes [2].imagePrompt }}\n\n{{ $('Edit Fields').item.json.variables.scenes [2].voiceOverText }}\n\n{{ $('Edit Fields').item.json.variables.scenes [3].imagePrompt }}\n\n{{ $('Edit Fields').item.json.variables.scenes [3].voiceOverText }}\n\n**Requirements:**\n\nYour response must be valid JSON with no extra text.\n\nThe JSON must include exactly three keys: \"title\", \"description\", and \"keywords\".\n\nThe \"keywords\" value should be a single string containing exactly twenty keywords, separated by commas.\n\nThe title, description, and keywords must be clearly based on the provided image prompts and voice-over text from the previous steps.\n\n**Example Output Parser:**\n\n```json\n{\n\n\"title\": \"Stunning Visuals & Captivating Narratives: A Journey Through Art and Life\",\n\n\"description\": \"Explore a mesmerizing blend of dynamic visuals and powerful voice-over narratives that take you through enchanting image prompts and thoughtful storytelling. This video highlights key themes of beauty, creativity, and inspiration, inviting viewers to immerse themselves in a unique audio-visual experience. Watch, enjoy, and share this creative masterpiece.\",\n\n\"keywords\": \"visuals, narrative, art, creativity, inspiration, storytelling, imagery, voice-over, journey, dynamic, captivating, video, engaging, beauty, aesthetics, multimedia, short-form, digital media, creative, experience\"\n\n}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        900,
+        260
+      ],
+      "id": "bf64946a-0fe4-4316-a904-a4dd8bf318db",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\"title\": \"Stunning Visuals & Captivating Narratives: A Journey Through Art and Life\",\n\n\"description\": \"Explore a mesmerizing blend of dynamic visuals and powerful voice-over narratives that take you through enchanting image prompts and thoughtful storytelling. This video highlights key themes of beauty, creativity, and inspiration, inviting viewers to immerse themselves in a unique audio-visual experience. Watch, enjoy, and share this creative masterpiece.\",\n\n\"keywords\": \"visuals, narrative, art, creativity, inspiration, storytelling, imagery, voice-over, journey, dynamic, captivating, video, engaging, beauty, aesthetics, multimedia, short-form, digital media, creative, experience\"\n\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        1080,
+        460
+      ],
+      "id": "9dde0e4c-4fd3-409a-bd11-9608bc61143a",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        880,
+        480
+      ],
+      "id": "6b71506d-bfbd-4c55-92c0-9cafbac0617b",
+      "name": "Groq Chat Model2",
+      "credentials": {
+        "groqApi": {
+          "id": "pciq1o5X6dgFwhR8",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appQn0MwMSzU4KqnZ",
+          "mode": "list",
+          "cachedResultName": "Slide video",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblfr2dmViWkgUxe9",
+          "mode": "list",
+          "cachedResultName": "Vdeo",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ/tblfr2dmViWkgUxe9"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('If').item.json.id }}",
+            "Video title": "={{ $json.output.title }}",
+            "Video description": "={{ $json.output.description }}",
+            "Keywords": "={{ $json.output.keywords }}",
+            "Final video": "=[\n{\n \"url\": \"{{ $('HTTP Request3').item.json.movie.url }}\"\n}\n]"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Idea",
+              "displayName": "Idea",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Start",
+                  "value": "Start"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Number of scenes",
+              "displayName": "Number of scenes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "4",
+                  "value": "4"
+                },
+                {
+                  "name": "5",
+                  "value": "5"
+                },
+                {
+                  "name": "6",
+                  "value": "6"
+                },
+                {
+                  "name": "7",
+                  "value": "7"
+                },
+                {
+                  "name": "8",
+                  "value": "8"
+                },
+                {
+                  "name": "9",
+                  "value": "9"
+                },
+                {
+                  "name": "10",
+                  "value": "10"
+                },
+                {
+                  "name": "11",
+                  "value": "11"
+                },
+                {
+                  "name": "12",
+                  "value": "12"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Style",
+              "displayName": "Style",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Cartoon",
+                  "value": "Cartoon"
+                },
+                {
+                  "name": "Photorealistic",
+                  "value": "Photorealistic"
+                },
+                {
+                  "name": "Pop art",
+                  "value": "Pop art"
+                },
+                {
+                  "name": "Cinematic",
+                  "value": "Cinematic"
+                },
+                {
+                  "name": "3D render",
+                  "value": "3D render"
+                },
+                {
+                  "name": "Anime",
+                  "value": "Anime"
+                },
+                {
+                  "name": "Cyberpunk",
+                  "value": "Cyberpunk"
+                },
+                {
+                  "name": "Low poly",
+                  "value": "Low poly"
+                },
+                {
+                  "name": "Neon Glow",
+                  "value": "Neon Glow"
+                },
+                {
+                  "name": "Surrealism",
+                  "value": "Surrealism"
+                },
+                {
+                  "name": "Pixel art",
+                  "value": "Pixel art"
+                },
+                {
+                  "name": "Watercolor",
+                  "value": "Watercolor"
+                },
+                {
+                  "name": "Oil painting",
+                  "value": "Oil painting"
+                },
+                {
+                  "name": "Stencil/Graffiti",
+                  "value": "Stencil/Graffiti"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Voice",
+              "displayName": "Voice",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "en-GB-MiaNeural",
+                  "value": "en-GB-MiaNeural"
+                },
+                {
+                  "name": "en-GB-RyanNeural",
+                  "value": "en-GB-RyanNeural"
+                },
+                {
+                  "name": "vi-VN-HoaiMyNeural",
+                  "value": "vi-VN-HoaiMyNeural"
+                },
+                {
+                  "name": "vi-VN-NamMinhNeural",
+                  "value": "vi-VN-NamMinhNeural"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image model",
+              "displayName": "Image model",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "flux-pro",
+                  "value": "flux-pro"
+                },
+                {
+                  "name": "freepik-classic",
+                  "value": "freepik-classic"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Second per scenes",
+              "displayName": "Second per scenes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "5",
+                  "value": "5"
+                },
+                {
+                  "name": "6",
+                  "value": "6"
+                },
+                {
+                  "name": "7",
+                  "value": "7"
+                },
+                {
+                  "name": "8",
+                  "value": "8"
+                },
+                {
+                  "name": "9",
+                  "value": "9"
+                },
+                {
+                  "name": "10",
+                  "value": "10"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Video title",
+              "displayName": "Video title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Video description",
+              "displayName": "Video description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Keywords",
+              "displayName": "Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Final video",
+              "displayName": "Final video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Video URL",
+              "displayName": "Video URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1260,
+        260
+      ],
+      "id": "56d7eb61-a674-4c4e-9d2d-66cd900a223a",
+      "name": "Airtable1",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "9tXMabcssUEagF1q",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('HTTP Request3').item.json.movie.url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1460,
+        260
+      ],
+      "id": "bd9fc5a9-77e0-4c4d-b270-8e34e6c21d35",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "name": "={{ $('Google Drive').item.json.name }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Google Drive').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1680,
+        260
+      ],
+      "id": "a43c496e-a844-44f6-b8ed-23076f3c5691",
+      "name": "Google Drive1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "gWIvGK9N37PC5KbZ",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $('AI Agent2').item.json.output.title }}",
+        "regionCode": "VN",
+        "categoryId": "1",
+        "options": {
+          "description": "={{ $('AI Agent2').item.json.output.description }}",
+          "privacyStatus": "private",
+          "tags": "={{ $('AI Agent2').item.json.output.keywords }}"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        2120,
+        260
+      ],
+      "id": "0e73891f-64eb-4aff-8ade-f93094df46f9",
+      "name": "YouTube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "5bTEn7cmEDl0D2XH",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $('HTTP Request3').item.json.movie.url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1900,
+        260
+      ],
+      "id": "90778a08-a65f-4c58-9208-2b15442a8bf4",
+      "name": "HTTP Request5"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "get",
+        "videoId": "={{ $json.uploadId }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        260
+      ],
+      "id": "3097c773-4e95-426a-aa14-bb6f0275ad5f",
+      "name": "YouTube1",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "5bTEn7cmEDl0D2XH",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appQn0MwMSzU4KqnZ",
+          "mode": "list",
+          "cachedResultName": "Slide video",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblfr2dmViWkgUxe9",
+          "mode": "list",
+          "cachedResultName": "Vdeo",
+          "cachedResultUrl": "https://airtable.com/appQn0MwMSzU4KqnZ/tblfr2dmViWkgUxe9"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('If').item.json.id }}",
+            "Video URL": "=https://www.youtube.com/shorts/{{ $json.id }}",
+            "Status": "Done"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Idea",
+              "displayName": "Idea",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Start",
+                  "value": "Start"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Number of scenes",
+              "displayName": "Number of scenes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "4",
+                  "value": "4"
+                },
+                {
+                  "name": "5",
+                  "value": "5"
+                },
+                {
+                  "name": "6",
+                  "value": "6"
+                },
+                {
+                  "name": "7",
+                  "value": "7"
+                },
+                {
+                  "name": "8",
+                  "value": "8"
+                },
+                {
+                  "name": "9",
+                  "value": "9"
+                },
+                {
+                  "name": "10",
+                  "value": "10"
+                },
+                {
+                  "name": "11",
+                  "value": "11"
+                },
+                {
+                  "name": "12",
+                  "value": "12"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Style",
+              "displayName": "Style",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Cartoon",
+                  "value": "Cartoon"
+                },
+                {
+                  "name": "Photorealistic",
+                  "value": "Photorealistic"
+                },
+                {
+                  "name": "Pop art",
+                  "value": "Pop art"
+                },
+                {
+                  "name": "Cinematic",
+                  "value": "Cinematic"
+                },
+                {
+                  "name": "3D render",
+                  "value": "3D render"
+                },
+                {
+                  "name": "Anime",
+                  "value": "Anime"
+                },
+                {
+                  "name": "Cyberpunk",
+                  "value": "Cyberpunk"
+                },
+                {
+                  "name": "Low poly",
+                  "value": "Low poly"
+                },
+                {
+                  "name": "Neon Glow",
+                  "value": "Neon Glow"
+                },
+                {
+                  "name": "Surrealism",
+                  "value": "Surrealism"
+                },
+                {
+                  "name": "Pixel art",
+                  "value": "Pixel art"
+                },
+                {
+                  "name": "Watercolor",
+                  "value": "Watercolor"
+                },
+                {
+                  "name": "Oil painting",
+                  "value": "Oil painting"
+                },
+                {
+                  "name": "Stencil/Graffiti",
+                  "value": "Stencil/Graffiti"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Voice",
+              "displayName": "Voice",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "en-GB-MiaNeural",
+                  "value": "en-GB-MiaNeural"
+                },
+                {
+                  "name": "en-GB-RyanNeural",
+                  "value": "en-GB-RyanNeural"
+                },
+                {
+                  "name": "vi-VN-HoaiMyNeural",
+                  "value": "vi-VN-HoaiMyNeural"
+                },
+                {
+                  "name": "vi-VN-NamMinhNeural",
+                  "value": "vi-VN-NamMinhNeural"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Image model",
+              "displayName": "Image model",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "flux-pro",
+                  "value": "flux-pro"
+                },
+                {
+                  "name": "freepik-classic",
+                  "value": "freepik-classic"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Second per scenes",
+              "displayName": "Second per scenes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "5",
+                  "value": "5"
+                },
+                {
+                  "name": "6",
+                  "value": "6"
+                },
+                {
+                  "name": "7",
+                  "value": "7"
+                },
+                {
+                  "name": "8",
+                  "value": "8"
+                },
+                {
+                  "name": "9",
+                  "value": "9"
+                },
+                {
+                  "name": "10",
+                  "value": "10"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Video title",
+              "displayName": "Video title",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Video description",
+              "displayName": "Video description",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Keywords",
+              "displayName": "Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Final video",
+              "displayName": "Final video",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Video URL",
+              "displayName": "Video URL",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        2540,
+        260
+      ],
+      "id": "3193eead-a101-4a4b-be1f-98576dcfb45f",
+      "name": "Airtable2",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "9tXMabcssUEagF1q",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-30T05:58:26.268Z",
+  "versionId": "5a2fbbb5-0d86-4676-acf7-5886d283331e"
+}
