@@ -1,0 +1,155 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Create image feature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create image feature": {
+      "main": [
+        [
+          {
+            "node": "Get image feature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-01T08:11:10.527Z",
+  "id": "8a3DWRChxwrfGr9A",
+  "isArchived": false,
+  "meta": null,
+  "name": "test edit image",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        0
+      ],
+      "id": "09caba33-5627-48ee-a427-99e6d2efb7f4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2551484-56e7-42e5-a903-8ae3f3a232bc",
+              "name": "image",
+              "value": "https://omega3.vn/wp-content/uploads/2023/05/cham-soc-da-chuyen-sau-1.jpg",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        32,
+        0
+      ],
+      "id": "1417e849-4e7b-44f4-9e47-a05083d3c862",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux-kontext-lora",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.image }}"
+            },
+            {
+              "name": "prompt",
+              "value": "remove all logos, watermarks, and text while keeping the background natural and clean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "d0bd529c-61b8-4ee6-91bd-32bd3fb503e1",
+      "name": "Create image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://queue.fal.run/fal-ai/flux/requests/{{ $json.request_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "23dc810c-81bc-4b60-8f67-32682aff4f86",
+      "name": "Get image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-01T08:15:29.379Z",
+  "versionId": "b01e11fc-742b-4e5d-a463-3f768908492b"
+}
