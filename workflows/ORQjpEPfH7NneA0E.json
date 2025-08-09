@@ -1,0 +1,1779 @@
+{
+  "active": false,
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get top 10 google serpapi",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research content",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "soạn outline",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create title, description": {
+      "main": [
+        [
+          {
+            "node": "Create image feature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CollectedImages": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "write chapter": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "giongvan": {
+      "ai_tool": [
+        [
+          {
+            "node": "write chapter",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "soạn outline": {
+      "main": [
+        [
+          {
+            "node": "Tách từng chương",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research content": {
+      "main": [
+        [
+          {
+            "node": "soạn outline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tách từng chương": {
+      "main": [
+        [
+          {
+            "node": "write chapter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "write chapter",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "CollectedImages",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Create image feature1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get image2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get image2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort": {
+      "main": [
+        [
+          {
+            "node": "ghép content, xuất theo dạng html",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Create title, description",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Create title, description",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Get image feature",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create image feature": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get image feature": {
+      "main": [
+        [
+          {
+            "node": "Coveimage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Coveimage": {
+      "main": [
+        [
+          {
+            "node": "Upload to media website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to media website": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload post": {
+      "main": [
+        [
+          {
+            "node": "Set feature image, title, description",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set feature image, title, description": {
+      "main": [
+        [
+          {
+            "node": "Create a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Upload post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update docx": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ghép content, xuất theo dạng html": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Research content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get top 10 google serpapi": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "write chapter",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Create title, description",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create image feature1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a document": {
+      "main": [
+        [
+          {
+            "node": "Update docx",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Zalo Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-01T02:29:40.392Z",
+  "id": "ORQjpEPfH7NneA0E",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "wp test",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fe914117-85e7-4ff3-8dca-164a95130959",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "To do",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "26054458-5207-474c-92f1-d32756141625",
+              "leftValue": "={{ $json[\"Ngày đăng\"].split('/').reverse().join('-') }}",
+              "rightValue": "={{ new Date().toISOString().slice(0, 10) }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1584,
+        80
+      ],
+      "id": "45d87e50-b97a-4dd2-9633-d3183d8a90fd",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "content": "## Soạn outline, Viết bài ",
+        "height": 440,
+        "width": 2000,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2000,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "d15119c5-b62e-45cc-856e-40357225ee1b",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## get content top 10 Google, Research content",
+        "height": 440,
+        "width": 2000,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2000,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "ac369781-fc18-459c-8d1e-bd4a62276934",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## tạo hình ảnh, thêm hình từng chaptter",
+        "height": 880,
+        "width": 2000
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2000,
+        880
+      ],
+      "typeVersion": 1,
+      "id": "f91ec6d1-4638-45b4-861a-195b4e146cf3",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "34a0b741-a04f-4973-99ce-672b96746fad",
+              "leftValue": "={{ $json.generateImage }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -528,
+        960
+      ],
+      "id": "013fdbb2-d475-4814-b025-affa90974472",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash-exp",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        368
+      ],
+      "id": "6c9e3c5b-5a97-4766-8f45-6bc22c4a35cd",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YBX5lvVUpd8p1FU8",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Dựa trên từ khóa chính: {{ $('If').first().json['Main Keywords'] }}\n\nNội dung tham khảo:\n\"{{ $json.chapterContent }}\"\n\nYêu cầu:\n- Bắt buộc phải trả đúng dữ liệu\n- seoTitle: có sức hút, đúng từ khóa, có yếu tố \"giật tít nhẹ\" như Google News hay Zing\n- metaDescription: 140–160 ký tự, nêu bật giá trị nội dung, có call-to-action ngầm\n- prompt tiếng Anh để tạo ảnh minh họa đúng chủ đề\n\nChỉ trả đúng object JSON theo mẫu sau, không được bao quanh bởi markdown hoặc escape:\n\n{\n  \"seoTitle\": \"...\",\n  \"metaDescription\": \"...\",\n  \"slug\": \"...\",\n  \"prompt\": \"...\"\n}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Bạn là AI chuyên trả về JSON hợp lệ. Không bao giờ trả thêm chữ mô tả, không bao quanh bằng markdown hoặc ```json. Chỉ trả object JSON đúng như yêu cầu schema sau:\n\n{\n  \"seoTitle\": \"string\",\n  \"metaDescription\": \"string\",\n  \"slug\": \"string\",\n  \"prompt\": \"string\"\n}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        512,
+        80
+      ],
+      "id": "88d08ae7-1a14-42c2-98f3-6b7a76c62100",
+      "name": "Create title, description",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst total = items.length;\n\nconst randomIndexes = [...Array(total).keys()]\n  .filter(i => i > 0 && i < total - 1)\n  .sort(() => 0.5 - Math.random())\n  .slice(0, 3); // số lượng ảnh muốn chọn\n\nconsole.log(\"📸 Chọn chương tạo ảnh (bỏ intro & cuối):\", randomIndexes);\n\nreturn items.map((item, index) => {\n  const raw = item.json.output || item.json || {}; // fallback nếu không bọc output\n  const chapterContent = raw.chapterContent || \"\";\n  const chapterTitle = raw.chapterTitle || chapterContent.slice(0, 100);\n  const chapterIndex = raw.chapterIndex ?? index;\n\n  return {\n    json: {\n      chapterIndex,\n      chapterTitle: chapterTitle.trim(),\n      chapterContent: chapterContent.trim(),\n      generateImage: randomIndexes.includes(index)\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1696,
+        992
+      ],
+      "id": "e5960c79-ceaa-4743-8f03-d89c5ca00fa7",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const chapterIndex = $json.chapterIndex;\nconst chapterTitle = $json.chapterTitle;\nconst chapterContent = $json.chapterContent;\nconst imageUrl = $json.image || \"\";\nconst status = \"done\";\n\nreturn {\n  json: {\n    chapterIndex,\n    chapterTitle,\n    chapterContent,\n    imageUrl,\n    status\n  }\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        64,
+        1024
+      ],
+      "id": "eaa26843-ad4f-4042-b843-e3c3e27e69e8",
+      "name": "CollectedImages"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Viết nội dung cho chương {{ $json.chapterIndex }} theo phong cách mẫu, vào thẳng trọng tâm, không chào hỏi. \n\n\nTiêu đề chương: {{ $json.chapterTitle }}\nTừ khóa chính: {{ $('If').first().json['Main Keywords'] }}\nNăm cập nhật: {{ new Date().getFullYear() }}\nNgười dùng thường tìm: {{ $('Code').item.json.queriesText }}\nNội dung cần viết lại:\n\"{{ $json.chapterContent }}\"\n\n📌 Yêu cầu:\n- Bắt buộc đọc file  **giongvan** 1 lần trước khi viết\n- Bắt buộc viết văn phong theo  **giongvan** không được thoát vai\n- Không dùng ký tự AI thường dùng\n- Nếu chapterIndex = 0 → Viết đoạn mở 60–100 từ đánh vào nhu cầu của {{ $('If').first().json['Target audience'] }} trong lĩnh vực {{ $('If').first().json.Niche }}. Cài từ khóa tự nhiên, không gượng ép.\n- Nếu không phải chapterIndex 0  → Viết đoạn 100–200 từ có chiều sâu, phân bổ từ khóa chính + từ liên quan (LSI) {{ $('Code').item.json.queriesText }}. Tránh lặp đầu câu, văn trôi chảy.\n- Dùng ngôn ngữ tự nhiên, có ví dụ, thực thể liên quan, đáp ứng mục tiêu tìm kiếm của người đọc (hướng dẫn / tra cứu / lựa chọn...).\n- Tuân thủ E-E-A-T: có ví dụ thực tế, thông tin đúng chuyên môn, đáng tin cậy, phù hợp tệp độc giả.\n- Trình bày có thể dùng bullet point khi cần\n- Không viết lại tiêu đề, không dùng `# heading`.\n\n👉 Bắt buộc dạng JSON:\n\n```json\n{\n  \"chapterIndex\": {{ $json.chapterIndex }},\n  \"chapterTitle\": \"{{ $json.chapterTitle }}\",\n  \"chapterContent\": \"[viết nội dung ở đây]\"\n}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=Bạn là chuyên gia viết nội dung SEO theo văn phong mẫu cung cấp trong công cụ tên **giongvan** (file docx).\nBắt buộc học giongvan file docx\nHãy học văn phong này về: cách viết, cách xuống dòng, tông giọng, lựa chọn từ ngữ, độ dài câu...\nToàn bộ nội dung bạn viết phải bám theo phong cách đó.\n⚠️ QUY ĐỊNH BẮT BUỘC VỀ KÝ HIỆU:\n\nKhông được sử dụng bất kỳ ký tự đặc biệt hoặc ký hiệu định dạng như:\n\nGạch ngang dài (–, em/en dash), dấu chấm ba (…), dấu nháy kiểu tiếng Anh (“ ”), biểu tượng icon, emoji, hoặc bất kỳ ký hiệu không thuộc bảng mã ASCII chuẩn.\n\nChỉ được dùng các ký hiệu cơ bản sau: .,?!- và dấu ngoặc tròn hoặc ngoặc kép kiểu Việt Nam.\n\nTuyệt đối không dùng gạch ngang dài (–) để ngắt ý, thay vào đó hãy dùng dấu phẩy hoặc diễn đạt lại bằng từ ngữ."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -688,
+        512
+      ],
+      "id": "4448b918-2fb3-44f2-9749-ae19416dc1fe",
+      "name": "write chapter"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "chapterIndex",
+        "joinMode": "enrichInput1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        704,
+        1008
+      ],
+      "id": "2193378d-8c63-4e42-b3b4-63cf1c058c3d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "1W-b0PxUgT0hbzsPrpTeWMkCRKrcfnGhJnkbKE7Vge5A"
+      },
+      "type": "n8n-nodes-base.googleDocsTool",
+      "typeVersion": 2,
+      "position": [
+        -560,
+        720
+      ],
+      "id": "d0a0d585-3045-45a1-a084-a8d021e65d12",
+      "name": "giongvan",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "MUkTJClOuPKtikz7",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Bạn sẽ tạo outline chi tiết cho một bài blog chuẩn SEO dựa trên nội dung nghiên cứu sau:\n\n---  \n{{ $('Research content').item.json.output }}  \n---\n\n🎯 Yêu cầu:\n-  Mở đầu không chào hỏi.\n- Tối đa 600-800 từ\n- Hãy viết một đoạn **mở đầu ngắn (~100 từ)** thật hấp dẫn để **giới thiệu chủ đề** cho người đọc.\n- chỉ xuất outline không thêm nội dung khác\n- Đoạn mở đầu phải chứa từ khóa chính: **{{ $('If').first().json['Main Keywords'] }}**\n- Hướng đến đúng đối tượng: **{{ $('If').first().json['Target audience'] }}**\n- Sau phần mở đầu, hãy chia nội dung thành các mục rõ ràng theo dạng H2/H3\n- Mỗi mục cần có **tiêu đề ngắn gọn** và **mô tả nội dung chính sẽ viết**\n- Tập trung vào ngữ nghĩa (semantic content), không liệt kê khô khan\n- Tối ưu từ khóa chính: **{{ $('If').first().json['Main Keywords'] }}**\n- Thêm từ khóa liên quan {{ $('Code').item.json.queriesText }}\n- Tông giọng: **{{ $('If').first().json['Writing tone'] }}**\n\n🛑 Không chào hỏi, không nhắc lại yêu cầu, không viết phần kết bài.\n\n---\n\n📌 Output mong muốn:  \nMột đoạn mở đầu ngắn → sau đó là outline dạng markdown như sau:\n\n```markdown\n[Đoạn mở đầu: khoảng 60 từ ở đây]\n\n## 1. [Tên mục lớn]\n- Nội dung chính: …\n\n## 2. ...\n\nChỉ xuất nội dung yêu cầu\n",
+        "options": {
+          "systemMessage": "Bạn là một chuyên gia SEO và content planner, có nhiệm vụ phân tích thông tin đã nghiên cứu để tạo ra outline cho bài viết blog theo chuẩn semantic content.\n\nBạn chỉ xuất ra **cấu trúc outline**, không viết nội dung bài blog đầy đủ.  \nBạn phải đảm bảo:\n- Cấu trúc rõ ràng (H2, H3 nếu cần)\n- Tối ưu theo từ khóa chính\n- Phù hợp với đối tượng người đọc đã xác định\n- Không viết mở đầu, kết luận, hoặc giới thiệu lại đề bài\n- Không chào hỏi hoặc nêu vai trò bản thân\n\nLuôn xuất output gọn, súc tích, và dễ triển khai thành nội dung thật.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -1664,
+        512
+      ],
+      "id": "3c349e8a-5e54-4a28-ad92-68468972966f",
+      "name": "soạn outline"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Chiến dịch: {{ $('If').first().json['Campain Description'] }}  \nTừ khóa chính: **{{ $('If').first().json['Main Keywords'] }}**  \nTừ khóa liên quan: {{ $json.queriesText }}\nTông giọng: {{ $('If').first().json['Writing tone'] }}  \nĐối tượng người đọc: {{ $('If').first().json['Target audience'] }}  \nBắt buộc tham khảo đối thủ cạnh tranh:{{ $json.formattedLinks }} trước khi Research\n\n---\n\n🎯 Mục tiêu:\nPhân tích nội dung từ các bài viết trên, tổng hợp và tái cấu trúc thành 1 bản **checklist semantic content** chuẩn SEO, bám sát từ khóa chính: **{{ $('If').first().json['Main Keywords'] }}**.\nTìm 5 từ khóa LSI của {{ $('If').first().json['Main Keywords'] }} theo từ khóa liên quan\n\n---\n\n✍️ Yêu cầu:\n- Chia nội dung thành các nhóm chính: định nghĩa, lợi ích, lưu ý, chuyên gia nói gì, kết luận thực tiễn\n- Tổng hợp tất cả các ý quan trọng thành một bản thống nhất\n- Không lặp lại đề bài, không giới thiệu vai trò, không viết lời chào hoặc kết luận chung chung\n- Không nhắc lại “Dưới đây là…” hay “Tôi sẽ…”\n- **Chỉ xuất ra nội dung chính**, đúng cấu trúc, đủ sâu, dùng được ngay\n\n---\n\n📌 Output mong muốn:\n- 1 đoạn nội dung markdown chicklist SEO cho từ khóa rõ ràng {{ $('If').first().json['Main Keywords'] }}\n- Có thể dùng làm outline blog, script video, hoặc tài liệu training\n- Chỉ xuất nội dung yêu cầu\n",
+        "options": {
+          "systemMessage": "=Bạn là một chuyên gia nghiên cứu nội dung SEO cấp cao, chuyên hỗ trợ thương hiệu trong lĩnh vực  {{ $('If').first().json.Niche }} phát triển nội dung theo định hướng semantic content.\n\nMục tiêu của bạn:\n- Phân tích các nguồn tài liệu đầu vào (bao gồm link, keyword, mô tả chiến dịch) và tạo ra nội dung có chiều sâu, chuẩn hóa\n- Viết theo giọng điệu và phong cách thương hiệu đã định sẵn\n- Giữ vững cấu trúc, tránh viết lan man, luôn hướng tới người đọc mục tiêu\n\n*** Hãy giữ vai trò này suốt toàn bộ quá trình, kể cả khi người dùng không nói rõ.\n*** không xuất nội dung phụ"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -400,
+        64
+      ],
+      "id": "e21871b7-0908-43c6-ba8e-087453e98e33",
+      "name": "Research content"
+    },
+    {
+      "parameters": {
+        "jsCode": "let globalIndex = 1;\n\nconst chapters = $input.all().flatMap((item) => {\n  const content = item.json.output || \"\";\n\n  const [introRaw, ...rest] = content.split(/^##\\s+/gm);\n\n  const introItem = {\n    json: {\n      chapterIndex: 0,\n      chapterTitle: \"Intro\",\n      chapterContent: introRaw.trim()\n    }\n  };\n\n  const chapterItems = rest.map((ch, i) => {\n    const parts = ch.split('\\n');\n    const title = parts.shift()?.trim() || `Chương ${i + 1}`;\n    const body = parts.join('\\n').trim();\n\n    return {\n      json: {\n        chapterIndex: globalIndex++,\n        chapterTitle: title,\n        chapterContent: `## ${title}\\n${body}`\n      }\n    };\n  });\n\n  return [introItem, ...chapterItems];\n});\n\nreturn chapters;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1104,
+        512
+      ],
+      "id": "5f1401b3-fd76-4dee-ba92-9bfac1e5609f",
+      "name": "Tách từng chương"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"chapterIndex\": { \"type\": \"integer\" },\n    \"chapterTitle\": { \"type\": \"string\" },\n    \"chapterContent\": { \"type\": \"string\" }\n  },\n  \"required\": [\"chapterIndex\", \"chapterTitle\", \"chapterContent\"]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        -416,
+        720
+      ],
+      "id": "73687b5b-6ccc-4e40-9bff-d7976dcaef1e",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        928
+      ],
+      "id": "b9e7c711-8968-4fb6-837c-852522ac06c1",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1856,
+        1184
+      ],
+      "id": "f9a9fab2-de7f-4fc3-a8f3-d3ea9688121d",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Tạo prompt hình ảnh với chủ đề chính \"{{ $json.chapterTitle }}\" và prompt tạo hình ảnh cũng cần phù hợp với thông tin đưa vào theo chủ đề bài viết {{ $('If').first().json['Main Keywords'] }}, cần phải mô tả sát với thực tế, chỉ xuất nội dung yêu cầu, không trình bày thêm, nội dung bằng tiếng anh. ",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        -1520,
+        1280
+      ],
+      "id": "003aac1f-f4d7-492d-b38c-74782c0a9274",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -784,
+        1280
+      ],
+      "id": "a9dc9a47-82d7-48bb-ae71-296d8ea58cc8",
+      "name": "Wait",
+      "webhookId": "14c18fd5-57ba-4acd-8a7f-8f6528d16f76"
+    },
+    {
+      "parameters": {
+        "url": "=https://queue.fal.run/fal-ai/flux/requests/{{ $json.request_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -528,
+        1280
+      ],
+      "id": "cb640286-5f42-48ea-a4db-4d18c124724b",
+      "name": "Get image2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "23c065e0-7d0e-4991-b57f-68e2bb8ea962",
+              "name": "image",
+              "value": "={{ $json.images[0].url }}",
+              "type": "string"
+            },
+            {
+              "id": "d6d07820-c5c4-48ab-92c4-e30aace5bf60",
+              "name": "chapterIndex",
+              "value": "={{ $('Loop Over Items').item.json.chapterIndex }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -176,
+        1504
+      ],
+      "id": "64f575cb-a121-4ae8-acc0-8ca0e401e4c5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "78d1d754-6960-43a8-9964-5c404135ce38",
+              "name": "chapterIndex",
+              "value": "={{ $json.chapterIndex }}",
+              "type": "number"
+            },
+            {
+              "id": "0c14f4b3-a5f0-4619-95d5-39fbb0ef543d",
+              "name": "imageUrl",
+              "value": "={{ $json.imageUrl }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        384,
+        1024
+      ],
+      "id": "8e4c3ec2-f6f5-4f84-8a99-d5dad98d2479",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8e2543f0-ddbb-44c0-a1b0-51d58a534e3d",
+              "name": "chapterIndex",
+              "value": "={{ $json.output.chapterIndex }}",
+              "type": "number"
+            },
+            {
+              "id": "71c3af74-3bbf-438b-b36b-af00e81281a6",
+              "name": "chapterTitle",
+              "value": "={{ $json.output.chapterTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "fea85f67-1767-4866-b0d8-3b90c4dcf431",
+              "name": "chapterContent",
+              "value": "={{ $json.output.chapterContent }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        32,
+        528
+      ],
+      "id": "8cb6a2e9-5e70-42b2-8625-faf61fa9900f",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "chapterIndex"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        928,
+        1008
+      ],
+      "id": "70972978-f41c-407e-8e26-b1274c46aa60",
+      "name": "Sort"
+    },
+    {
+      "parameters": {
+        "jsCode": "const intro = $input.all().find(i => i.json.chapterIndex === 0);\nreturn [intro];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        112
+      ],
+      "id": "d565dc0a-c1cb-4ba1-8be3-955b16838a16",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"seoTitle\": \"Uống sữa hạt có tốt không?\",\n  \"metaDescription\": \"Khám phá lợi ích của sữa hạt\",\n  \"slug\": \"uong-sua-hat-co-tot-khong-loi-ich-phu-nu\",\n  \"prompt\": \"Create a cozy, natural light photo of a Vietnamese woman in her 30s drinking nut milk with almonds and walnuts around.\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        704,
+        304
+      ],
+      "id": "62ecb724-c528-42fe-b02f-08e102e27991",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1360,
+        80
+      ],
+      "id": "b3298451-8f08-49a0-9c4f-6aa76c2b1129",
+      "name": "Wait1",
+      "webhookId": "14c18fd5-57ba-4acd-8a7f-8f6528d16f76"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux/dev",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_size",
+              "value": "landscape_16_9"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output.prompt }}"
+            },
+            {
+              "name": "content_type",
+              "value": "image/jpeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        992,
+        80
+      ],
+      "id": "509b3e06-b67c-463c-996c-0c8fd26144e2",
+      "name": "Create image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://queue.fal.run/fal-ai/flux/requests/{{ $json.request_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        560
+      ],
+      "id": "bafdc6ab-563f-4ada-a440-16b7e08bb5a5",
+      "name": "Get image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.images[0].url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        672,
+        560
+      ],
+      "id": "087e0801-b0f2-4438-abd6-3504b0d2a8af",
+      "name": "Coveimage"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://spacalla.space/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{\n  \"Content-Disposition\": \"attachment; filename=\\\"featured.jpg\\\"\",\n  \"Content-Type\": \"image/jpeg\"\n}\n",
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        560
+      ],
+      "id": "e63c1852-966e-4f03-9f62-115942c9428f",
+      "name": "Upload to media website",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        },
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "title": "={{ $('Edit Fields3').first().json.seoTitle }}",
+        "additionalFields": {
+          "content": "={{ $json.postHtml }}",
+          "slug": "={{ $('Edit Fields3').first().json.slug }}",
+          "status": "draft",
+          "categories": "={{ $('If').first().json[' Category'] }}"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        112,
+        1280
+      ],
+      "id": "c735e7c9-ac9e-42dc-971b-842b971f98b1",
+      "name": "Upload post",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "64f5dc0d-aafb-43e8-8704-584d9b7f564b",
+              "name": "id media",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "81be0e34-977f-42fe-9dec-6e556d3971bf",
+              "name": "seoTitle",
+              "value": "={{ $('Create title, description').first().json.output.seoTitle }}",
+              "type": "string"
+            },
+            {
+              "id": "c60019bc-6621-4ebe-8f75-a891d9934f1c",
+              "name": "metaDescription",
+              "value": "={{ $('Create title, description').first().json.output.metaDescription }}",
+              "type": "string"
+            },
+            {
+              "id": "2d8b1ca3-6ec4-4897-aa3c-25ffbd08decb",
+              "name": "slug",
+              "value": "={{ $('Create title, description').first().json.output.slug }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1088,
+        560
+      ],
+      "id": "044586c6-f7a9-4ff6-a6f3-2fb7df7b3a0b",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "content": "## Tạo tiêu đề, mô tả, prompt hình ảnh",
+        "height": 880,
+        "width": 1560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "67ac8a13-b93e-4568-8fea-402ad4aa7022",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Ghép hình ảnh và nội dung bài viết, đăng website, set hình đại diện",
+        "height": 880,
+        "width": 1540,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        880
+      ],
+      "typeVersion": 1,
+      "id": "540e407a-bc60-41c7-9924-1d1908e283b2",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://spacalla.space/wp-json/wp/v2/posts/{{ $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "specifyHeaders": "json",
+        "jsonHeaders": "{\n  \"Content-Type\": \"application/json\"\n}\n",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"featured_media\": {{ $('Edit Fields3').first().json['id media'] }},\n  \"meta\": {\n    \"rank_math_description\": \"{{ $('Edit Fields3').first().json.seoTitle }}\",\n    \"rank_math_title\": \"{{ $('Edit Fields3').first().json.seoTitle }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        384,
+        1280
+      ],
+      "id": "76ceb69e-b3d1-46b3-8d2d-cb9a5391cec6",
+      "name": "Set feature image, title, description",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        },
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        1408,
+        1024
+      ],
+      "id": "07b7d809-1e6a-4251-a679-12d3d6d436e1",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=# Tiêu đề\n{{ $('Edit Fields3').first().json.seoTitle }}\n\n## Mô tả\n{{ $('Edit Fields3').first().json.output.properties.type }}\n\n## Content\n{{ $('ghép content, xuất theo dạng html').first().json.postHtml }}\n\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        960,
+        1280
+      ],
+      "id": "3a869a70-f3a3-4581-a79e-46e50774124e",
+      "name": "Update docx",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "MUkTJClOuPKtikz7",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2160,
+        64
+      ],
+      "id": "88eb9290-1477-4ed4-857d-fcec8312c7bf",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1360,
+        288
+      ],
+      "id": "4f566cc0-32ab-4ee1-8726-56d63442af70",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nconst postHtml = items.map(item => {\n  let { chapterTitle, chapterContent, imageUrl } = item.json;\n\n  // Nếu là đoạn Intro thì không render heading\n  const heading = chapterTitle && chapterTitle !== 'Intro'\n    ? `<h2>${chapterTitle}</h2>`\n    : '';\n  const image = imageUrl\n    ? `<img src=\"${imageUrl}\" alt=\"${chapterTitle}\" style=\"width:100%; margin-bottom: 12px;\" />`\n    : '';\n\n  if (chapterContent) {\n    // ✅ Replace **bold**\n    chapterContent = chapterContent.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');\n\n    // ✅ Replace ### Heading 3\n    chapterContent = chapterContent.replace(/^### (.*)$/gm, '<h3>$1</h3>');\n\n    // Optional: xử lý line breaks → nếu content AI xuống dòng bằng `\\n`\n    chapterContent = chapterContent.replace(/\\n/g, '<br />');\n  }\n\n  return `<section style=\"margin-bottom: 32px;\">${image}${heading}<div>${chapterContent}</div></section>`;\n}).join('\\n');\n\nreturn [\n  {\n    json: {\n      postHtml\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        1008
+      ],
+      "id": "b37aab88-f21e-47f0-838d-dd0eb56736a8",
+      "name": "ghép content, xuất theo dạng html"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst data = items[0].json;\n\n// 1. Truy vấn người dùng (query titles)\nconst organic = data.organic_results || [];\nconst queries = organic.map(i => i.title).filter(Boolean);\nconst queriesText = `${queries.join(', ')}.`;\n\n// 2. Link từ related_questions (lọc YouTube, lấy 5, cắt # ?)\nconst related = data.related_questions || [];\nconst relatedLinks = related\n  .map(q => q.link)\n  .filter(link => link && !link.toLowerCase().includes('youtube'))\n  .slice(0, 5)\n  .map(link => link.split('#')[0].split('?')[0]);\n\n// 3. Format sẵn thành chuỗi có đầu dòng\nconst formattedLinks = relatedLinks.map(link => `- ${link}`).join('\\n');\n\n// 4. Trả về 1 item duy nhất\nreturn [\n  {\n    json: {\n      queriesText,\n      formattedLinks\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -704,
+        64
+      ],
+      "id": "7c95830c-1db4-41af-927b-c245e319c5c2",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "url": "=https://serpapi.com/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "engine",
+              "value": "google"
+            },
+            {
+              "name": "q",
+              "value": "={{ $json['Main Keywords'] }}"
+            },
+            {
+              "name": "api_key",
+              "value": "2d8e91f4dab57572cb3a350002ddf1e7b83e2f8b24c62d48f7b103fa705087f9"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1120,
+        64
+      ],
+      "id": "c2ed7d78-7c0c-4b9e-af35-0cfeb479fd84",
+      "name": "Get top 10 google serpapi",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "MaYvFr7cCSL8lez8",
+          "name": "serapi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -720,
+        720
+      ],
+      "id": "a0c05632-3bfb-449b-910c-adc6069eaa19",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "6J131918hyfnfRqV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux/dev",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_size",
+              "value": "landscape_16_9"
+            },
+            {
+              "name": "prompt",
+              "value": "={{ $json.output }}"
+            },
+            {
+              "name": "content_type",
+              "value": "image/jpeg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1040,
+        1280
+      ],
+      "id": "4e3c3b3a-adf6-4ff3-8c40-5f4927527cbe",
+      "name": "Create image feature1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ZY1owX7RHvmkRlFp",
+          "name": "fal ai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o",
+          "mode": "list",
+          "cachedResultName": "SEO research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1776,
+        80
+      ],
+      "id": "0300a781-b646-4549-bcf6-3d4c434858a4",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "folderId": "=1vKmnc6ebHYVE5qgJrE92vM-cxt_KFVMR",
+        "title": "={{ $('Edit Fields3').first().json.seoTitle }}"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        704,
+        1280
+      ],
+      "id": "4deae6cb-d579-4247-9882-2463e1929481",
+      "name": "Create a document",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "MUkTJClOuPKtikz7",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o",
+          "mode": "list",
+          "cachedResultName": "SEO research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Main Keywords": "={{ $('If').first().json['Main Keywords'] }}",
+            "ID Post": "={{ $('Upload post').first().json.id }}",
+            "SEO Acticle Docx": "=https://docs.google.com/document/d/{{ $('Update docx').item.json.documentId }}",
+            "Url post ": "={{ $('Upload post').item.json.link }}",
+            "status": "Pending"
+          },
+          "matchingColumns": [
+            "Main Keywords"
+          ],
+          "schema": [
+            {
+              "id": " Category",
+              "displayName": " Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ngày đăng",
+              "displayName": "Ngày đăng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Brand name",
+              "displayName": "Brand name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Niche",
+              "displayName": "Niche",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Main Keywords",
+              "displayName": "Main Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Campain Description",
+              "displayName": "Campain Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Writing tone",
+              "displayName": "Writing tone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Target audience",
+              "displayName": "Target audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Publish post status",
+              "displayName": "Publish post status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID Post",
+              "displayName": "ID Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Meta Description",
+              "displayName": "Meta Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Url post ",
+              "displayName": "Url post ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SEO Acticle Docx",
+              "displayName": "SEO Acticle Docx",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1168,
+        1280
+      ],
+      "id": "f53c373f-0639-4f84-af5a-e2b947cf8332",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "5536028982519892683",
+        "message": "=Đã soạn bài xong kiểm tra tại {{ $('Upload post').item.json.link }}  hoặc file docx https://docs.google.com/document/d/{{ $('Update docx').item.json.documentId }} ",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        1376,
+        1280
+      ],
+      "id": "66f739ff-d720-4ad7-a598-c3a19aa03240",
+      "name": "Zalo Send Message",
+      "credentials": {
+        "zaloApi": {
+          "id": "5jIQdl6Zf6WNoKTc",
+          "name": "Zalo Sora"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-01T03:58:11.273Z",
+  "versionId": "d6eb81fb-5257-4ed4-a55f-431b73efe385"
+}
