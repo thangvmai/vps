@@ -1,0 +1,504 @@
+{
+  "active": false,
+  "connections": {
+    "Globals": {
+      "main": [
+        [
+          {
+            "node": "Merge globals and files",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Get all files in given path",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set name and content": {
+      "main": [
+        [
+          {
+            "node": "Merge Github and n8n workflows - Keep only non existing workflows based on the name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "Globals",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "n8n - get all workflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub - get each file": {
+      "main": [
+        [
+          {
+            "node": "Set name and content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge globals and files": {
+      "main": [
+        [
+          {
+            "node": "GitHub - get each file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n - get all workflows": {
+      "main": [
+        [
+          {
+            "node": "Set n8n existing workflows names",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If workflow already exists": {
+      "main": [
+        [
+          {
+            "node": "n8n - create workflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Workflow name already exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set n8n existing workflows names": {
+      "main": [
+        [
+          {
+            "node": "Merge Github and n8n workflows - Keep only non existing workflows based on the name",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Github and n8n workflows - Keep only non existing workflows based on the name": {
+      "main": [
+        [
+          {
+            "node": "If workflow already exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get all files in given path": {
+      "main": [
+        [
+          {
+            "node": "Merge globals and files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-30T05:55:13.925Z",
+  "id": "HwRqB4q0uAj1NYqc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "restore wfl",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3b514633-2d7a-46af-b515-a37ff902c656",
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -340,
+        440
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "repo.owner",
+              "value": "thangvmai"
+            },
+            {
+              "name": "repo.name",
+              "value": "DANTN"
+            },
+            {
+              "name": "repo.path",
+              "value": "workflows/"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fcb468e5-61be-46ac-80f7-e76a89a063ce",
+      "name": "Globals",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -140,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Workflow - Restore Backups\nThis workflow will restore backed-up workflows from Github. \nIt is launch by testing the workflow\n\n### Setup\nOpen Globals and update the values below\n**repo.owner:** This is your Github username\n**repo.name:** This is the name of your repository\n**repo.path:** This is the folder where your workflows are saved, within the repository.\n\nIf your username was `n8n-io` and your repository was called `n8n-backups` and you wanted the workflows to go into a `workflows` folder you would set:\n\nrepo.owner - n8n-io\nrepo.name - n8n-backups\nrepo.path - workflows",
+        "height": 464.79920462713443,
+        "width": 389.78906250000017,
+        "color": 2
+      },
+      "id": "0127cd25-9ae6-44c2-b597-31a998f5165c",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -780,
+        260
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "463b0cb5-9e98-4d41-92ed-41e5e3cdfc46",
+      "name": "Workflow name already exists",
+      "type": "n8n-nodes-base.noOp",
+      "position": [
+        1540,
+        540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "063d51c7-0b7a-48a4-82b3-76b370fc4265",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              },
+              "leftValue": "={{ $('Merge Github and n8n workflows - Keep only non existing workflows based on the name').item.json.name }}",
+              "rightValue": ""
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f8f72ffa-7900-4977-bc00-d1d6fac35182",
+      "name": "If workflow already exists",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1220,
+        420
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6be8c184-8fb7-47a9-ad42-d0dc3db1eea4",
+              "name": "name",
+              "type": "string",
+              "value": "={{ $json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "63ccbdd7-ee07-4e14-8ed8-8f998706a57f",
+      "name": "Set n8n existing workflows names",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        680,
+        540
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "eda41b7d-0a84-4c44-9c58-159614bc2607",
+      "name": "n8n - get all workflows",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        -140,
+        540
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "AQIP1Emz6nJMg4ud",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.repo.owner }}"
+        },
+        "repository": {
+          "__rl": true,
+          "mode": "name",
+          "value": "={{ $json.repo.name }}"
+        },
+        "filePath": "={{ $json.path }}",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "id": "4fbee1ed-b780-43cf-9642-7d56b1768310",
+      "name": "GitHub - get each file",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        500,
+        320
+      ],
+      "typeVersion": 1,
+      "webhookId": "10691e0b-134f-47a0-81eb-d92ba8f232ca",
+      "credentials": {
+        "githubApi": {
+          "id": "OCKvWAppePphALLv",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "714b0cfd-9f06-4e2f-b73d-30ef39dc40e3",
+              "name": "content",
+              "type": "string",
+              "value": "={{ $json.content.base64Decode() }}"
+            },
+            {
+              "id": "6f48ed58-d55a-4ee4-8cf2-373941aaa341",
+              "name": "name",
+              "type": "string",
+              "value": "={{ $json.name.replace(\".json\", \"\") }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f5141f92-fd63-45c0-aea3-7acaa03f1b3c",
+      "name": "Set name and content",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        700,
+        320
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "workflowObject": "={{ $('Set name and content').item.json.content }}",
+        "requestOptions": {}
+      },
+      "id": "c2145ec4-f0de-4e1d-86a0-806dda2e51da",
+      "name": "n8n - create workflow",
+      "type": "n8n-nodes-base.n8n",
+      "position": [
+        1540,
+        320
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "AQIP1Emz6nJMg4ud",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Get all Github files\n1. List all the files from your repository\n2. Get each file as a JSON. \n3. The content, retrieved as base64, is converted in the \"Set Name and Content\" node\n\n\nThe \"Set Name and Content\" node creates a list of workflows with name and content, in order to compare it with the existing n8n workflows in the workspace.",
+        "height": 478.9952882299376,
+        "width": 861.4145066375679,
+        "color": 2
+      },
+      "id": "5f0a0dd1-71d7-4614-bdab-b48c3e248cdc",
+      "name": "Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "1d88189c-9608-427b-8f3f-55cd708be07f",
+      "name": "Merge globals and files",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        300,
+        320
+      ],
+      "typeVersion": 2.1
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "name",
+              "field2": "name"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input1",
+        "options": {}
+      },
+      "id": "5d1a0fb9-f1f5-40dc-bf31-d8d638949f98",
+      "name": "Merge Github and n8n workflows - Keep only non existing workflows based on the name",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1000,
+        420
+      ],
+      "typeVersion": 2.1,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "content": "## Merge Github and n8n workflows\n\nHere, we only keep the workflows from Github that doesn't already exist in n8n workspace, based on the name",
+        "height": 196.65095879641083,
+        "width": 260.44696745223945,
+        "color": 2
+      },
+      "id": "a5982379-6754-484c-a9ef-04f97f3ab709",
+      "name": "Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        920,
+        600
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Create n8n workflow\n\nCreate the n8n workflow using:\n- Content saved in Github\n- Name of the file in Github\n\n\nIf the workflow name already exist in n8n, then the workflow is not created - to avoid duplicates.",
+        "height": 237.66186698228626,
+        "width": 344.0461264465236,
+        "color": 2
+      },
+      "id": "0f92b203-29fb-4aa1-b682-3e6135d0bf71",
+      "name": "Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1720,
+        380
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Get existing n8n workflows\n\n1. Get all workflows\n2. Prepare a list of workflows in order to compare it with the workflows saved in the Github repo.",
+        "height": 182.45487519360773,
+        "width": 378.7476641422645,
+        "color": 2
+      },
+      "id": "cf6ffcd6-8667-40a1-aac8-ba7a35619c9f",
+      "name": "Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "=https://api.github.com/repos/{{ $json.repo.owner }}/{{ $json.repo.name }}/contents/{{ $json.repo.path }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "options": {}
+      },
+      "id": "960aa541-8bb0-43c5-ae4e-4f09c63693e6",
+      "name": "Get all files in given path",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        80,
+        240
+      ],
+      "typeVersion": 4.2,
+      "credentials": {
+        "githubApi": {
+          "id": "OCKvWAppePphALLv",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-06-30T09:23:58.888Z",
+  "versionId": "262c428b-70e9-4e43-9de9-26f7aa78edb6"
+}
