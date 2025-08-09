@@ -1,0 +1,213 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-06-30T15:30:08.228Z",
+  "id": "xsR86ogUIp191HGB",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "chat_bot_mess_v2",
+  "nodes": [
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "path": "a00aa07b-92f8-4130-b8d2-fbv2",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -360,
+        100
+      ],
+      "id": "fcbe556d-3c67-4f39-9f51-99a1ad27a0fa",
+      "name": "Webhook",
+      "webhookId": "a00aa07b-92f8-4130-b8d2-6664fae54e3e"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.query['hub.challenge'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        -100
+      ],
+      "id": "076ad8e8-70c7-4248-8073-a9154b580b31",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body ={\n  \"recipient\":{\n    \"id\":`${$input.first().json.reply}`\n  },\n  \"message\":{\n    \"text\":`${$input.first().json.output.replaceAll('<p>','').replaceAll('<b>','*').replaceAll('</b>','*').replaceAll('</p>','\\n').replaceAll('<br/>','\\n')}`\n  }\n}\nreturn {\n  data: body\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        200
+      ],
+      "id": "289ca736-5364-4ed7-9ecd-47655f1ded98",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v23.0/650808194786249/messages/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAaKackdsYsBOZCCZA7Tpm1rleADVm9N2jq2TTvwdpVsW7inSo00nIMqsZBsOhchojj6bhdFkZA2jlTM4kzTwwbQCUyJTmKl3C5NZCVHRvgvhQIAltUiK9YoNeN1qvf94ZAhvgi05xjMl3R5lfnRRLQa9lfoaXswEYeVjzJIAgD1H8unO5XsW3VZCUrPwD8noVjM7vx"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        200
+      ],
+      "id": "282cbd4a-a861-4ae2-9127-92aade0358e5",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://dichvun8n.click/webhook/factory-faq",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -140,
+        200
+      ],
+      "id": "32f3e65d-1a6b-4664-98df-1f85fd8286f2",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "94b1dae6-3f53-41b5-9742-b396e55e2424",
+              "name": "output",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            },
+            {
+              "id": "18b4c376-b715-4fec-8310-fae80ec0241d",
+              "name": "reply",
+              "value": "={{$node[\"Webhook\"].data.body.entry[0].messaging[0].sender.id}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        100,
+        200
+      ],
+      "id": "1a96bf2a-3270-4d9d-8614-55c861621266",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -120,
+        440
+      ],
+      "id": "287408a2-3dc5-4aa9-9947-169e523ec9aa",
+      "name": "Respond to Webhook1"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-11T14:42:51.200Z",
+  "versionId": "c174cbfe-0106-4592-9ffd-9f5168f98b0c"
+}
