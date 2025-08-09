@@ -1,0 +1,1608 @@
+{
+  "active": true,
+  "connections": {
+    "Peel": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Product": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Meso": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mun": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Other": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Gửi Tin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nhận Tin": {
+      "main": [
+        [
+          {
+            "node": "Uid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Wordpress1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wordpress1": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields6": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Zalo Send Message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Zalo Send Message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Uid": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Update a video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a video": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Zalo Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-27T07:26:26.032Z",
+  "id": "RPdicl6LNuvH0D2p",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "5 - Hồng - Chatbot Zalo",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "BẢNG GIÁ SPA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1009427123,
+          "mode": "list",
+          "cachedResultName": "GIÁ PEEL",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=1009427123"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        416,
+        528
+      ],
+      "id": "58492cba-3076-4fe9-b46f-e92572cae97f",
+      "name": "Peel",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "BẢNG GIÁ SPA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "GIÁ SẢN PHẨM",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        288,
+        528
+      ],
+      "id": "a3a4e6de-330c-4ae1-ab45-6ecc8fbcd813",
+      "name": "Product",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "BẢNG GIÁ SPA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 541415814,
+          "mode": "list",
+          "cachedResultName": "GIÁ MESO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=541415814"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        560,
+        528
+      ],
+      "id": "c8137696-93cd-4f82-bde2-1c056f2576ad",
+      "name": "Meso",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "BẢNG GIÁ SPA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1110247173,
+          "mode": "list",
+          "cachedResultName": "LẤY MỤN - THẢI ĐỘC",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=1110247173"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        688,
+        528
+      ],
+      "id": "589d120a-37dc-4991-b12c-2ab7df68c52b",
+      "name": "Mun",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "BẢNG GIÁ SPA",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 462113703,
+          "mode": "list",
+          "cachedResultName": "KHÁC",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=462113703"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        864,
+        528
+      ],
+      "id": "d397abb6-5750-429e-b7fa-894140056f1f",
+      "name": "Other",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "DkLFOUrd6WdJEXkn",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Nhận Tin').item.json.message.data.content }}",
+        "options": {
+          "systemMessage": "=## TỔNG QUAN\n- Bạn là nhân viên chăm sóc khách hàng chuyên nghiệp, có 5 năm kinh nghiệm tại spa Calla. Nhiệm vụ của bạn là tư vấn khách hàng về dịch vụ và sản phẩm chăm sóc da, luôn trả lời ngắn gọn, thân thiện, đúng trọng tâm, xưng hô Em – Anh/Chị.\n- Đây là tên khách hàng: {{ $json.message.data.dName }}\n\n- Các dịch vụ chính của Spa:\n+ Peel\n+ Meso\n+ Lấy mụn - Thải độc\n+ Các dịch vụ làm đẹp khác(Other).\n\n## QUY TẮC ỨNG XỬ:\n- Xưng hô: Em – Anh/Chị.\n- Luôn tư vấn ngắn gọn, đúng trọng tâm.\n- Không viết dài dòng, không lặp lại.\n- Luôn nói với thái độ lịch sự, nhẹ nhàng, dễ chịu.\n- Nếu là khách hàng mới thì phải hỏi tên.\n\n## CÁCH HIỂU VÀ GHI NHỚ NGỮ CẢNH:\n- Ghi nhớ toàn bộ nội dung mà khách đã hỏi trước đó trong hội thoại này (qua Redis).\n- Luôn trả lời các câu hỏi tiếp theo dựa vào mạch nội dung trước đó.\n  - Ví dụ: nếu khách hỏi \"Serum nào dưới 300k\", sau đó hỏi tiếp \"vậy loại đắt hơn thì sao?\", bạn phải hiểu là khách đang hỏi tiếp về Serum theo giá cao hơn.\n- Trả lời theo ngữ cảnh hội thoại, không được trả lời rời rạc hay lệch chủ đề.\n\n## NGUỒN DỮ LIỆU (Bắt buộc tra trước khi trả lời):\n- Product: Danh sách sản phẩm – tên, giá, công dụng.\n- Peel: Danh sách dịch vụ Peel – tên, giá, công dụng.\n- Meso: Danh sách dịch vụ Meso – tên, giá, công dụng.\n- Mun: Danh sách dịch vụ lấy mụn – thải độc – tên, giá, công dụng.\n- Other: Các dịch vụ khác – tên, giá, công dụng.\n\n\n**Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.**\n\n## HƯỚNG DẪN TRẢ LỜI:\n- Khi khách hỏi “có dịch vụ gì”: Trả lời tên các dịch vụ chính + giá.\n- Khi khách hỏi công dụng: Trích đúng thông tin trong dữ liệu (Peel, Meso, Mun…).\n- Khi khách hỏi sản phẩm: Liệt kê tên và giá sản phẩm phù hợp.\n- Khi khách hỏi giá: Lọc dữ liệu theo khoảng giá và trả lời gợi ý phù hợp.\n- Khi khách hỏi mập mờ hoặc liên tiếp (“trên thì sao?”, “còn loại nào khác không?”): Phải dựa vào câu hỏi trước để hiểu ý và trả lời tiếp nối mạch hội thoại.\n- Khi không có trong dữ liệu: Trả lời khéo léo, ví dụ: “Dạ hiện bên em chưa có loại đó ạ, mình tham khảo thêm giúp em nha.”\n- Khách hàng chưa hỏi rõ ràng tất cả dịch vụ thì chỉ cần trả lời tên của những dịch vụ chính.\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n\n## QUY TẮC PHẢN HỒI:\n- Không nhắc tới việc đang dùng công cụ hay tool tìm kiếm.\n- Không cần lặp lại link ở mọi câu trả lời.\n- Khi khách muốn dịch vụ hoặc đặt lịch thì nói có thể đến trực tiếp của hàng hoặc đặt lịch trên web hoặc Yêu cầu cung cấp:\n  - Họ Tên\n  - Số điện thoại\n  - Ngày – Giờ mong muốn\n  - Hoặc gửi link: https://spacalla.space\n\n- Khách muốn mua sản phẩm thì hỏi khách \n + Tên:\n + SĐT:\n + Dịa chỉ: \nđể giao hàng hoặc nói khách có thể đặt trực tiếp từ web.\n- Dịch vụ thì là những dịch vụ chính và sản phẩm chỉ có những sản phẩm lấy dữ liệu từ tool Product.\n\n- Luôn dùng tool Redis để có thể hiểu được ngữ cảnh để trả lời khách hàng.\n\n\n## LIÊN HỆ:\n- Địa chỉ: 80 Văn Cao, Tân Lợi, TP.BMT\n- Điện thoại: 0911 219 189\n- Email: calladebeaute@gmail.com\n- Website: https://spacalla.space\n\n## QUY ĐỊCH BẮT BUỘC PHẢI LÀM\n- TẤT CẢ CÂU HỎI LIÊN QUAN ĐẾN SẢN PHẨM HAY DỊCH VỤ THÌ NẾU KHÁCH CHƯA HỎI RÕ CHỈ CẦN TRẢ LỜI NGẮN GỌN TÊN VÀ GIÁ THÔI.\n- KHÔNG HỎI RÕ GIÁ CỦA SẢN PHẨM HAY DỊCH VỤ CỤ THỂ THÌ CHỈ CẦN TRẢ LỜI GIÁ CHUNG CHUNG THÔI.\n- GIỚI THIỆU SẢN PHẨM DỊCH VỤ THÌ CHỈ CẦN NÓI NGẮN GỌN THÔI.\n- Không sử dụng ký tự markdown như '*', '#', '!', '$'... để trả lời tin nhắn khách hàng.\n- Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.\n- Không trả lời khách hàng tất cả dịch vụ khi khách hàng hỏi chỉ \"bên mình có những dịch vụ gì\".\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n- Dựa vào tin nhắn của khách hàng và chỉ trả lời thông tin khách hàng cần. Không trả lời những thông tin không liên quan đến điều khách hàng muốn hỏi.\n- Khi khách hàng chưa hỏi đến công dụng hay tác dụng của sản phẩm hoặc dịch vụ thì chỉ cần trả lời tên + giá cho khách hàng.\n- Tên sản phẩm ghi đúng như dữ liệu lấy trong Product, đúng từ in đậm đến in hoa.\n\nLuôn trả lời như một người thật đang tư vấn trực tiếp. Không rập khuôn. Luôn tự nhiên, thân thiện và chính xác theo dữ liệu.\n\n## LƯU Ý TRƯỚC KHI TRẢ LỜI KHÁCH: ĐỌC KỸ LẠI NỘI DUNG VÀ QUY TRẮC TRƯỚC KHI TRẢ LỜI KHÁCH HÀNG.\n\n- Current datetime: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        288,
+        304
+      ],
+      "id": "a634ef82-c086-459c-b4fc-552cbff84e42",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        544
+      ],
+      "id": "8e0bcae1-43c9-4627-ac2d-bd6cae51b22d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YBX5lvVUpd8p1FU8",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Chatbot Zalo\n",
+        "height": 492,
+        "width": 1380,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        224
+      ],
+      "typeVersion": 1,
+      "id": "c683ffec-4a1d-4166-9115-413b2505518e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "eventTypes": [
+          0
+        ]
+      },
+      "type": "n8n-nodes-zalo-tools.zaloMessageTrigger",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        320
+      ],
+      "id": "308c4082-c9ff-4303-9958-fcbf59003e28",
+      "name": "Nhận Tin",
+      "webhookId": "de04da17-c83d-46e9-9015-a1e315ee21f8",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Nhận Tin').item.json.message.threadId }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.5,
+      "position": [
+        -32,
+        544
+      ],
+      "id": "e75f8659-d733-4dbe-86dd-9cfd3a105a37",
+      "name": "Redis Chat Memory",
+      "credentials": {
+        "redis": {
+          "id": "IH2Pva1zbyGmoPtw",
+          "name": "Redis account sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fbca4b30-c162-4a99-8658-5bf142b131b3",
+              "leftValue": "={{ $json.message.data.content }}",
+              "rightValue": "Đăng bài",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "95264131-e906-48d5-ac40-6b5210c1274f",
+              "leftValue": "={{ $json.message.threadId }}",
+              "rightValue": "=5536028982519892683",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "477a9412-39a6-4abf-8f0d-33b802e0046b",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "Pending",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": false
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2416,
+        -1136
+      ],
+      "id": "d0df67f5-62c2-4f25-a842-0eba4174204e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "threadId": "5536028982519892683",
+        "message": "=Đã đăng bài thành công, xem bài viết tại  {{ $json['Url post '] }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2176,
+        -1312
+      ],
+      "id": "6f3ada7b-06ec-48fd-8973-2667889a6289",
+      "name": "Zalo Send Message1",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1760,
+        -1312
+      ],
+      "id": "e0e97a50-afae-43c7-b4f8-aecc10603c1f",
+      "name": "Wait2",
+      "webhookId": "7b3d36b7-49e7-4dc4-a7c7-d8ccbef8fc27"
+    },
+    {
+      "parameters": {
+        "content": "## Kiểm duyệt bài viết Wordpress",
+        "height": 880,
+        "width": 1200
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        736,
+        -1424
+      ],
+      "typeVersion": 1,
+      "id": "e9708244-f6c2-4596-8ff7-5aff9b0a5c7e",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6b016700-e306-4dce-b394-67d932dc9cda",
+              "leftValue": "={{ $json.message.data.content }}",
+              "rightValue": "Viết lại",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "9852cafb-f7d4-44a0-9c3e-f87976c6af4d",
+              "leftValue": "={{ $json.message.threadId }}",
+              "rightValue": "5536028982519892683",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "16df46a6-c3c3-492d-9fd2-beae0cc02cf5",
+              "leftValue": "={{ $json.postId }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "1ea4732f-1527-43ce-ada4-2af14ee21bdf",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "Pending",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1552,
+        -736
+      ],
+      "id": "602d2003-abf5-4d43-bf8b-23df80dc2925",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "threadId": "5536028982519892683",
+        "message": "=OK để tao viết lại",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2192,
+        -752
+      ],
+      "id": "0ad0b4c5-5a79-403b-8d30-adc272746ddb",
+      "name": "Zalo Send Message2",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "postId": "={{ $json.postId }}",
+        "updateFields": {
+          "status": "publish"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        -1312
+      ],
+      "id": "d19afe60-bf6e-4e63-8efb-41d0ec412e2c",
+      "name": "Wordpress1",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const msg = $input.first().json.message.data.quote.msg || '';\n\n// Regex tìm ?p=1490 hoặc &p=1490, hỗ trợ xuống dòng\nconst match = msg.match(/\\?p=(\\d+)/);\n\nreturn [\n  {\n    json: {\n      postId: match ? match[1] : null\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        -1104
+      ],
+      "id": "3344339c-3105-42c1-898e-7c19aff7177d",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dbc7f8ab-ab41-4eab-b8e6-1a38840de793",
+              "name": "postId",
+              "value": "={{ $('Code').item.json.postId }}",
+              "type": "string"
+            },
+            {
+              "id": "02883051-4ed4-45c1-8514-eb5e24b630bd",
+              "name": "message.threadId",
+              "value": "={{ $('Nhận Tin').item.json.message.threadId }}",
+              "type": "string"
+            },
+            {
+              "id": "b57c5115-5a67-4520-95db-1a50b92a7b27",
+              "name": "message.data.content",
+              "value": "={{ $('Nhận Tin').item.json.message.data.content }}",
+              "type": "string"
+            },
+            {
+              "id": "58618640-6c83-4974-901b-288f6bf406fe",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2176,
+        -1136
+      ],
+      "id": "9a6eea11-5cac-4519-af79-de166f7b0e5b",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o",
+          "mode": "list",
+          "cachedResultName": "SEO research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YZEui0Drtp27KjtwNcbYfWGe-Yb3-da61FRVdcTCzX4/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID Post",
+              "lookupValue": "={{ $json.postId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1984,
+        -1136
+      ],
+      "id": "7688d560-3b71-445d-bbc5-53bfea3bd2e9",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o",
+          "mode": "list",
+          "cachedResultName": "SEO research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YZEui0Drtp27KjtwNcbYfWGe-Yb3-da61FRVdcTCzX4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Publish post status": "publish",
+            "Meta Description": "=",
+            "SEO Acticle Docx": "=",
+            "Url post ": "={{ $json.link }}",
+            "status": "done ",
+            "ID Post": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "ID Post"
+          ],
+          "schema": [
+            {
+              "id": " Category",
+              "displayName": " Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ngày đăng",
+              "displayName": "Ngày đăng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Brand name",
+              "displayName": "Brand name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Niche",
+              "displayName": "Niche",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Main Keywords",
+              "displayName": "Main Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Campain Description",
+              "displayName": "Campain Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Writing tone",
+              "displayName": "Writing tone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Target audience",
+              "displayName": "Target audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Publish post status",
+              "displayName": "Publish post status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID Post",
+              "displayName": "ID Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Meta Description",
+              "displayName": "Meta Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Url post ",
+              "displayName": "Url post ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SEO Acticle Docx",
+              "displayName": "SEO Acticle Docx",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1984,
+        -1312
+      ],
+      "id": "a6191e63-7f9f-4099-9254-dafb35b660fa",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o",
+          "mode": "list",
+          "cachedResultName": "SEO research",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BK0paSaDXg4_VpVCkHUatS9SobE_B12byFo9YmssY6o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YZEui0Drtp27KjtwNcbYfWGe-Yb3-da61FRVdcTCzX4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID Post": "={{ $json.postId }}",
+            "status": "To do"
+          },
+          "matchingColumns": [
+            "ID Post"
+          ],
+          "schema": [
+            {
+              "id": " Category",
+              "displayName": " Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ngày đăng",
+              "displayName": "Ngày đăng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Brand name",
+              "displayName": "Brand name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Niche",
+              "displayName": "Niche",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Main Keywords",
+              "displayName": "Main Keywords",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Campain Description",
+              "displayName": "Campain Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Writing tone",
+              "displayName": "Writing tone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Target audience",
+              "displayName": "Target audience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Publish post status",
+              "displayName": "Publish post status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ID Post",
+              "displayName": "ID Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Meta Description",
+              "displayName": "Meta Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Url post ",
+              "displayName": "Url post ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SEO Acticle Docx",
+              "displayName": "SEO Acticle Docx",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2000,
+        -752
+      ],
+      "id": "42206859-5176-4f2a-87ff-7bd19733be1c",
+      "name": "Update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1b6364ed-69cf-4157-90d4-4bc70886e809",
+              "leftValue": "={{ $json.message.threadId }}",
+              "rightValue": "5536028982519892683",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        96,
+        -48
+      ],
+      "id": "71e71759-cf93-4519-82a3-7d7a352c84da",
+      "name": "Uid"
+    },
+    {
+      "parameters": {
+        "jsCode": "const msg = $input.first().json.message.data.quote.msg || '';\n\n// Regex tách ID từ link YouTube Shorts\nconst match = msg.match(/https:\\/\\/www\\.youtube\\.com\\/shorts\\/([\\w-]+)/);\n\nreturn [\n  {\n    json: {\n      videoId: match ? match[1] : null\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        -384
+      ],
+      "id": "d1a7a15d-33ed-4b35-9129-4075dad5d844",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9aea8cd8-ca9e-449b-a5c6-8e661ecfd509",
+              "leftValue": "={{ $('Nhận Tin').item.json.message.data.content }}",
+              "rightValue": "ok",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1008,
+        -672
+      ],
+      "id": "20abc9da-13d7-4914-9e92-71a2a93c758a",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "update",
+        "videoId": "={{ $('Code1').item.json.videoId }}",
+        "title": "={{ $json.title }}",
+        "regionCode": "VN",
+        "categoryId": "1",
+        "updateFields": {
+          "privacyStatus": "public"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        1872,
+        -384
+      ],
+      "id": "8d7abae0-81ec-4512-84b4-c451c4ca9c2a",
+      "name": "Update a video",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "sq9Wvl5Uy1YBfxTB",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY",
+          "mode": "list",
+          "cachedResultName": "video_wan",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "link youtube",
+              "lookupValue": "=https://www.youtube.com/shorts/{{ $json.videoId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1648,
+        -384
+      ],
+      "id": "25cebaa4-fc89-40f1-8a20-e53cea2e3762",
+      "name": "Get row(s) in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY",
+          "mode": "list",
+          "cachedResultName": "video_wan",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/17uijkXes82i-HjBvFrVbG5vSBHqIuAol9DsFsY2p7jY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stt": "={{ $('Get row(s) in sheet1').item.json.stt }}",
+            "trạng thái": "publish"
+          },
+          "matchingColumns": [
+            "stt"
+          ],
+          "schema": [
+            {
+              "id": "stt",
+              "displayName": "stt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "duyệt",
+              "displayName": "duyệt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "story",
+              "displayName": "story",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "tag",
+              "displayName": "tag",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "link drive",
+              "displayName": "link drive",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "link youtube",
+              "displayName": "link youtube",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "trạng thái",
+              "displayName": "trạng thái",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        2080,
+        -384
+      ],
+      "id": "cc67f112-9ae4-4e48-a6a1-599c87add328",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "90rCaPHuqoW5DrK9",
+          "name": "thang"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "5536028982519892683",
+        "message": "=Đã đăng video thành công: {{ $('Get row(s) in sheet1').item.json['link youtube'] }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2288,
+        -384
+      ],
+      "id": "ad156ac3-df65-4ce7-9448-8b204a5414b2",
+      "name": "Zalo Send Message",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Duyệt video\n",
+        "height": 272,
+        "width": 1168,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        736,
+        -464
+      ],
+      "typeVersion": 1,
+      "id": "229cfb47-e1a3-4908-93fc-e6240559ae97",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "threadId": "={{ $('Nhận Tin').item.json.message.threadId }}",
+        "message": "={{ $json.output }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        848,
+        304
+      ],
+      "id": "b791249e-fccc-4947-9cc3-67f2daa992a2",
+      "name": "Gửi Tin",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Nhận Tin": {
+      "isConnected": true,
+      "eventTypes": [
+        0
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-08T23:00:56.623Z",
+  "versionId": "b544355b-f318-4441-841a-025e1b02b4af"
+}
