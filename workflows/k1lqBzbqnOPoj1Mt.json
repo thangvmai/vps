@@ -1,0 +1,1187 @@
+{
+  "active": true,
+  "connections": {
+    "Load Handled Comment IDs": {
+      "main": [
+        [
+          {
+            "node": "Filter ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge6": {
+      "main": [
+        [
+          {
+            "node": "Check Handle Comment ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Already Handled Comments1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save Comment ID as Handled",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Facebook : Get Reply on Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Null Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Facebook : Reply comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set PageID & Number of Latest Posts": {
+      "main": [
+        [
+          {
+            "node": "Facebook Graph API : Get Post from Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reverse Item to Match another Branch": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Facebook : Get Each Post Comments": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Facebook Graph API : Get Post from Page": {
+      "main": [
+        [
+          {
+            "node": "Split Out Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Facebook : Get Each Post Comments",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reverse Item to Match another Branch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Out Null Comments": {
+      "main": [
+        [
+          {
+            "node": "Load Handled Comment IDs",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Handle Comment ID": {
+      "main": [
+        [
+          {
+            "node": "Filter Already Handled Comments1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter ID": {
+      "main": [
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Save Comment ID as Handled": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Facebook : Get Reply on Comments": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Load Reply ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter ID1": {
+      "main": [
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge3": {
+      "main": [
+        [
+          {
+            "node": "Check Handled ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Reply ID": {
+      "main": [
+        [
+          {
+            "node": "Filter ID1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Handled ID": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Facebook : Reply comments1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Comment ID as Handled1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Save Comment ID as Handled1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Set PageID & Number of Latest Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-01T08:31:10.433Z",
+  "id": "k1lqBzbqnOPoj1Mt",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "cmt",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -448,
+        432
+      ],
+      "id": "395fdd22-f3f9-4472-9ed2-296edfeca36c",
+      "name": "Merge6"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "excel comment"
+      },
+      "name": "Load Handled Comment IDs",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -896,
+        512
+      ],
+      "id": "910b5b83-512f-4504-aa51-742583b17aba",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "SxIaSGsfcq1ydzqu",
+          "name": "thangsupabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "93e876dd-4d08-43ab-b850-5a80cfc9cd17",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "3e4fabee-5b79-481b-9d1d-05cde4dfb19f",
+              "leftValue": "={{ $json.isAlreadyHandled }}",
+              "rightValue": "={{ $json.comment_id }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Filter Already Handled Comments1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -16,
+        432
+      ],
+      "id": "31b54baa-7e48-40de-8acd-8c4eda824de6"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "numberInputs": 3,
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        -1328,
+        432
+      ],
+      "id": "d7a60540-1bfd-4129-8137-8a1b4375b215",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        592,
+        352
+      ],
+      "id": "0fc53050-0649-4a48-8d8c-fb1f6100927d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v22.0/{{ $json.comment_id }}/comments",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAKSltUNvtABPFjG71lGiUs2JFHot4ZCBmcWJaSi0Yh4iQZChdu3XoOZAxZCBZAcdYaGeu6XqZCH7h95cCurLpvfqo1MgGNgc4l5l2v60Kr3JJMGlqTWBd04QkHdkzUP0s2AhZA7wSuFt9gXYALlXaW0h4mgQXc0x0fLRXELmV1vVsZAtupJeHRk8AUBsfYDSHWvPdET"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        816,
+        352
+      ],
+      "id": "50243d15-bef6-4eb5-8f22-dd32a8ccf2dc",
+      "name": "Facebook : Reply comments"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d70f742-0848-44b1-8dbe-9b125dc046b3",
+              "name": "Number_of_Latest_Posts",
+              "type": "number",
+              "value": 10
+            },
+            {
+              "id": "6744bb50-c34f-429d-8364-da14c9cbaa77",
+              "name": "FB_Page_Id",
+              "type": "string",
+              "value": "={{ $json.body.entry[0].id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f8451e64-40c4-4fc4-9897-0b47a8ef6474",
+      "name": "Set PageID & Number of Latest Posts",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -2208,
+        400
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "jsCode": "return items;\n"
+      },
+      "id": "ff9ef7a5-8292-40ed-b223-52bbfbeb9e02",
+      "name": "Reverse Item to Match another Branch",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -1552,
+        608
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.id }}",
+        "edge": "comments",
+        "options": {
+          "fields": {
+            "field": [
+              {
+                "name": "=id,from,message,created_time,comment_count"
+              }
+            ]
+          },
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "order",
+                "value": "reverse_chronological"
+              }
+            ]
+          }
+        }
+      },
+      "id": "9da96503-18a6-4626-97f0-c698bac0656b",
+      "name": "Facebook : Get Each Post Comments",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "position": [
+        -1552,
+        304
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "4E82Wg1pYqW0RWQI",
+          "name": "Facebook Graph account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.FB_Page_Id }}/feed",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "limit",
+                "value": "={{ $json.Number_of_Latest_Posts }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "1c956682-aec9-45ce-a24e-fff100450795",
+      "name": "Facebook Graph API : Get Post from Page",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "position": [
+        -2000,
+        400
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "4E82Wg1pYqW0RWQI",
+          "name": "Facebook Graph account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "id": "a1fbed09-f17a-435d-b999-9d8950fa19ae",
+      "name": "Split Out Posts",
+      "type": "n8n-nodes-base.splitOut",
+      "position": [
+        -1776,
+        400
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "4d8bd55c-35d0-40db-98ac-a954b0a99710",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.data }}",
+              "rightValue": ""
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "bbf16089-7a53-454d-9acd-5fcf24d07c5c",
+      "name": "Filter Out Null Comments",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        -1120,
+        432
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "jsCode": "const sessionId = (() => {\n  try {\n    return $('Webhook').item.json.body.entry?.[0]?.id || 'unknown';\n  } catch (e) {\n    return 'unknown';\n  }\n})();\n\n// 🔄 Nhận dữ liệu từ 2 input của node Merge6\nconst inputComments = $input.all().filter(i => i.json.data);  // Facebook comment data\nconst groupedHandledItems = $input.all().filter(i => i.json.total_entries);  // Grouped Supabase\n\n// 🧱 Tạo set các comment_id đã được xử lý\nconst handledCommentIds = new Set();\nfor (const item of groupedHandledItems) {\n  handledCommentIds.add(item.json.comment_id);\n}\n\n// 🔍 Tạo map để loại bỏ các reply_id trùng nhau\nconst seenReplyIds = new Set();\nconst results = [];\n\nfor (const item of inputComments) {\n  const input = item.json;\n  const comments = input.data || [];\n\n  for (const cmt of comments) {\n    const reply_id = cmt.id;\n    if (seenReplyIds.has(reply_id)) continue; // Đã xử lý rồi, bỏ qua\n\n    seenReplyIds.add(reply_id);\n\n    const name = cmt.from?.name || '';\n    const message = cmt.message || '';\n    const created_time = cmt.created_time || '';\n    const content = input.message || '';\n\n    // Nếu reply_id khớp với comment_id đã xử lý\n    const isAlreadyHandled = handledCommentIds.has(reply_id);\n\n    // Gán comment_id từ supabase nếu đã có\n    const matchedCommentId = isAlreadyHandled ? reply_id : '';\n\n    results.push({\n      json: {\n        sessionId,\n        reply_id,\n        comment_id: matchedCommentId,\n        name,\n        message,\n        created_time,\n        content,\n        isAlreadyHandled\n      }\n    });\n  }\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        432
+      ],
+      "id": "45fcce91-ed67-427c-afd8-f8193816eac8",
+      "name": "Check Handle Comment ID"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n// Nhóm các item theo comment_id\nconst grouped = {};\n\nfor (const item of items) {\n  const { comment_id, reply1_id, reply2_id } = item.json;\n\n  if (!grouped[comment_id]) {\n    grouped[comment_id] = {\n      comment_id,\n      reply1_ids: [],\n      reply2_ids: [],\n      count: 0,\n    };\n  }\n\n  // Gộp reply nếu có\n  if (reply1_id) grouped[comment_id].reply1_ids.push(reply1_id);\n  if (reply2_id) grouped[comment_id].reply2_ids.push(reply2_id);\n\n  grouped[comment_id].count += 1;\n}\n\n// Chuyển kết quả về dạng mảng JSON để n8n xuất ra\nreturn Object.values(grouped).map(entry => ({\n  json: {\n    comment_id: entry.comment_id,\n    reply1_ids: entry.reply1_ids,\n    reply2_ids: entry.reply2_ids,\n    total_entries: entry.count,\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -672,
+        512
+      ],
+      "id": "c51abd4c-433b-45c5-bc78-fe91d72cb4ee",
+      "name": "Filter ID"
+    },
+    {
+      "parameters": {
+        "tableId": "excel comment",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "comment_id",
+              "fieldValue": "={{ $json.reply_id }}"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ new Date().toLocaleString() }}"
+            }
+          ]
+        }
+      },
+      "name": "Save Comment ID as Handled",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        336,
+        400
+      ],
+      "id": "208ae7c3-a948-44b7-b4a9-cd77c2c76dfc",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "SxIaSGsfcq1ydzqu",
+          "name": "thangsupabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "263c9e45-7168-44b6-903f-a8240e90935c",
+              "leftValue": "={{ $json.data.from.id }}",
+              "rightValue": "=603055732891923",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        816,
+        608
+      ],
+      "id": "ad09aa18-206e-410f-af4c-8fbad20af0dc",
+      "name": "Filter",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "graphApiVersion": "v22.0",
+        "node": "={{ $json.reply_id }}",
+        "edge": "comments",
+        "options": {
+          "fields": {
+            "field": [
+              {
+                "name": "=id,from,message,created_time,comment_count"
+              }
+            ]
+          },
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "order",
+                "value": "reverse_chronological"
+              }
+            ]
+          }
+        }
+      },
+      "id": "d20febf1-5eae-45da-8bec-1567b11171a1",
+      "name": "Facebook : Get Reply on Comments",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "position": [
+        288,
+        608
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "4E82Wg1pYqW0RWQI",
+          "name": "Facebook Graph account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        592,
+        608
+      ],
+      "id": "eb77cdb2-cfa5-4180-aed8-1c40986c5fa0",
+      "name": "Split Out1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n// Nhóm các item theo comment_id\nconst grouped = {};\n\nfor (const item of items) {\n  const { comment_id, reply1_id, reply2_id } = item.json;\n\n  if (!grouped[comment_id]) {\n    grouped[comment_id] = {\n      comment_id,\n      reply1_ids: [],\n      reply2_ids: [],\n      count: 0,\n    };\n  }\n\n  // Gộp reply nếu có\n  if (reply1_id) grouped[comment_id].reply1_ids.push(reply1_id);\n  if (reply2_id) grouped[comment_id].reply2_ids.push(reply2_id);\n\n  grouped[comment_id].count += 1;\n}\n\n// Chuyển kết quả về dạng mảng JSON để n8n xuất ra\nreturn Object.values(grouped).map(entry => ({\n  json: {\n    comment_id: entry.comment_id,\n    reply1_ids: entry.reply1_ids,\n    reply2_ids: entry.reply2_ids,\n    total_entries: entry.count,\n  }\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1248,
+        688
+      ],
+      "id": "31ee16b4-dfeb-470b-8392-56d9aba9c9be",
+      "name": "Filter ID1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lấy session ID từ node Webhook (nếu không có thì fallback về 'unknown')\nconst sessionId = (() => {\n  try {\n    return $('Webhook').first().json.body?.entry?.[0]?.id || 'unknown';\n  } catch (e) {\n    return 'unknown';\n  }\n})();\n\n// Lấy các reply1_ids và reply2_ids đã xử lý từ Supabase\nconst handledGroups = $items('Filter ID1');\nconst handledReplyIds = new Set();\n\nfor (const item of handledGroups) {\n  const reply1 = item.json.reply1_ids || [];\n  const reply2 = item.json.reply2_ids || [];\n\n  for (const id of reply1) handledReplyIds.add(id);\n  for (const id of reply2) handledReplyIds.add(id);\n}\n\n// Duyệt từng comment input\nconst seenReplyIds = new Set();\nconst results = [];\n\nfor (const item of $input.all()) {\n  const input = item.json;\n\n  const reply_id = input.data?.id || input.id;\n  if (seenReplyIds.has(reply_id)) continue;\n  seenReplyIds.add(reply_id);\n\n  const name = input.data?.from?.name || input.from?.name || '';\n  const message = input.data?.message || input.message || '';\n  const created_time = input.data?.created_time || input.created_time || '';\n  const comment_id = input.comment_id || '';\n  const content = input.message || '';\n\n  const isAlreadyHandled = handledReplyIds.has(reply_id);\n\n  results.push({\n    json: {\n      sessionId,\n      reply_id,\n      reply1_id: isAlreadyHandled ? reply_id : '',\n      comment_id: isAlreadyHandled ? comment_id : '',\n      name,\n      message,\n      created_time,\n      content,\n      isAlreadyHandled\n    }\n  });\n}\n\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        608
+      ],
+      "id": "800aced7-628d-41d7-bc5c-ea568694a354",
+      "name": "Check Handled ID"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1472,
+        608
+      ],
+      "id": "8f1ab05f-ee25-44cd-a560-bf76aa9dfc34",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "excel comment",
+        "matchType": "allFilters"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        688
+      ],
+      "id": "a18064e2-8999-44a0-9949-9f0f952f95f8",
+      "name": "Load Reply ID",
+      "alwaysOutputData": true,
+      "credentials": {
+        "supabaseApi": {
+          "id": "SxIaSGsfcq1ydzqu",
+          "name": "thangsupabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v22.0/{{ $json.reply1_id }}/comments",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAKSltUNvtABPFjG71lGiUs2JFHot4ZCBmcWJaSi0Yh4iQZChdu3XoOZAxZCBZAcdYaGeu6XqZCH7h95cCurLpvfqo1MgGNgc4l5l2v60Kr3JJMGlqTWBd04QkHdkzUP0s2AhZA7wSuFt9gXYALlXaW0h4mgQXc0x0fLRXELmV1vVsZAtupJeHRk8AUBsfYDSHWvPdET"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        608
+      ],
+      "id": "1df3a198-2b2c-4401-90b8-be4378a90f7e",
+      "name": "Facebook : Reply comments1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2512,
+        608
+      ],
+      "id": "d77d85c9-b26b-4424-9f3f-b03485ae3791",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "tableId": "excel comment",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "comment_id",
+              "fieldValue": "={{ $json.comment_id }}"
+            },
+            {
+              "fieldId": "reply1_id",
+              "fieldValue": "={{ $json.reply_id }}"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ new Date().toLocaleString() }}"
+            }
+          ]
+        }
+      },
+      "name": "Save Comment ID as Handled1",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2208,
+        752
+      ],
+      "id": "f73fdc9d-9c29-4ce4-86ea-ab0687dac621",
+      "credentials": {
+        "supabaseApi": {
+          "id": "SxIaSGsfcq1ydzqu",
+          "name": "thangsupabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ab61e2ed-be50-4c57-8a34-affb6ebd9315",
+              "leftValue": "={{ $json.isAlreadyHandled }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1904,
+        608
+      ],
+      "id": "f39aaaa9-3467-4098-85c3-b2a0da968ab9",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        2128,
+        352
+      ],
+      "id": "a0868009-472e-4cf1-94c6-526d769c5d2a",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "multipleMethods": true,
+        "httpMethod": [
+          "POST",
+          "GET"
+        ],
+        "path": "df2448c1-590c-444b-900a-3ee8361ff91c",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2624,
+        400
+      ],
+      "id": "3982d8c0-31e0-4371-8495-81f16d1b3dfb",
+      "name": "Webhook",
+      "webhookId": "df2448c1-590c-444b-900a-3ee8361ff91c"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1296,
+        416
+      ],
+      "id": "696ac93f-264f-4c64-b339-0f0998f7c05d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "6J131918hyfnfRqV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "24e508a6-b6b1-43cf-979d-1e396db1be12",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "Pj3KIbxVPXcG78fq",
+          "name": "Thangvmai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        2256,
+        560
+      ],
+      "id": "3fac4f21-ea7e-4bcb-8d8c-b82551e66029",
+      "name": "Postgres Chat Memory1",
+      "credentials": {
+        "postgres": {
+          "id": "Pj3KIbxVPXcG78fq",
+          "name": "Thangvmai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 20
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -2400,
+        400
+      ],
+      "id": "627e48be-d0d0-49c9-bfc9-b11c47ef0129",
+      "name": "Wait",
+      "webhookId": "a538ee75-eb3e-4049-ae0e-806b4d9e5ff2"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"statusCode\": 200,\n  \"body\": \"OK\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -2400,
+        560
+      ],
+      "id": "c745d79e-683c-40ec-bf66-3bf0065df53a",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-08-01T08:31:07.655Z",
+      "updatedAt": "2025-08-01T08:31:07.655Z",
+      "id": "F4j3m16wRGNgyoaK",
+      "name": "Customer"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-06T10:06:02.464Z",
+  "versionId": "d9116200-03e1-4302-9e11-f9bd04948fca"
+}
