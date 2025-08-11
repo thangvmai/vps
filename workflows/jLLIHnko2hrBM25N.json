@@ -1,0 +1,1408 @@
+{
+  "active": false,
+  "connections": {
+    "Wordpress": {
+      "main": [
+        [
+          {
+            "node": "cập nhật ảnh",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Wordpress",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "perplexity_tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "đăng ảnh",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "đăng ảnh": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Split Out4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Edit Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Image": {
+      "main": [
+        [
+          {
+            "node": "đăng ảnh1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "đăng ảnh1": {
+      "main": [
+        [
+          {
+            "node": "cập nhật trạng thái ảnh",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Content2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "cập nhật trạng thái ảnh": {
+      "main": [
+        [
+          {
+            "node": "url ảnh đã đăng",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "url ảnh đã đăng": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out4": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Aggregate6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate6": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content2": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Content2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Content2",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:24.926Z",
+  "id": "jLLIHnko2hrBM25N",
+  "isArchived": false,
+  "meta": null,
+  "name": "wordpress",
+  "nodes": [
+    {
+      "parameters": {
+        "title": "={{ $('Markdown').item.json.output.Title }}",
+        "additionalFields": {
+          "content": "={{ $('Markdown').item.json.data }}",
+          "slug": "={{ $('Markdown').item.json.output.Slug }}",
+          "status": "draft",
+          "commentStatus": "open",
+          "categories": [
+            1,
+            103
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        -320
+      ],
+      "id": "3838e127-5440-4fc0-9dd3-e88d2c12f57b",
+      "name": "Wordpress",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -304,
+        448
+      ],
+      "id": "93fff47c-7683-4a0c-8788-7e1e5f31f3a2",
+      "name": "When chat message received",
+      "webhookId": "1d5aca5e-4c7e-4edd-b389-f3222f7ccd69",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=topic:  {{ $json.chatInput }}"
+            },
+            {
+              "content": "=1 Using Preplexity_tool to research the topic\n2\nUsing the response from the Preplexity_tool to write a high-quality, in-depth, SEO-optimized article in English, styled as a tech expert. The content must be creative, professional, unique, and provide real value to readers.\n\n✅ Writing Requirements:\n\n🧱 Structure & Content Depth\nWrite a detailed article (minimum 2,500 words, over 5,000 tokens).\n\nMANDATORY: Include an introductory paragraph before H1 (minimum 70 words) summarizing the entire article.\n\nUse a clear structure with H1, H2, H3 heading tags and logical paragraphing.\n\nEnsure engaging storytelling, with data, illustrations, and expert opinions.\n\n🔎 SEO Optimization & Readability\nIntegrate keywords naturally, avoid keyword stuffing.\n\nUse UL/OL lists, blockquotes, bold key points, and follow standard Markdown formatting.\n\nExtended description about MCBAI.VN:\n\nMCBAI.VN is a leading platform in AI, workflow automation, and content creation—helping individuals and businesses maximize productivity, increase revenue, and save time and costs.\nUsers can explore the latest AI trends, purchase powerful tools, and access premium AI software.\nAs Vietnam's No.1 digital workflow automation platform and the founder of MCB AI Insight, MCBAI.VN is committed to unlocking technology's potential for growth and innovation.\n\n✅ This link must always appear at the end of the article to enhance SEO navigation and brand credibility.\n\nKết quả trả về cho tôi bằng tiếng Việt\n\n",
+              "role": "system"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -48,
+        432
+      ],
+      "id": "18779290-f2d8-4674-849c-a00a7e191f6f",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "6J131918hyfnfRqV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Topic : {{ $('When chat message received').item.json.chatInput }}\nContent : {{ $json.message.content }}\n",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Bạn là 1 trợ lý SEO wordpress dựa trên topic và content mà tôi cung cấp hãy cho tôi Title bài đăng, Slug bài đăng\n\nLưu ý chuẩn SEO"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        368,
+        432
+      ],
+      "id": "d8d7078e-4fa1-4153-b409-04ba427a72fa",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        352,
+        640
+      ],
+      "id": "aba7e070-39a0-4fed-ab35-22ed3a59566a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "6J131918hyfnfRqV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"Title\": \"Title of article\",\n\t\"Slug\": \"Slug of article\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        544,
+        640
+      ],
+      "id": "1925cb6e-1114-4294-ab62-dc23a1855b59",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.output.Content }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        2432,
+        -320
+      ],
+      "id": "0ff60e6c-5033-4176-9bbe-24a7fbfce021",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Tool to get decl of topic",
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "=json",
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "jsonBody": "{\n  \"search_mode\": \"web\",\n  \"reasoning_effort\": \"medium\",\n  \"temperature\": 0.2,\n  \"top_p\": 0.9,\n  \"return_images\": false,\n  \"return_related_questions\": false,\n  \"top_k\": 0,\n  \"stream\": false,\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0,\n  \"web_search_options\": {\n    \"search_context_size\": \"low\"\n  },\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Bạn là một chuyên gia Research dữ liệu thông tin chuẩn và chi tiết, dựa trên Topic mà tôi cung cấp hãy cho tôi thông tin chi tiết  đầy đủ và mới nhất\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Topic {{ $json.chatInput }}\"\n    }\n  ],\n  \"search_domain_filter\": [],\n  \"search_recency_filter\": \"week\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.2,
+      "position": [
+        64,
+        640
+      ],
+      "id": "3fe500f7-3e49-46bb-93a4-19abb548dd21",
+      "name": "perplexity_tool",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hTyiJtZhUXJQdYY6",
+          "name": "perplexity api"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"search_mode\": \"web\",\n  \"reasoning_effort\": \"medium\",\n  \"temperature\": 0.2,\n  \"top_p\": 0.9,\n  \"return_images\": true,\n  \"return_related_questions\": false,\n  \"top_k\": 0,\n  \"stream\": false,\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0,\n  \"web_search_options\": {\n    \"search_context_size\": \"low\"\n  },\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"bạn là một chuyên gia research thông tin chi tiết đầy đủ và mới nhất\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $('When chat message received').item.json.chatInput }}\"\n    }\n  ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        944,
+        432
+      ],
+      "id": "877eb363-bfd1-43e4-ba0f-112f3b9f8eeb",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.images[3].image_url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1344,
+        432
+      ],
+      "id": "5aaf367d-ae6f-4a56-abac-1b84d7af9b5c",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1137800f-a62a-4d17-89f2-2bce527ae7c9",
+              "name": "images[3]",
+              "value": "={{ $json.images[3] }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1168,
+        432
+      ],
+      "id": "39d59d14-0d83-4319-b339-ea6d3c55dee1",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://spacalla.space/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "image/png"
+            },
+            {
+              "name": "content-disposition",
+              "value": "=attachment; filename=n8n-{{ $json.origin_url }}.jpg"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        752,
+        640
+      ],
+      "id": "0cfb29cc-eec2-4ba5-8f6e-0e0f006995d7",
+      "name": "đăng ảnh",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://spacalla.space/wp-json/wp/v2/posts/{{ $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "featured_media",
+              "value": "={{ $('Aggregate').item.json.id[3] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2880,
+        -320
+      ],
+      "id": "35f16564-654a-4020-8a17-ab0b336bfd0d",
+      "name": "cập nhật ảnh",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -640,
+        -656
+      ],
+      "id": "dae5c88f-9495-4e35-8054-12b32cb67a55",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"search_mode\": \"web\",\n  \"reasoning_effort\": \"medium\",\n  \"temperature\": 0.2,\n  \"top_p\": 0.9,\n  \"return_images\": true,\n  \"return_related_questions\": false,\n  \"top_k\": 0,\n  \"stream\": false,\n  \"presence_penalty\": 0,\n  \"frequency_penalty\": 0,\n  \"web_search_options\": {\n    \"search_context_size\": \"low\"\n  },\n  \"model\": \"sonar\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"{{ $json.topic }}\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Chăm sóc da chuyên sâu tại spa: Khi nào là thời điểm tốt nhất?\"\n    }\n  ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -208,
+        -640
+      ],
+      "id": "34aaa9ca-2543-491b-9b99-cadd84aa9e7c",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.imageUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1152,
+        -688
+      ],
+      "id": "80239f96-df9c-4075-ba93-19e7a4fb48a7",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "operation": "resize",
+        "options": {
+          "format": "webp"
+        }
+      },
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        -688
+      ],
+      "id": "759ca704-bf01-480e-991d-1f7dacebc72b",
+      "name": "Edit Image",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://spacalla.space/wp-json/wp/v2/media",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "image/webp"
+            },
+            {
+              "name": "content-disposition",
+              "value": "=attachment; filename=n8n-{{ $json.filename }}.webp"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -704
+      ],
+      "id": "c716ce09-b0d3-4c15-abcd-061919809058",
+      "name": "đăng ảnh1",
+      "credentials": {
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=input:\nimage title: {{ $json.title }}\nimage url: {{ $json.imageurl }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Filter the list of URLs below and follow these steps:\n\nRemove URLs that are from Reddit, Twitter, TikTok, Instagram, or any URL containing \"redd\".\n\nClean the title:\nRemove special characters.\nKeep only letters, numbers, and spaces.\n\nImportant:\nValues must be separated by the \"|\" symbol with no spaces before or after it.\nNo extra whitespace at the beginning or end of the string.\nOutput must be valid JSON.\n\nAutomatically generate content for the following fields based on each image title:\nalternative_text_image (5 items): Write a short description (max 10 words) describing the image based on its title.\ndescribe_image (5 items): Create a more detailed description of the image (max 25 words).\nnote_image (5 items): Write a note or extra information about the image (max 15 words).\nfilename_image (5 items): Create 5 filename for 5 title do not put png and jpg at the end\n\noutput:\n{\n  \"unique_image_urls\": \"URL1 | URL2 | URL3 | URL4 | URL5 \",\n  \"title_image_urls\": \"Title 1 | Title 2 | Title 3 | Title 4 | Title 5 \",\n  \"alternative_text_image\": \"Short description 1 | Short description 2 | Short description 3 | Short description 4 | Short description 5 \",\n  \"describe_image\": \"Detailed description 1 | Detailed description 2 | Detailed description 3 | Detailed description 4 | Detailed description 5 \",\n  \"note_image\": \"Note 1 | Note 2 | Note 3 | Note 4 | Note 5 \",\n  \"filename\": \"filename 1 | filename 2 | filename 3 | filename 4 | filename 5 \"\n}\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        368,
+        -688
+      ],
+      "id": "a1781dff-01b5-4b3d-b06d-f3f4a10dec9a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        368,
+        -448
+      ],
+      "id": "b5940f57-272f-4d32-84f5-c4987b427bf2",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "6J131918hyfnfRqV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n    \"unique_image_urls\": \"\",\n    \"title_image_urls\": \"\",\n    \"alternative_text_image\": \"\",\n    \"describe_image\": \"\",\n    \"note_image\": \"\",\n    \"Filename\": \"\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        608,
+        -496
+      ],
+      "id": "51d8f765-cda2-48b9-bf03-a85a2aec3584",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8dff920b-bf8f-4a69-852c-4691c2885ed3",
+              "name": "title",
+              "value": "=[\n  \"{{ $json.search_results[0].title }}\",\n  \"{{ $json.search_results[1].title }}\",\n  \"{{ $json.search_results[2].title }}\",\n  \"{{ $json.search_results[3].title }}\",\n  \"{{ $json.search_results[4].title }}\"\n]",
+              "type": "array"
+            },
+            {
+              "id": "d68aeca2-a86b-4bf0-bbc6-cd22571ae5b4",
+              "name": "imageurl",
+              "value": "=[   \n\"{{ $json.images[0].image_url }}\",  \n\"{{ $json.images[1].image_url }}\",  \n\"{{ $json.images[2].image_url }}\",   \n\"{{ $json.images[3].image_url }}\",   \n\"{{ $json.images[4].image_url }}\" \n]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        64,
+        -688
+      ],
+      "id": "f72a548c-0fcb-4581-a26e-08058d6559ef",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8365610b-6594-41ff-8a83-3de3184d8bf2",
+              "name": "unique_image_urls",
+              "value": "={{ $json.output.unique_image_urls }}",
+              "type": "string"
+            },
+            {
+              "id": "1b92242c-34f7-401a-acf3-28d83eb86f65",
+              "name": "title_image_urls",
+              "value": "={{ $json.output.title_image_urls }}",
+              "type": "string"
+            },
+            {
+              "id": "9b4e6962-711d-4ad9-b00e-335ee87044cf",
+              "name": "alternative_text_image",
+              "value": "={{ $json.output.alternative_text_image }}",
+              "type": "string"
+            },
+            {
+              "id": "c7111f91-84a7-4263-9a4e-27011439278b",
+              "name": "describe_image",
+              "value": "={{ $json.output.describe_image }}",
+              "type": "string"
+            },
+            {
+              "id": "4d62391f-d6d1-4a9a-b0ae-a5445ca9fb31",
+              "name": "note_image",
+              "value": "={{ $json.output.note_image }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        -688
+      ],
+      "id": "924535d0-1e07-49e6-9319-147182181c48",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Hàm tách chuỗi thành mảng\nfunction splitValues(input) {\n  return input ? input.split(\"|\").map(x => x.trim()) : [];\n}\n\n// Hàm lấy giá trị theo chỉ số\nfunction getValue(arr, index, fallback = \"\") {\n  return arr[index] !== undefined ? arr[index].trim() : fallback;\n}\n\n// Lấy input từ item\nconst input = $input.item.json;\n\n// Tách các trường thành mảng\nconst titleImageUrls = splitValues(input.title_image_urls);\nconst uniqueImageUrls = splitValues(input.unique_image_urls);\nconst alternativeTextImages = splitValues(input.alternative_text_image);\nconst describeImages = splitValues(input.describe_image);\nconst noteImages = splitValues(input.note_image);\nconst fileNames = splitValues(input.Filename);\n\n// Tổng số item cần tạo (dựa theo số title)\nconst totalItems = titleImageUrls.length;\n\n// Tạo mảng output\nconst outputArray = Array.from({ length: totalItems }, (_, index) => ({\n  json: {\n    title: getValue(titleImageUrls, index, \"Unknown Title\"),\n    imageUrl: getValue(uniqueImageUrls, index, \"\"),\n    alternativeText: getValue(alternativeTextImages, index, \"\"),\n    description: getValue(describeImages, index, \"\"),\n    note: getValue(noteImages, index, \"\"),\n    filename: getValue(fileNames, index, \"\"),\n  }\n}));\n\nreturn outputArray;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        944,
+        -688
+      ],
+      "id": "1c51ee57-3b9a-4db2-922c-11c272f22ff4",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://spacalla.space/wp-json/wp/v2/media/{{ $json.id }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "content-type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $('HTTP Request3').item.json.title }}"
+            },
+            {
+              "name": "alt_text",
+              "value": "={{ $('HTTP Request3').item.json.alternativeText }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $('HTTP Request3').item.json.note }}"
+            },
+            {
+              "name": "description",
+              "value": "={{ $('HTTP Request3').item.json.description }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1184,
+        -528
+      ],
+      "id": "62701e8b-93a9-43cd-a1f6-52e5b82f8103",
+      "name": "cập nhật trạng thái ảnh",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "hTyiJtZhUXJQdYY6",
+          "name": "perplexity api"
+        },
+        "wordpressApi": {
+          "id": "K2Ae08rqg3jpaf2c",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d21d01b4-5c15-4a55-8cba-8956cd7ea309",
+              "name": "url image",
+              "value": "={{ $json.guid.raw }}",
+              "type": "string"
+            },
+            {
+              "id": "79a0c9f8-aa9e-4fce-8688-3d242604a5dc",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "1cfe8fbf-aba4-4e13-8014-df549f24a75c",
+              "name": "title",
+              "value": "={{ $json.title.raw }}",
+              "type": "string"
+            },
+            {
+              "id": "fd582b04-2f38-418f-9da0-05a0d09e87c9",
+              "name": "alt_text",
+              "value": "={{ $json.alt_text }}",
+              "type": "string"
+            },
+            {
+              "id": "73fd4fbf-1d71-4dd7-88d4-81c5411e32d5",
+              "name": "caption",
+              "value": "={{ $json.caption.raw }}",
+              "type": "string"
+            },
+            {
+              "id": "be6c38c6-6029-4db7-bc68-6bbc7aede95a",
+              "name": "description",
+              "value": "={{ $json.description.raw }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1392,
+        -528
+      ],
+      "id": "01d1c2a4-fffa-46de-9e64-926eed919a89",
+      "name": "url ảnh đã đăng"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "url image"
+            },
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "title"
+            },
+            {
+              "fieldToAggregate": "alt_text"
+            },
+            {
+              "fieldToAggregate": "caption"
+            },
+            {
+              "fieldToAggregate": "description"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        -528
+      ],
+      "id": "c156dff9-a866-4f9e-af4c-300dd8a16607",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "search_results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        16,
+        -288
+      ],
+      "id": "2f24cb74-a0fd-462d-854f-f4e48a92736f",
+      "name": "Split Out4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e2805947-23bb-42bc-8758-4a78e372b3d7",
+              "name": "title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "27c45a5e-9a40-497b-a4c3-8ff433669683",
+              "name": "url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        288,
+        -288
+      ],
+      "id": "27c968f8-d197-4833-9415-d920fbd1890b",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        528,
+        -288
+      ],
+      "id": "9193fe49-c9be-4769-be01-bd13562efc9f",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tavily.com/extract",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "urls",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "name": "include_images",
+              "value": "false"
+            },
+            {
+              "name": "extract_depth",
+              "value": "basic"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        752,
+        -176
+      ],
+      "id": "7f30894e-6ff0-4b6e-8388-665d23f40387",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=- Tiểu đề: {{ $('Loop Over Items2').item.json.title }}\n- raw content: {{ $json.results[0].raw_content }}\n- URL: {{ $('Loop Over Items2').item.json.url }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "- Bạn là một blogger chuyên viết bài chuẩn seo đăng lên wordpress\n- đầu vào: tiêu đề, nội dung thô, URL\n- Đọc kỹ tiêu đề và nội dung thô được cung cấp, tạo một tóm tắt ngắn gọn, nêu rõ điểm chính, những thông tin quan trọng và bất cứ thông tin nào liên quan đến dịch vụ và mỹ phẩm chăm sóc da.\n- Đảm bảo tóm tắt rõ ràng, thông tin phù hợp với độc giả đang tìm kiếm thông tin nhanh về dịch vụ bao gồm những lợi ích dịch vụ mang lại và những đặc điểm nổi bật của dịch vụ và sản phẩm đó.\n- cung cấp tóm tắt theo định dạng có cấu trúc, sử dụng dấu đầu dòng hoặc đoạn văn ngắn để rõ ràng.\n- định dạng đầu ra:\n+ một tóm tắt rõ ràng và ngắn gọn về thông tin sản phẩm\n+ bao gồm tham chiếu đến tiêu đề và url để có ngữ cảnh\n+ định dạng plain text không chứa các ký tự markdown như *, ** hoặc #.v.v.. "
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        960,
+        -176
+      ],
+      "id": "7d48dddc-683b-479c-96ac-7acffe7962b9",
+      "name": "Basic LLM Chain2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b6ab2317-a5cc-4e84-b8b5-0f3ab43308e9",
+              "name": "all",
+              "value": "={{ $itemindex+1 }}. {{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        752,
+        -368
+      ],
+      "id": "8ae09e82-cd3d-41f0-a4b3-198c1ecbd1d7",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "all"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        960,
+        -368
+      ],
+      "id": "99e76b6f-2e67-4062-988b-e17b7445a336",
+      "name": "Aggregate6"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=5 bài viết tóm tắt: {{ $json.all }}\n5 url image: {{ $json['url image'] }}\n5 tiêu đề ảnh: {{ $json.title }}\n5 caption ảnh: {{ $json.caption }}\n5 mô tả ảnh: {{ $json.description }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=## NHIỆM VỤ:\nViết bài wordpress sáng tạo cho dịch vụ và sản phẩm chăm sóc da theo chủ đề  {{ $('Edit Fields3').item.json.topic }}.\n\nTừ 5 đoạn tóm tắt của các bài viết Google liên quan đến chủ đề  {{ $('Edit Fields3').item.json.topic }}, hãy:\n\n1. Viết lại một bài viết hoàn chỉnh, thống nhất nội dung từ 5 bài trên, với cấu trúc phân cấp tiêu đề.\n2. Nội dung phù hợp để đăng trên website WordPress của một spa chuyên cung cấp dịch vụ chăm sóc da mặt và mỹ phẩm cao cấp.\n3. Viết theo bố cục chuẩn SEO:\n   - Mở bài hấp dẫn, nêu rõ lợi ích của việc chăm sóc da tại spa.\n   - Thân bài gồm các phần:\n     - Lợi ích của việc chăm sóc da mặt định kỳ\n     - Các dịch vụ phổ biến tại spa (ví dụ: facial, phi kim, thải độc, xông hơi…)\n     - Cách lựa chọn sản phẩm mỹ phẩm phù hợp với từng loại da\n     - Cam kết chất lượng, nguồn gốc sản phẩm tại spa\n   - Kết bài khuyến khích khách hàng trải nghiệm dịch vụ.\n4. Chèn hình ảnh phù hợp giữa các đoạn nội dung (dưới dạng thẻ `<img src=\"URL\">`).\n5. Nội dung thân thiện với người đọc, không trùng lặp với các bài gốc, tránh đạo văn.\n6. Ngôn ngữ: tiếng Việt, hành văn tự nhiên, chuyên nghiệp, dễ hiểu.\n7. Dài khoảng 800–1000 từ.\n8. Gợi ý tiêu đề hấp dẫn cho bài viết.\n\nđầu ra: \n\nContent viết theo dạng html\n\nđịnh dạng plain text không chứa các ký tự markdown như *, ** hoặc #.v.v.."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        2048,
+        -320
+      ],
+      "id": "e827daa3-ed89-4a56-b428-0e12bbf4af34",
+      "name": "Content2"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        864,
+        48
+      ],
+      "id": "b87d5d05-6996-4e06-9e82-d9dea0043e2f",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "cvDmQPV0eW6SzUhX",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "90b3e252-6c31-4e28-9d2e-cc865fe7c0b1",
+              "name": "topic",
+              "value": "Giải tỏa căng thẳng với liệu trình massage body chuyên nghiệp",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -432,
+        -656
+      ],
+      "id": "223270e5-35b1-4b99-8bba-b2d7d369d851",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1792,
+        -448
+      ],
+      "id": "7674425a-1b4b-4c87-bf78-7d5f3813e7ff",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"Title\": \"tiêu đề\",\n\t\"Slug\": \"Slug of article\",\n    \"Content\": \"nội dung\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2224,
+        -96
+      ],
+      "id": "268228fe-a8ed-48ae-a02f-1ff63f07d22e",
+      "name": "Structured Output Parser2"
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-09T09:47:24.926Z",
+  "versionId": "3750d3b8-c10e-4e01-9722-b1c929ac01d4"
+}
