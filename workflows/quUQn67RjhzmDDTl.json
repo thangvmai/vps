@@ -1,0 +1,178 @@
+{
+  "active": false,
+  "connections": {
+    "Lịch kiểm tra": {
+      "main": [
+        [
+          {
+            "node": "Lấy thông tin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lấy thông tin": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:24.151Z",
+  "id": "quUQn67RjhzmDDTl",
+  "isArchived": false,
+  "meta": null,
+  "name": "1 - Hồng - Kiểm tra phát hiện sản phẩm tồn kho ít và thông báo đến Zalo",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 17
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -48,
+        96
+      ],
+      "id": "c21469e2-41b5-4450-af3b-81ec92b77e2f",
+      "name": "Lịch kiểm tra"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        176,
+        96
+      ],
+      "id": "784fd68b-be7c-466d-99b8-5777181979c1",
+      "name": "Lấy thông tin",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Duyệt qua từng sản phẩm trong danh sách items và xử lý lại thông tin\nreturn items.map(item => {\n  \n  // Lấy giá trị tồn kho gốc từ dữ liệu (có thể là số, null, undefined, chuỗi...)\n  const rawQty = item.json.stock_quantity;\n  \n  // Kiểm tra tồn kho có phải là số hợp lệ hay không\n  // Nếu đúng là số => giữ nguyên\n  // Nếu không phải số (null, undefined, chuỗi, NaN...) => gán là 0 để tránh lỗi\n  const safeQty = (typeof rawQty === 'number' && !isNaN(rawQty))\n    ? rawQty\n    : 0;\n  \n  // Trả về đối tượng mới đã xử lý sạch dữ liệu\n  return {\n    json: {\n      name: item.json.name,       // Lấy tên sản phẩm\n      sku: item.json.sku || '',   // Lấy mã SKU, nếu không có thì gán chuỗi rỗng\n      stock_quantity: safeQty     // Gán tồn kho đã kiểm tra an toàn\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        384,
+        96
+      ],
+      "id": "4795ad00-0bb1-4fa6-882c-74679ef90770",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "99429380-8dfe-4ebd-8bce-24d6f85fcdb7",
+              "leftValue": "={{ $json.stock_quantity }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        96
+      ],
+      "id": "7a1cb1a3-7164-433e-b173-138907b07f38",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=📦 Sản phẩm: {{ $json.name }}\n🧮 Số lượng còn lại: {{ $json.stock_quantity }}\n🏷️ SKU: {{ $json.sku }}\n=> ĐÃ ĐẾN LÚC NHẬP HÀNG",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        864,
+        96
+      ],
+      "id": "4108124f-a2d5-4e1a-9243-25f277aa632f",
+      "name": "Gửi tin",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Lịch kiểm tra": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-09T10:23:32.485Z",
+  "versionId": "1e8e0d25-ed3b-473b-b65a-9f42fc992996"
+}
