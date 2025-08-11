@@ -1,0 +1,275 @@
+{
+  "active": false,
+  "connections": {
+    "Gmail đánh dấu đã đọc": {
+      "main": [
+        [
+          {
+            "node": "Set nội dung",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lên lịch": {
+      "main": [
+        [
+          {
+            "node": "Đọc mail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Đọc mail": {
+      "main": [
+        [
+          {
+            "node": "Gmail đánh dấu đã đọc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set nội dung": {
+      "main": [
+        [
+          {
+            "node": "Nối nội dung",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nối nội dung": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Zalo Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:24.557Z",
+  "id": "EyDhmWSXEXsRkGXV",
+  "isArchived": false,
+  "meta": null,
+  "name": "Hồng - Tổng hợp mail",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "markAsRead",
+        "messageId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        368,
+        64
+      ],
+      "id": "14b10780-dfe9-40aa-b061-bc6ed55782cd",
+      "name": "Gmail đánh dấu đã đọc",
+      "webhookId": "33f3fc48-ea29-4890-82b0-423b09450013",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SbbM2MS5h800zBGu",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -80,
+        64
+      ],
+      "id": "5b263397-88bf-44c2-9216-236bb39e9ffa",
+      "name": "Lên lịch"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 10,
+        "filters": {
+          "readStatus": "unread"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        144,
+        128
+      ],
+      "id": "5c25c136-e094-468c-950a-8cb4fd06413c",
+      "name": "Đọc mail",
+      "webhookId": "cc23b690-e13d-4a6e-b3bd-2c084542f3f4",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SbbM2MS5h800zBGu",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aa7ce7db-8522-49b2-a31f-bc8cfc3741c2",
+              "name": "Email",
+              "value": "=📬{{ $('Đọc mail').item.json.Subject }}: {{ $('Đọc mail').item.json.snippet }}\n=> From: {{ $('Đọc mail').item.json.From }}\n--------------------------------\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        608,
+        112
+      ],
+      "id": "9a46f7df-6f0e-489c-92b3-d0e798bcc374",
+      "name": "Set nội dung"
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "Email",
+              "separateBy": "\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        848,
+        64
+      ],
+      "id": "ca9c829c-b436-4a22-a06f-e417e06574df",
+      "name": "Nối nội dung"
+    },
+    {
+      "parameters": {
+        "threadId": "6668958552947279252",
+        "message": "=Email mới gửi tới:\n{{ $json.text }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        1488,
+        128
+      ],
+      "id": "d9467fd8-f597-49bf-a36d-abc81872f322",
+      "name": "Zalo Send Message",
+      "credentials": {
+        "zaloApi": {
+          "id": "i07OQeNQ4raMnmsT",
+          "name": "Zalo API Credentials"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=- Nội dung đây: {{ $json.concatenated_Email }} \n- Chỉ thông báo mail khách hàng mới đặt lịch hẹn cho Calla De Beauté.\"\n- Nếu là mail khách hàng đặt lịch thì ghi: \"email - khách hàng đặt lịch\" và ghi lại SĐt: - Họ tên: - Thời gian:. Xuống dòng cho mỗi thông tin.\n- Nếu là những mail không phải khách hàng hãy nói \"Chúc ngày mới tốt lành!\" một lần thôi.\n- Nếu vừa có cả mail khách hàng và mail không phải thì hãy lọc bỏ đi những mail không phải khách hàng, chỉ lấy những mail của khách hàng.",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "đầu ra là một chuỗi ký tự \nbỏ qua ký tự dạng markdown như *\ngạch đầu dòng \"-\" mỗi người gửi"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.6,
+      "position": [
+        1040,
+        96
+      ],
+      "id": "1b462619-83b8-4094-86ca-06bc3300f808",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1024,
+        304
+      ],
+      "id": "3ec08df3-0db1-4134-a6fb-40be7fbc15f4",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "YBX5lvVUpd8p1FU8",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    }
+  ],
+  "pinData": null,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Lên lịch": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-09T09:47:24.557Z",
+  "versionId": "93c97e80-7118-443a-98a5-15289f38d126"
+}
