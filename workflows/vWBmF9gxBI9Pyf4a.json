@@ -1,0 +1,292 @@
+{
+  "active": false,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get order": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:24.550Z",
+  "id": "vWBmF9gxBI9Pyf4a",
+  "isArchived": false,
+  "meta": null,
+  "name": "2 - Hồng - Phát hiện sản phẩm bán chậm và gợi ý sale",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Khởi tạo một object rỗng để lưu thông tin sản phẩm\nconst counts = {};\n\n// Duyệt qua từng đơn hàng trong danh sách items\nfor (const item of items) {\n  const order = item.json; // Lấy nội dung JSON của đơn hàng\n\n  // Nếu đơn hàng không có sản phẩm nào thì bỏ qua\n  if (!order.line_items) continue;\n\n  // Duyệt qua từng sản phẩm trong đơn hàng\n  for (const product of order.line_items) {\n    const id = product.product_id;        // Lấy ID sản phẩm\n    const name = product.name || '';      // Lấy tên sản phẩm (nếu không có thì dùng chuỗi rỗng)\n\n    // Nếu sản phẩm này chưa có trong counts, tạo mới\n    if (!counts[id]) {\n      counts[id] = {\n        quantity: 0, // khởi tạo số lượng\n        name,        // lưu tên sản phẩm\n      };\n    }\n\n    // Cộng dồn số lượng sản phẩm đã bán\n    counts[id].quantity += product.quantity;\n  }\n}\n\n// Chuyển object counts thành mảng kết quả, mỗi phần tử là một sản phẩm\nreturn Object.entries(counts).map(([product_id, data]) => ({\n  json: {\n    product_id: parseInt(product_id), // chuyển chuỗi ID thành số\n    quantity: data.quantity,          // số lượng đã bán\n    name: data.name,                  // tên sản phẩm\n  },\n}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        160
+      ],
+      "id": "a24711ed-428d-4334-92a7-598e5e51a708",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "428195e4-ec82-49d4-b702-787339701020",
+              "leftValue": "={{ $json[\"quantity\"] }}",
+              "rightValue": 20,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        544,
+        160
+      ],
+      "id": "a77644f3-771a-4aa2-9a8e-956764c477b2",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "after": "={{ new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString() }}",
+          "status": "completed"
+        }
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        160
+      ],
+      "id": "569b1202-365a-4266-9986-3aa0719a0386",
+      "name": "Get order",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📉 Sản phẩm bán chậm (trong 30 ngày): {{ $json.name }}\n📦 Đã bán: {{$json.quantity}} chỉ cần ghi số lượng thôi.\n- Phải có \"Chương trình sale gợi ý:\" trước những gợi ý.\n- Gợi ý chương trình sale tối ưu nhất một cách ngắn gọn cho từng dản phẩm.\n- Gạch đầu dòng và xuống hàng mỗi gợi ý.\n- Đầu ra phải rõ ràng và dễ nhìn cùng với là xóa hết tất cả các ký tự markdown.\n- Thêm các icon cho sinh động.\n- Mở đầu tin nhắn phải có dòng \"📉 Sản phẩm bán chậm (trong 30 ngày): tên sản phẩm\"\n- Chỗ sản phẩm bán chậm phải thêm icon 📉\n- Chỗ đã bán phải thêm icon 📦\n- Current datetime: {{ $now }}\n- Ghi luôn thời gian thông báo ở cuối tin cho tôi. Ngày giờ ghi tiếng việt. như này \"⏰ Thời gian thông báo: 27 tháng 7 năm 2025, 15:16:22 chiều\"",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        848,
+        160
+      ],
+      "id": "848a494c-6729-43b2-a2ff-d11c9285b8ab",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        784,
+        416
+      ],
+      "id": "e7378b03-c724-40a0-bb74-8ba9c6acd897",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "jETUIHbao5VpmN6h",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "7094418190598898540",
+        "type": 1,
+        "message": "={{ $json.text }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        1280,
+        160
+      ],
+      "id": "e10f2ff6-28e1-4ba4-b6bd-20830b040e95",
+      "name": "Gửi tin",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## TỔNG HỢP\n✅ Tổng hợp danh sách sản phẩm đã được khách hàng đặt trong thời gian 30 ngày gần nhất",
+        "height": 280,
+        "width": 430,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "1360e899-2caf-4c08-a5c0-e73e6e6293cb",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## LỌC\nNếu ít hơn 20",
+        "height": 280,
+        "width": 150,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        528,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "e15d24dc-3ed7-4f95-bb1d-6054b8e2527b",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## LÊN LỊCH\n7:00am mùng 1 hàng tháng",
+        "height": 280,
+        "width": 170,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        32
+      ],
+      "typeVersion": 1,
+      "id": "30500056-4fac-4102-9258-7d4c08fd6e03",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -256,
+        160
+      ],
+      "id": "f1e09333-a0da-4da9-bf8a-5e3749fbee76",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Lên lịch": {
+      "recurrenceRules": []
+    },
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:WooCommerce Trigger": {}
+  },
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-09T10:32:24.277Z",
+  "versionId": "22e7818b-336e-42f9-8add-4e02f803ab46"
+}
