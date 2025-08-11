@@ -1,0 +1,437 @@
+{
+  "active": false,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get order": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:24.940Z",
+  "id": "gkbSiuq8oEoMA6vm",
+  "isArchived": false,
+  "meta": null,
+  "name": "fix 2 - Hồng",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const result = {};\n\nfor (const item of items) {\n  const order = item.json;\n\n  // Bỏ qua nếu không có line_items\n  if (!order.line_items) continue;\n\n  const status = order.status || 'unknown';\n\n  for (const product of order.line_items) {\n    const id = product.product_id;\n    const name = product.name || '';\n    const quantity = product.quantity || 0;\n\n    // Dùng khóa là product_id + status để phân biệt cùng sản phẩm nhưng khác trạng thái\n    const key = `${id}_${status}`;\n\n    if (!result[key]) {\n      result[key] = {\n        product_id: id,\n        name: name,\n        status: status,\n        quantity: 0\n      };\n    }\n\n    result[key].quantity += quantity;\n  }\n}\n\n// Trả về mảng json\nreturn Object.values(result).map(item => ({ json: item }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        96
+      ],
+      "id": "c521dec4-9d63-428c-a231-24f417e2a265",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "428195e4-ec82-49d4-b702-787339701020",
+              "leftValue": "={{ $json.quantity }}",
+              "rightValue": 20,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        832,
+        80
+      ],
+      "id": "539f8696-5c43-4724-9f36-b1c24e7a7857",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {
+          "after": "={{ new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString() }}",
+          "status": "any"
+        }
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        96
+      ],
+      "id": "150da637-c912-4981-9fb4-b6e23d69a71e",
+      "name": "Get order",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=📉 Sản phẩm bán chậm (trong 30 ngày): {{ $json.name }}\n📦 Đã bán: {{$json.quantity}} chỉ cần ghi số lượng thôi.\n\n- Phải có \"Chương trình sale gợi ý:\" trước những gợi ý.\n- Gợi ý chương trình sale tối ưu nhất một cách ngắn gọn cho từng dản phẩm.\n- Gạch đầu dòng và xuống hàng mỗi gợi ý.\n- Đầu ra phải rõ ràng và dễ nhìn cùng với là xóa hết tất cả các ký tự markdown.\n- Thêm các icon cho sinh động.\n- Mở đầu tin nhắn phải có dòng \"📉 Sản phẩm bán chậm (trong 30 ngày): tên sản phẩm\"\n- Chỗ sản phẩm bán chậm phải thêm icon 📉\n- Chỗ đã bán phải thêm icon 📦\n- Current datetime: {{ $now }}\n- Ghi luôn thời gian thông báo ở cuối tin cho tôi. Ngày giờ ghi tiếng việt. như này \"⏰ Thời gian thông báo: 27 tháng 7 năm 2025, 15:16:22 chiều\"",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1264,
+        80
+      ],
+      "id": "f2e0b555-ce8f-4f23-b48e-8d1238427248",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash-preview-05-20",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        352
+      ],
+      "id": "6ca15279-e96d-4e91-b346-a6227e180c8a",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "jETUIHbao5VpmN6h",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "7094418190598898540",
+        "type": 1,
+        "message": "={{ $json.text }}",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        1728,
+        80
+      ],
+      "id": "17797d2b-5ca2-4c70-9507-40cadf78cc12",
+      "name": "Gửi tin",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## TỔNG HỢP\n✅ Tổng hợp danh sách sản phẩm đã được khách hàng đặt trong thời gian 30 ngày gần nhất",
+        "height": 280,
+        "width": 430,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "0786b3ee-5e3f-4a31-89c4-3e1174125d0b",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## LỌC\nNếu ít hơn 20",
+        "height": 280,
+        "width": 150,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        816,
+        -16
+      ],
+      "typeVersion": 1,
+      "id": "1d04b096-df31-439a-b28c-acfb69104883",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## LÊN LỊCH\n7:00am mùng 1 hàng tháng",
+        "height": 280,
+        "width": 170,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "c66d7ff0-1254-42f9-b7f7-fcae824afd95",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -256,
+        96
+      ],
+      "id": "16720e0f-da34-40ca-8734-1dc7e2963ee8",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "743bcb1c-d346-4f4d-b0c2-095dedae5670",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        528,
+        96
+      ],
+      "id": "3b744067-0127-4c49-b4fa-e80713ee25d7",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1455717724,
+          "mode": "list",
+          "cachedResultName": "Sheet8",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=1455717724"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.product_id }}",
+            "tên": "={{ $json.name }}",
+            "trạng thái": "={{ $json.status }}",
+            "số lượng bán": "={{ $json.quantity }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "tên",
+              "displayName": "tên",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "trạng thái",
+              "displayName": "trạng thái",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "số lượng bán",
+              "displayName": "số lượng bán",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        864,
+        368
+      ],
+      "id": "ef366153-a5eb-44e4-a251-03f4868acdde",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jrdwFmaTBkFLjulZ",
+          "name": "Sora"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-09T10:37:48.500Z",
+  "versionId": "d5b1e653-fa63-4a3b-87c2-92bfb8ea8220"
+}
