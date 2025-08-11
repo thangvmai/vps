@@ -1,0 +1,365 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Create image feature2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create image feature": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get image feature": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get image feature",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create image feature1": {
+      "main": [
+        []
+      ]
+    },
+    "Create image feature2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-09T09:47:23.704Z",
+  "id": "75l4YJvLYexeCBIZ",
+  "isArchived": false,
+  "meta": null,
+  "name": "test edit image",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        0
+      ],
+      "id": "09caba33-5627-48ee-a427-99e6d2efb7f4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b2551484-56e7-42e5-a903-8ae3f3a232bc",
+              "name": "image",
+              "value": "https://tuanbem.edu.vn/wp-content/uploads/2023/11/4-1024x1024.png",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        32,
+        0
+      ],
+      "id": "1417e849-4e7b-44f4-9e47-a05083d3c862",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux-kontext-lora",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.image }}"
+            },
+            {
+              "name": "prompt",
+              "value": "Recreate the entire image in a bright, modern spa setting with large windows and abundant natural daylight streaming in. Keep the people in the same positions, but use light pastel walls, white linens, and green plants for a fresh and relaxing vibe. Remove all graphic overlays or banners, maintain high clarity and vibrant colors"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "d0bd529c-61b8-4ee6-91bd-32bd3fb503e1",
+      "name": "Create image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.response_url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        832,
+        0
+      ],
+      "id": "23dc810c-81bc-4b60-8f67-32682aff4f86",
+      "name": "Get image feature",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.status_url }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "303ed389-c905-402a-9c84-2df9c4ad276f",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.images[0].url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "4dac8037-5103-458e-89f3-3aa965445098",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bd688f71-db2a-4abf-806c-dded03c26a8d",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "COMPLETED",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        624,
+        0
+      ],
+      "id": "41af1bfa-b333-46ce-8fb9-38580dbf6fbb",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux-kontext-lora",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.image }}"
+            },
+            {
+              "name": "prompt",
+              "value": "Replace the background with a smooth, clean, and neutral one that matches natural lighting, ensuring the main subject remains sharp, clear, and naturally integrated."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        96,
+        272
+      ],
+      "id": "a6dbad1a-86a7-46e8-952e-cd2acb10ecd4",
+      "name": "Create image feature1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://queue.fal.run/fal-ai/flux-kontext-lora",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "image_url",
+              "value": "={{ $json.image }}"
+            },
+            {
+              "name": "prompt",
+              "value": "Recreate the entire image as a brand new scene, keeping the people in the same positions and poses, but redesign all surrounding objects, surfaces, and environment so that it looks like a luxurious indoor spa with warm lighting, natural wood tones, and decorative plants. Remove all graphic overlays, banners, or unrelated objects. Maintain a clean, realistic, and professional style"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        256,
+        -176
+      ],
+      "id": "75ba8ff3-101f-4f7a-9f27-0a0d7841f923",
+      "name": "Create image feature2",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-10T09:01:58.168Z",
+  "versionId": "a7deeea1-df02-40be-bcdb-c0357577996d"
+}
