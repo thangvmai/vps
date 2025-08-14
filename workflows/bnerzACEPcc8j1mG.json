@@ -657,8 +657,8 @@
       "name": "Google Gemini Chat Model1",
       "credentials": {
         "googlePalmApi": {
-          "id": "YBX5lvVUpd8p1FU8",
-          "name": "Google Gemini(PaLM) Api account 2"
+          "id": "jETUIHbao5VpmN6h",
+          "name": "Sora"
         }
       }
     },
@@ -757,8 +757,8 @@
       "name": "giongvan",
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "MUkTJClOuPKtikz7",
-          "name": "Google Docs account"
+          "id": "UU9aWhecV2jZ4Q5y",
+          "name": "thang"
         }
       }
     },
@@ -893,8 +893,8 @@
       "name": "Get image2",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         }
       }
     },
@@ -1086,8 +1086,8 @@
       "name": "Create image feature",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         }
       }
     },
@@ -1108,8 +1108,8 @@
       "name": "Get image feature",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         }
       }
     },
@@ -1157,11 +1157,11 @@
       "name": "Upload to media website",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         },
         "wordpressApi": {
-          "id": "K2Ae08rqg3jpaf2c",
+          "id": "hsxMQJ3Me6SFPOQ3",
           "name": "Wordpress account"
         }
       }
@@ -1186,7 +1186,7 @@
       "name": "Upload post",
       "credentials": {
         "wordpressApi": {
-          "id": "K2Ae08rqg3jpaf2c",
+          "id": "hsxMQJ3Me6SFPOQ3",
           "name": "Wordpress account"
         }
       }
@@ -1287,11 +1287,11 @@
       "name": "Set feature image, title, description",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         },
         "wordpressApi": {
-          "id": "K2Ae08rqg3jpaf2c",
+          "id": "hsxMQJ3Me6SFPOQ3",
           "name": "Wordpress account"
         }
       }
@@ -1334,8 +1334,8 @@
       "name": "Update docx",
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "MUkTJClOuPKtikz7",
-          "name": "Google Docs account"
+          "id": "UU9aWhecV2jZ4Q5y",
+          "name": "thang"
         }
       }
     },
@@ -1430,8 +1430,8 @@
       "name": "Get top 10 google serpapi",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "MaYvFr7cCSL8lez8",
-          "name": "serapi"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         }
       }
     },
@@ -1455,7 +1455,7 @@
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
-          "id": "6J131918hyfnfRqV",
+          "id": "HcvkLZcRcuANBdLH",
           "name": "OpenAi account"
         }
       }
@@ -1495,8 +1495,8 @@
       "name": "Create image feature1",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "ZY1owX7RHvmkRlFp",
-          "name": "fal ai"
+          "id": "L8U4FBNA2wOBmr32",
+          "name": "fal"
         }
       }
     },
@@ -1528,7 +1528,7 @@
       "name": "Get row(s) in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "90rCaPHuqoW5DrK9",
+          "id": "e4XIghkwNhZEV5WX",
           "name": "thang"
         }
       }
@@ -1548,8 +1548,8 @@
       "name": "Create a document",
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "MUkTJClOuPKtikz7",
-          "name": "Google Docs account"
+          "id": "UU9aWhecV2jZ4Q5y",
+          "name": "thang"
         }
       }
     },
@@ -1737,7 +1737,7 @@
       "name": "Update row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "90rCaPHuqoW5DrK9",
+          "id": "e4XIghkwNhZEV5WX",
           "name": "thang"
         }
       }
@@ -1759,19 +1759,19 @@
       "name": "Zalo Send Message",
       "credentials": {
         "zaloApi": {
-          "id": "5jIQdl6Zf6WNoKTc",
-          "name": "Zalo Sora"
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
         }
       }
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-09T09:47:26.974Z",
-  "versionId": "4626ea1d-b20b-4a0f-b355-a3aa4c2e99d6"
+  "updatedAt": "2025-08-13T09:31:18.210Z",
+  "versionId": "13677dfa-8cc0-4acf-beaf-2398141acbfc"
 }
