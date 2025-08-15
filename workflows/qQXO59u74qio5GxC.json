@@ -396,7 +396,7 @@
   "id": "qQXO59u74qio5GxC",
   "isArchived": false,
   "meta": null,
-  "name": "cmt",
+  "name": "auto_cmt_fb",
   "nodes": [
     {
       "parameters": {
@@ -1093,7 +1093,7 @@
       "name": "OpenAI Chat Model",
       "credentials": {
         "openAiApi": {
-          "id": "6J131918hyfnfRqV",
+          "id": "HcvkLZcRcuANBdLH",
           "name": "OpenAi account"
         }
       }
@@ -1166,13 +1166,13 @@
       "name": "Respond to Webhook"
     }
   ],
-  "pinData": null,
+  "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-09T09:47:24.937Z",
-  "versionId": "27a213ca-ea1e-4aea-b49c-15317e938ed2"
+  "updatedAt": "2025-08-14T03:41:10.993Z",
+  "versionId": "6b9de6d5-94b4-4e15-b46b-467511f21639"
 }
