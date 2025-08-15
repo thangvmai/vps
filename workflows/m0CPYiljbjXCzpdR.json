@@ -243,7 +243,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        32,
+        16,
         128
       ],
       "id": "f71e8d58-c2c1-4d91-a174-7f3d9764bd4d",
@@ -446,7 +446,7 @@
       "name": "Update",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "DkLFOUrd6WdJEXkn",
+          "id": "jrdwFmaTBkFLjulZ",
           "name": "Sora"
         }
       }
@@ -481,7 +481,7 @@
       "name": "Get",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "DkLFOUrd6WdJEXkn",
+          "id": "jrdwFmaTBkFLjulZ",
           "name": "Sora"
         }
       }
@@ -680,6 +680,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-09T10:27:19.672Z",
-  "versionId": "f7a58439-4285-4ee3-9976-42ec7fee1343"
+  "updatedAt": "2025-08-14T23:00:19.952Z",
+  "versionId": "59cfb2b1-67a9-4f69-93ea-9c46b7f2341b"
 }
