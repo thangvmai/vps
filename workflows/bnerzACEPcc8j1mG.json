@@ -514,7 +514,7 @@
   "id": "bnerzACEPcc8j1mG",
   "isArchived": false,
   "meta": null,
-  "name": "wp test",
+  "name": "auto_post_wp",
   "nodes": [
     {
       "parameters": {
@@ -1772,6 +1772,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-13T09:31:18.210Z",
-  "versionId": "13677dfa-8cc0-4acf-beaf-2398141acbfc"
+  "updatedAt": "2025-08-14T03:38:50.471Z",
+  "versionId": "91c6c92d-310c-44b5-a729-eb7699abd2f6"
 }
