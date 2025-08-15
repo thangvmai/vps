@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Lịch kiểm tra": {
       "main": [
@@ -172,7 +172,7 @@
     }
   },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-08-09T10:23:32.485Z",
+  "triggerCount": 1,
+  "updatedAt": "2025-08-14T03:54:08.601Z",
   "versionId": "1e8e0d25-ed3b-473b-b65a-9f42fc992996"
 }
