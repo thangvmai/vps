@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Code": {
       "main": [
@@ -286,7 +286,7 @@
     "node:WooCommerce Trigger": {}
   },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-08-09T10:32:24.277Z",
+  "triggerCount": 1,
+  "updatedAt": "2025-08-14T03:54:10.552Z",
   "versionId": "22e7818b-336e-42f9-8add-4e02f803ab46"
 }
