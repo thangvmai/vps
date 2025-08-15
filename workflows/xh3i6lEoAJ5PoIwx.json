@@ -538,7 +538,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "video",
+  "name": "video_youtube_fb",
   "nodes": [
     {
       "parameters": {
@@ -2121,6 +2121,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-10T18:54:13.052Z",
-  "versionId": "a15dba95-4c3c-43d7-991b-ee58b637945e"
+  "updatedAt": "2025-08-14T03:39:19.890Z",
+  "versionId": "eaeec103-4281-46da-a0cb-e69a5ac861b1"
 }
