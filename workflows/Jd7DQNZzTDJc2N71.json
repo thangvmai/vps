@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Lưu thông tin",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -17,6 +17,17 @@
         [
           {
             "node": "Gửi tin Zalo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Lưu thông tin",
             "type": "main",
             "index": 0
           }
@@ -37,7 +48,7 @@
       "type": "n8n-nodes-base.wooCommerceTrigger",
       "typeVersion": 1,
       "position": [
-        -384,
+        -496,
         0
       ],
       "id": "05186e68-c8d0-4008-8ea4-64361ae4ed79",
@@ -61,7 +72,7 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        80,
+        288,
         0
       ],
       "id": "cddbe07b-0f20-488a-bbad-f760e80e678c",
@@ -101,9 +112,9 @@
             "Email": "={{ $json.billing.email }}",
             "Sđt": "={{ $json.billing.phone }}",
             "Phương thức thanh toán": "={{ $json.payment_method_title }}",
-            "Số lượng": "={{ $json.line_items[0].quantity }}",
+            "Số lượng": "={{ $json.quantityList }}",
             "Tổng tiền": "={{ $json.line_items[0].total }}Vnđ",
-            "Sản phẩm": "={{ $json.line_items[0].name }}"
+            "Sản phẩm": "={{ $json.productList }}"
           },
           "matchingColumns": [
             "Sản phẩm"
@@ -218,7 +229,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -144,
+        48,
         0
       ],
       "id": "c0456dd5-d231-4024-bcd9-2d1befb30e70",
@@ -229,6 +240,19 @@
           "name": "Sora"
         }
       }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $json.line_items;\n\n// Ghép số lượng các sản phẩm: ví dụ \"2, 3, 1\"\nconst quantityList = items.map(item => item.quantity).join(', ');\n\n// Ghép tên + số lượng sản phẩm cho cột \"Sản phẩm\"\nconst productList = items.map(item => `${item.name} x${item.quantity}`).join('\\n');\n\nreturn [{\n  json: {\n    ...$json,\n    productList,\n    quantityList\n  }\n}];\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "a5f21af2-d07e-4908-86a9-9107a608d8c9",
+      "name": "Code"
     }
   ],
   "pinData": {},
@@ -238,12 +262,12 @@
   "staticData": {
     "node:WooCommerce Trigger": {},
     "node:Kiểm tra đơn hàng mới tạo": {
-      "webhookId": 39,
+      "webhookId": 45,
       "secret": "5c3ce23c910c4d32a79f30a5cbd26e45"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-09T10:39:02.438Z",
-  "versionId": "46dd28de-3b1b-49a4-a396-18219b622842"
+  "updatedAt": "2025-08-14T04:50:14.884Z",
+  "versionId": "3485942a-481f-4be0-9c3f-df8495a163a9"
 }
