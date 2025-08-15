@@ -947,7 +947,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Post_multi_page",
+  "name": "auto_post_fb",
   "nodes": [
     {
       "parameters": {
@@ -3751,6 +3751,6 @@
   },
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-10T09:46:56.922Z",
-  "versionId": "1e49973c-898e-41e5-82b3-7e9d364d14fb"
+  "updatedAt": "2025-08-14T03:39:44.939Z",
+  "versionId": "80a14e7f-9e89-4bcf-b310-4422f369c018"
 }
