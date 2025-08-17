@@ -1,0 +1,60 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Zalo Login Via QR Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-16T07:19:42.004Z",
+  "id": "RHZkMRXYAE433MHX",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        -16
+      ],
+      "id": "d05257d0-8cfd-4247-a4f3-5abca3954de0",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-zalo-tools.zaloLoginByQr",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "41b1c1d7-0cac-4c1d-bcbe-d17fd78e1880",
+      "name": "Zalo Login Via QR Code",
+      "credentials": {
+        "n8nZaloApi": {
+          "id": "Kcmg7MrCyzS5DV2s",
+          "name": "n8n Zalo 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-16T07:20:45.293Z",
+  "versionId": "8bc59fa3-5355-40f9-a5c1-694266c18f04"
+}
