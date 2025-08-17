@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "Filter",
+            "node": "Lưu lại số lượng tồn kho",
             "type": "main",
             "index": 0
           }
@@ -44,12 +44,25 @@
           }
         ]
       ]
+    },
+    "Lưu lại số lượng tồn kho": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-09T09:47:24.151Z",
   "id": "quUQn67RjhzmDDTl",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "1 - Hồng - Kiểm tra phát hiện sản phẩm tồn kho ít và thông báo đến Zalo",
   "nodes": [
     {
@@ -65,7 +78,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -48,
+        -112,
         96
       ],
       "id": "c21469e2-41b5-4450-af3b-81ec92b77e2f",
@@ -80,7 +93,7 @@
       "type": "n8n-nodes-base.wooCommerce",
       "typeVersion": 1,
       "position": [
-        176,
+        112,
         96
       ],
       "id": "784fd68b-be7c-466d-99b8-5777181979c1",
@@ -99,7 +112,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        384,
+        400,
         96
       ],
       "id": "4795ad00-0bb1-4fa6-882c-74679ef90770",
@@ -117,7 +130,7 @@
           "conditions": [
             {
               "id": "99429380-8dfe-4ebd-8bce-24d6f85fcdb7",
-              "leftValue": "={{ $json.stock_quantity }}",
+              "leftValue": "={{ $json['số lượng'] }}",
               "rightValue": 30,
               "operator": {
                 "type": "number",
@@ -132,7 +145,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        608,
+        912,
         96
       ],
       "id": "7a1cb1a3-7164-433e-b173-138907b07f38",
@@ -142,14 +155,14 @@
       "parameters": {
         "threadId": "1065949318692196563",
         "type": 1,
-        "message": "=📦 Sản phẩm: {{ $json.name }}\n🧮 Số lượng còn lại: {{ $json.stock_quantity }}\n🏷️ SKU: {{ $json.sku }}\n=> ĐÃ ĐẾN LÚC NHẬP HÀNG",
+        "message": "=📦 Sản phẩm: {{ $json['Tên sản phẩm'] }}\n\n🧮 Số lượng còn lại: {{ $json['số lượng'] }}\n🏷️ SKU: {{ $('Code').item.json.sku }}\n=> ĐÃ ĐẾN LÚC NHẬP HÀNG",
         "quote": {},
         "mentions": {}
       },
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        864,
+        1152,
         96
       ],
       "id": "4108124f-a2d5-4e1a-9243-25f277aa632f",
@@ -158,6 +171,85 @@
         "zaloApi": {
           "id": "Q9ZDuWnqr1DHtDUl",
           "name": "Zalo API Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 451167433,
+          "mode": "list",
+          "cachedResultName": "Thông tin kho",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=451167433"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Tên sản phẩm": "={{ $json.name }}",
+            "số lượng": "={{ $json.stock_quantity }}"
+          },
+          "matchingColumns": [
+            "Tên sản phẩm"
+          ],
+          "schema": [
+            {
+              "id": "Tên sản phẩm",
+              "displayName": "Tên sản phẩm",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "số lượng",
+              "displayName": "số lượng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        688,
+        96
+      ],
+      "id": "1ee8a2c6-0638-44a1-96a7-9ffc78297eaa",
+      "name": "Lưu lại số lượng tồn kho",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jrdwFmaTBkFLjulZ",
+          "name": "Sora"
         }
       }
     }
@@ -173,6 +265,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-14T03:54:08.601Z",
-  "versionId": "1e8e0d25-ed3b-473b-b65a-9f42fc992996"
+  "updatedAt": "2025-08-16T08:39:38.606Z",
+  "versionId": "149a773a-061c-49bc-80a7-604877dbdf53"
 }
