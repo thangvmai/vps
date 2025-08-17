@@ -215,19 +215,19 @@
             "index": 0
           },
           {
-            "node": "Switch",
+            "node": "Switch1",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Switch1",
+            "node": "Switch",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "AI Agent",
+            "node": "Xác định id",
             "type": "main",
             "index": 0
           }
@@ -273,17 +273,6 @@
           {
             "node": "Zalo Send Message",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Share folder in Google Drive": {
-      "ai_tool": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_tool",
             "index": 0
           }
         ]
@@ -818,6 +807,137 @@
           }
         ]
       ]
+    },
+    "Đang xử lý": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin đang xử lý",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hoàn thành": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin hoàn thành1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Xác định id": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Hoàn thành",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Đang xử lý",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Hủy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Switch2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hủy": {
+      "main": [
+        [
+          {
+            "node": "Gửi tin đã hủy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-09T09:47:26.534Z",
@@ -826,7 +946,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "5 - Hồng - Chatbot Zalo",
+  "name": "4 - Quản lý đơn hàng - 5 - Hồng - Chatbot Zalo",
   "nodes": [
     {
       "parameters": {
@@ -849,8 +969,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -608,
-        576
+        1472,
+        1344
       ],
       "id": "58492cba-3076-4fe9-b46f-e92572cae97f",
       "name": "Peel",
@@ -882,8 +1002,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -736,
-        576
+        1344,
+        1344
       ],
       "id": "a3a4e6de-330c-4ae1-ab45-6ecc8fbcd813",
       "name": "Product",
@@ -915,8 +1035,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -416,
-        576
+        1664,
+        1344
       ],
       "id": "c8137696-93cd-4f82-bde2-1c056f2576ad",
       "name": "Meso",
@@ -948,8 +1068,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -288,
-        576
+        1792,
+        1344
       ],
       "id": "589d120a-37dc-4991-b12c-2ab7df68c52b",
       "name": "Mun",
@@ -981,8 +1101,8 @@
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -112,
-        576
+        1968,
+        1344
       ],
       "id": "d397abb6-5750-429e-b7fa-894140056f1f",
       "name": "Other",
@@ -998,14 +1118,14 @@
         "promptType": "define",
         "text": "={{ $('Nhận Tin').item.json.message.data.content }}",
         "options": {
-          "systemMessage": "=## TỔNG QUAN\n- Bạn là nhân viên chăm sóc khách hàng chuyên nghiệp, có 5 năm kinh nghiệm tại spa Calla. Nhiệm vụ của bạn là tư vấn khách hàng về dịch vụ và sản phẩm chăm sóc da, luôn trả lời ngắn gọn, thân thiện, đúng trọng tâm, xưng hô Em – Anh/Chị.\n- Đây là tên khách hàng: {{ $json.message.data.dName }}\n\n- Các dịch vụ chính của Spa:\n+ Peel\n+ Meso\n+ Lấy mụn - Thải độc\n+ Các dịch vụ làm đẹp khác(Other).\n\n## QUY TẮC ỨNG XỬ:\n- Xưng hô: Em – Anh/Chị.\n- Luôn tư vấn ngắn gọn, đúng trọng tâm.\n- Không viết dài dòng, không lặp lại.\n- Luôn nói với thái độ lịch sự, nhẹ nhàng, dễ chịu.\n- Nếu là khách hàng mới thì phải hỏi tên.\n\n## CÁCH HIỂU VÀ GHI NHỚ NGỮ CẢNH:\n- Ghi nhớ toàn bộ nội dung mà khách đã hỏi trước đó trong hội thoại này (qua Redis).\n- Luôn trả lời các câu hỏi tiếp theo dựa vào mạch nội dung trước đó.\n  - Ví dụ: nếu khách hỏi \"Serum nào dưới 300k\", sau đó hỏi tiếp \"vậy loại đắt hơn thì sao?\", bạn phải hiểu là khách đang hỏi tiếp về Serum theo giá cao hơn.\n- Trả lời theo ngữ cảnh hội thoại, không được trả lời rời rạc hay lệch chủ đề.\n\n## NGUỒN DỮ LIỆU (Bắt buộc tra trước khi trả lời):\n- Product: Danh sách sản phẩm – tên, giá, công dụng.\n- Peel: Danh sách dịch vụ Peel – tên, giá, công dụng.\n- Meso: Danh sách dịch vụ Meso – tên, giá, công dụng.\n- Mun: Danh sách dịch vụ lấy mụn – thải độc – tên, giá, công dụng.\n- Other: Các dịch vụ khác – tên, giá, công dụng.\n\n\n**Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.**\n\n## HƯỚNG DẪN TRẢ LỜI:\n- Khi khách hỏi “có dịch vụ gì”: Trả lời tên các dịch vụ chính + giá.\n- Khi khách hỏi công dụng: Trích đúng thông tin trong dữ liệu (Peel, Meso, Mun…).\n- Khi khách hỏi sản phẩm: Liệt kê tên và giá sản phẩm phù hợp.\n- Khi khách hỏi giá: Lọc dữ liệu theo khoảng giá và trả lời gợi ý phù hợp.\n- Khi khách hỏi mập mờ hoặc liên tiếp (“trên thì sao?”, “còn loại nào khác không?”): Phải dựa vào câu hỏi trước để hiểu ý và trả lời tiếp nối mạch hội thoại.\n- Khi không có trong dữ liệu: Trả lời khéo léo, ví dụ: “Dạ hiện bên em chưa có loại đó ạ, mình tham khảo thêm giúp em nha.”\n- Khách hàng chưa hỏi rõ ràng tất cả dịch vụ thì chỉ cần trả lời tên của những dịch vụ chính.\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n\n## QUY TẮC PHẢN HỒI:\n- Không nhắc tới việc đang dùng công cụ hay tool tìm kiếm.\n- Không cần lặp lại link ở mọi câu trả lời.\n- Khi khách muốn dịch vụ hoặc đặt lịch thì nói có thể đến trực tiếp của hàng hoặc đặt lịch trên web hoặc Yêu cầu cung cấp:\n  - Họ Tên\n  - Số điện thoại\n  - Ngày – Giờ mong muốn\n  - Hoặc gửi link: https://spacalla.space\n\n- Khách muốn mua sản phẩm thì hỏi khách \n + Tên:\n + SĐT:\n + Dịa chỉ: \nđể giao hàng hoặc nói khách có thể đặt trực tiếp từ web.\n- Dịch vụ thì là những dịch vụ chính và sản phẩm chỉ có những sản phẩm lấy dữ liệu từ tool Product.\n\n- Luôn dùng tool Redis để có thể hiểu được ngữ cảnh để trả lời khách hàng.\n\n\n## LIÊN HỆ:\n- Địa chỉ: 80 Văn Cao, Tân Lợi, TP.BMT\n- Điện thoại: 0911 219 189\n- Email: calladebeaute@gmail.com\n- Website: https://spacalla.space\n\n## QUY ĐỊCH BẮT BUỘC PHẢI LÀM\n- TẤT CẢ CÂU HỎI LIÊN QUAN ĐẾN SẢN PHẨM HAY DỊCH VỤ THÌ NẾU KHÁCH CHƯA HỎI RÕ CHỈ CẦN TRẢ LỜI NGẮN GỌN TÊN VÀ GIÁ THÔI.\n- KHÔNG HỎI RÕ GIÁ CỦA SẢN PHẨM HAY DỊCH VỤ CỤ THỂ THÌ CHỈ CẦN TRẢ LỜI GIÁ CHUNG CHUNG THÔI.\n- GIỚI THIỆU SẢN PHẨM DỊCH VỤ THÌ CHỈ CẦN NÓI NGẮN GỌN THÔI.\n- Không sử dụng ký tự markdown như '*', '#', '!', '$'... để trả lời tin nhắn khách hàng.\n- Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.\n- Không trả lời khách hàng tất cả dịch vụ khi khách hàng hỏi chỉ \"bên mình có những dịch vụ gì\".\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n- Dựa vào tin nhắn của khách hàng và chỉ trả lời thông tin khách hàng cần. Không trả lời những thông tin không liên quan đến điều khách hàng muốn hỏi.\n- Khi khách hàng chưa hỏi đến công dụng hay tác dụng của sản phẩm hoặc dịch vụ thì chỉ cần trả lời tên + giá cho khách hàng.\n- Tên sản phẩm ghi đúng như dữ liệu lấy trong Product, đúng từ in đậm đến in hoa.\n\nLuôn trả lời như một người thật đang tư vấn trực tiếp. Không rập khuôn. Luôn tự nhiên, thân thiện và chính xác theo dữ liệu.\n\n## LƯU Ý TRƯỚC KHI TRẢ LỜI KHÁCH: ĐỌC KỸ LẠI NỘI DUNG VÀ QUY TRẮC TRƯỚC KHI TRẢ LỜI KHÁCH HÀNG.\n\n- Current datetime: {{ $now }}"
+          "systemMessage": "=## TỔNG QUAN\n- Bạn là nhân viên chăm sóc khách hàng chuyên nghiệp, có 5 năm kinh nghiệm tại spa Calla. Nhiệm vụ của bạn là tư vấn khách hàng về dịch vụ và sản phẩm chăm sóc da, luôn trả lời ngắn gọn, thân thiện, đúng trọng tâm, xưng hô Em – Anh/Chị.\n- Đây là tên khách hàng: {{ $json.message.data.dName }}\n\n- Các dịch vụ chính của Spa:\n+ Peel\n+ Meso\n+ Lấy mụn - Thải độc\n+ Các dịch vụ làm đẹp khác(Other).\n\n## QUY TẮC ỨNG XỬ:\n- Xưng hô: Em – Anh/Chị.\n- Luôn tư vấn ngắn gọn, đúng trọng tâm.\n- Không viết dài dòng, không lặp lại.\n- Luôn nói với thái độ lịch sự, nhẹ nhàng, dễ chịu.\n- Nếu là khách hàng mới thì phải hỏi tên.\n\n## CÁCH HIỂU VÀ GHI NHỚ NGỮ CẢNH:\n- Ghi nhớ toàn bộ nội dung mà khách đã hỏi trước đó trong hội thoại này (qua Redis).\n- Luôn trả lời các câu hỏi tiếp theo dựa vào mạch nội dung trước đó.\n  - Ví dụ: nếu khách hỏi \"Serum nào dưới 300k\", sau đó hỏi tiếp \"vậy loại đắt hơn thì sao?\", bạn phải hiểu là khách đang hỏi tiếp về Serum theo giá cao hơn.\n- Trả lời theo ngữ cảnh hội thoại, không được trả lời rời rạc hay lệch chủ đề.\n\n## NGUỒN DỮ LIỆU (Bắt buộc tra trước khi trả lời):\n- Product: Danh sách sản phẩm – tên, giá, công dụng.\n- Peel: Danh sách dịch vụ Peel – tên, giá, công dụng.\n- Meso: Danh sách dịch vụ Meso – tên, giá, công dụng.\n- Mun: Danh sách dịch vụ lấy mụn – thải độc – tên, giá, công dụng.\n- Other: Các dịch vụ khác – tên, giá, công dụng.\n\n\n**Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.**\n\n## HƯỚNG DẪN TRẢ LỜI:\n- Khi khách hỏi “có dịch vụ gì”: Trả lời tên các dịch vụ chính + giá.\n- Khi khách hỏi công dụng: Trích đúng thông tin trong dữ liệu (Peel, Meso, Mun…).\n- Khi khách hỏi sản phẩm: Liệt kê tên và giá sản phẩm phù hợp.\n- Khi khách hỏi giá: Lọc dữ liệu theo khoảng giá và trả lời gợi ý phù hợp.\n- Khi khách hỏi mập mờ hoặc liên tiếp (“trên thì sao?”, “còn loại nào khác không?”): Phải dựa vào câu hỏi trước để hiểu ý và trả lời tiếp nối mạch hội thoại.\n- Khi không có trong dữ liệu: Trả lời khéo léo, ví dụ: “Dạ hiện bên em chưa có loại đó ạ, mình tham khảo thêm giúp em nha.”\n- Khách hàng chưa hỏi rõ ràng tất cả dịch vụ thì chỉ cần trả lời tên của những dịch vụ chính.\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n\n## QUY TẮC PHẢN HỒI:\n- Không nhắc tới việc đang dùng công cụ hay tool tìm kiếm.\n- Không cần lặp lại link ở mọi câu trả lời.\n- Khi khách muốn dịch vụ hoặc đặt lịch thì nói có thể đến trực tiếp của hàng hoặc đặt lịch trên web hoặc Yêu cầu cung cấp:\n  - Họ Tên\n  - Số điện thoại\n  - Ngày – Giờ mong muốn\n  - Hoặc gửi link: https://spacalla.space\n\n- Khách muốn mua sản phẩm thì hỏi khách \n + Tên:\n + SĐT:\n + Dịa chỉ: \nđể giao hàng hoặc nói khách có thể đặt trực tiếp từ web.\n- Dịch vụ thì là những dịch vụ chính và sản phẩm chỉ có những sản phẩm lấy dữ liệu từ tool Product.\n\n- Luôn dùng tool Redis để có thể hiểu được ngữ cảnh để trả lời khách hàng.\n\n\n## LIÊN HỆ:\n- Địa chỉ: 80 Văn Cao, Tân Lợi, TP.BMT\n- Điện thoại: 0911 219 189\n- Email: calladebeaute@gmail.com\n- Website: https://spacalla.space\n\n## QUY ĐỊCH BẮT BUỘC PHẢI LÀM\n- TẤT CẢ CÂU HỎI LIÊN QUAN ĐẾN SẢN PHẨM HAY DỊCH VỤ THÌ NẾU KHÁCH CHƯA HỎI RÕ CHỈ CẦN TRẢ LỜI NGẮN GỌN TÊN VÀ GIÁ THÔI.\n- KHÔNG HỎI RÕ GIÁ CỦA SẢN PHẨM HAY DỊCH VỤ CỤ THỂ THÌ CHỈ CẦN TRẢ LỜI GIÁ CHUNG CHUNG THÔI.\n- GIỚI THIỆU SẢN PHẨM DỊCH VỤ THÌ CHỈ CẦN NÓI NGẮN GỌN THÔI.\n- Không sử dụng ký tự markdown như '*', '#', '!', '$'... để trả lời tin nhắn khách hàng.\n- Không được trả lời nếu chưa tra dữ liệu. Không đoán. Không nói những gì không có trong dữ liệu.\n- Không trả lời khách hàng tất cả dịch vụ khi khách hàng hỏi chỉ \"bên mình có những dịch vụ gì\".\n- Khi liệt kê sản phẩm hoặc dịch vụ thì phải xuống dòng và có '-' đầu dòng.\n- Dựa vào tin nhắn của khách hàng và chỉ trả lời thông tin khách hàng cần. Không trả lời những thông tin không liên quan đến điều khách hàng muốn hỏi.\n- Khi khách hàng chưa hỏi đến công dụng hay tác dụng của sản phẩm hoặc dịch vụ thì chỉ cần trả lời tên + giá cho khách hàng.\n- Tên sản phẩm ghi đúng như dữ liệu lấy trong Product, đúng từ in đậm đến in hoa.\n\nLuôn trả lời như một người thật đang tư vấn trực tiếp. Không rập khuôn. Luôn tự nhiên, thân thiện và chính xác theo dữ liệu.\n\n\n## LƯU Ý TRƯỚC KHI TRẢ LỜI KHÁCH: ĐỌC KỸ LẠI NỘI DUNG VÀ QUY TRẮC TRƯỚC KHI TRẢ LỜI KHÁCH HÀNG.\n\n- Current datetime: {{ $now }}"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2,
       "position": [
-        -688,
-        352
+        1392,
+        1120
       ],
       "id": "a634ef82-c086-459c-b4fc-552cbff84e42",
       "name": "AI Agent"
@@ -1018,8 +1138,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -1408,
-        592
+        800,
+        1360
       ],
       "id": "8e0bcae1-43c9-4627-ac2d-bd6cae51b22d",
       "name": "Google Gemini Chat Model",
@@ -1034,29 +1154,25 @@
       "parameters": {
         "content": "## Chatbot Zalo\n",
         "height": 492,
-        "width": 1380,
+        "width": 1556,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1472,
-        272
+        736,
+        1040
       ],
       "typeVersion": 1,
       "id": "c683ffec-4a1d-4166-9115-413b2505518e",
       "name": "Sticky Note"
     },
     {
-      "parameters": {
-        "eventTypes": [
-          0
-        ]
-      },
+      "parameters": {},
       "type": "n8n-nodes-zalo-tools.zaloMessageTrigger",
       "typeVersion": 1,
       "position": [
-        -1392,
-        368
+        -2752,
+        -1040
       ],
       "id": "308c4082-c9ff-4303-9958-fcbf59003e28",
       "name": "Nhận Tin",
@@ -1076,8 +1192,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
       "typeVersion": 1.5,
       "position": [
-        -1216,
-        592
+        992,
+        1360
       ],
       "id": "e75f8659-d733-4dbe-86dd-9cfd3a105a37",
       "name": "Redis Chat Memory",
@@ -1138,15 +1254,15 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2400,
-        -1920
+        2304,
+        -3040
       ],
       "id": "d0df67f5-62c2-4f25-a842-0eba4174204e",
       "name": "If1"
     },
     {
       "parameters": {
-        "threadId": "5536028982519892683",
+        "threadId": "5670576676043221673",
         "message": "=Đã đăng bài thành công, xem bài viết tại  {{ $json['Url post '] }}",
         "quote": {},
         "mentions": {}
@@ -1154,8 +1270,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        2160,
-        -2096
+        2064,
+        -3216
       ],
       "id": "6f3ada7b-06ec-48fd-8973-2667889a6289",
       "name": "Zalo Send Message1",
@@ -1171,8 +1287,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1744,
-        -2096
+        1648,
+        -3216
       ],
       "id": "e0e97a50-afae-43c7-b4f8-aecc10603c1f",
       "name": "Wait2",
@@ -1186,8 +1302,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1392,
-        -2224
+        1296,
+        -3344
       ],
       "typeVersion": 1,
       "id": "e9708244-f6c2-4596-8ff7-5aff9b0a5c7e",
@@ -1251,15 +1367,15 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1536,
-        -1520
+        1440,
+        -2640
       ],
       "id": "602d2003-abf5-4d43-bf8b-23df80dc2925",
       "name": "If3"
     },
     {
       "parameters": {
-        "threadId": "5536028982519892683",
+        "threadId": "5670576676043221673",
         "message": "=OK để tao viết lại",
         "quote": {},
         "mentions": {}
@@ -1267,8 +1383,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        2176,
-        -1536
+        2080,
+        -2656
       ],
       "id": "0ad0b4c5-5a79-403b-8d30-adc272746ddb",
       "name": "Zalo Send Message2",
@@ -1290,8 +1406,8 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        1536,
-        -2096
+        1440,
+        -3216
       ],
       "id": "d19afe60-bf6e-4e63-8efb-41d0ec412e2c",
       "name": "Wordpress1",
@@ -1309,8 +1425,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1584,
-        -1888
+        1488,
+        -3008
       ],
       "id": "3344339c-3105-42c1-898e-7c19aff7177d",
       "name": "Code"
@@ -1350,8 +1466,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2160,
-        -1920
+        2064,
+        -3040
       ],
       "id": "9a6eea11-5cac-4519-af79-de166f7b0e5b",
       "name": "Edit Fields6"
@@ -1385,8 +1501,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1968,
-        -1920
+        1872,
+        -3040
       ],
       "id": "7688d560-3b71-445d-bbc5-53bfea3bd2e9",
       "name": "Get row(s) in sheet",
@@ -1578,8 +1694,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1968,
-        -2096
+        1872,
+        -3216
       ],
       "id": "a6191e63-7f9f-4099-9254-dafb35b660fa",
       "name": "Update row in sheet",
@@ -1764,8 +1880,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1984,
-        -1536
+        1888,
+        -2656
       ],
       "id": "42206859-5176-4f2a-87ff-7bd19733be1c",
       "name": "Update row in sheet1",
@@ -1795,17 +1911,27 @@
                 "operation": "equals",
                 "name": "filter.operator.equals"
               }
+            },
+            {
+              "id": "a31a02e0-1be5-4599-a927-8ee1aea83d12",
+              "leftValue": "={{ $json.message.threadId }}",
+              "rightValue": "5670576676043221673",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1104,
-        112
+        -1808,
+        -1040
       ],
       "id": "71e71759-cf93-4519-82a3-7d7a352c84da",
       "name": "Uid"
@@ -1817,8 +1943,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1488,
-        -1216
+        1392,
+        -2336
       ],
       "id": "d1a7a15d-33ed-4b35-9129-4075dad5d844",
       "name": "Code1"
@@ -1838,8 +1964,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        1920,
-        -1216
+        1824,
+        -2336
       ],
       "id": "8d7abae0-81ec-4512-84b4-c451c4ca9c2a",
       "name": "Update a video",
@@ -1879,8 +2005,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1696,
-        -1216
+        1600,
+        -2336
       ],
       "id": "25cebaa4-fc89-40f1-8a20-e53cea2e3762",
       "name": "Get row(s) in sheet1",
@@ -2016,8 +2142,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        2128,
-        -1216
+        2032,
+        -2336
       ],
       "id": "cc67f112-9ae4-4e48-a6a1-599c87add328",
       "name": "Append or update row in sheet",
@@ -2038,8 +2164,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        2336,
-        -1216
+        2240,
+        -2336
       ],
       "id": "ad156ac3-df65-4ce7-9448-8b204a5414b2",
       "name": "Zalo Send Message",
@@ -2059,8 +2185,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1392,
-        -1296
+        1296,
+        -2416
       ],
       "typeVersion": 1,
       "id": "229cfb47-e1a3-4908-93fc-e6240559ae97",
@@ -2076,8 +2202,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        -144,
-        352
+        1936,
+        1120
       ],
       "id": "b791249e-fccc-4947-9cc3-67f2daa992a2",
       "name": "Gửi Tin",
@@ -2085,37 +2211,6 @@
         "zaloApi": {
           "id": "Q9ZDuWnqr1DHtDUl",
           "name": "Zalo API Sora"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "descriptionType": "auto",
-        "authentication": "oAuth2",
-        "resource": "folder",
-        "operation": "share",
-        "folderNoRootId": {
-          "__rl": true,
-          "value": "1SLtFrkANldLrnqGAQcPsRFWf8XKbjpvF",
-          "mode": "list",
-          "cachedResultName": "Ảnh Spa",
-          "cachedResultUrl": "https://drive.google.com/drive/folders/1SLtFrkANldLrnqGAQcPsRFWf8XKbjpvF"
-        },
-        "permissionsUi": {},
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleDriveTool",
-      "typeVersion": 3,
-      "position": [
-        -528,
-        704
-      ],
-      "id": "41b8586d-27fe-42c1-9acc-880acd91b96d",
-      "name": "Share folder in Google Drive",
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "Y92JA2Nql9fTnuAd",
-          "name": "Google sora"
         }
       }
     },
@@ -2140,8 +2235,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1680,
-        496
+        992,
+        -816
       ],
       "id": "6833429f-3d45-4e3f-96d5-516351c88768",
       "name": "lấy nội dung7",
@@ -2159,8 +2254,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2096,
-        496
+        1408,
+        -816
       ],
       "id": "9ad7e0b7-b89f-4b90-a16e-2c09397d7500",
       "name": "Lấy bài viết mới nhất7"
@@ -2280,8 +2375,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2304,
-        496
+        1616,
+        -816
       ],
       "id": "c5f93dcf-888b-4039-8301-dc7b6c312305",
       "name": "cập nhật duyệt bài10",
@@ -2320,8 +2415,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1856,
-        496
+        1168,
+        -816
       ],
       "id": "725d2664-d61f-4a7d-bbd3-ddeafd05cc9f",
       "name": "If9"
@@ -2352,8 +2447,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        2752,
-        -32
+        2064,
+        -1344
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -2383,8 +2478,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1680,
-        -32
+        992,
+        -1344
       ],
       "id": "4f56a5af-51ba-4490-b0de-f5642d80e36a",
       "name": "lấy nội dung19",
@@ -2402,8 +2497,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2096,
-        -32
+        1408,
+        -1344
       ],
       "id": "e860d5b8-b209-40b3-8a40-b99aaff0c8a7",
       "name": "Lấy bài viết mới nhất19"
@@ -2418,8 +2513,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        3008,
-        -32
+        2320,
+        -1344
       ],
       "id": "89373848-6fb5-4bd3-b508-94286e8c3453",
       "name": "Facebook Graph API8",
@@ -2437,8 +2532,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3232,
-        -32
+        2544,
+        -1344
       ],
       "id": "721108ce-60ef-452e-ad14-cd234606bd2a",
       "name": "Code14"
@@ -2558,8 +2653,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3472,
-        -32
+        2784,
+        -1344
       ],
       "id": "d0ee85c9-29f8-4b8c-a52c-cc359aa73e98",
       "name": "cập nhật trạng thái8",
@@ -2598,8 +2693,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1856,
-        -32
+        1168,
+        -1344
       ],
       "id": "50334127-a4cb-4c06-9593-74191a1d0c80",
       "name": "If22"
@@ -2740,8 +2835,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1424,
-        256
+        736,
+        -1056
       ],
       "id": "b32055ae-bfd7-44c8-8712-5c207bf28a90",
       "name": "Switch3"
@@ -2753,8 +2848,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2304,
-        -32
+        1616,
+        -1344
       ],
       "id": "8ed98995-3f03-4d7a-b5ab-0ee48a024fcc",
       "name": "Code15"
@@ -2785,8 +2880,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        2752,
-        144
+        2064,
+        -1168
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -2816,8 +2911,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1680,
-        144
+        992,
+        -1168
       ],
       "id": "44ca4c0d-27ee-4ab8-8954-eb238529615b",
       "name": "lấy nội dung21",
@@ -2835,8 +2930,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2096,
-        144
+        1408,
+        -1168
       ],
       "id": "0ff8a257-f73b-4da9-815d-b30b72b029a4",
       "name": "Lấy bài viết mới nhất21"
@@ -2851,8 +2946,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        3008,
-        144
+        2320,
+        -1168
       ],
       "id": "28af5192-c43d-43f0-8f11-45b712506629",
       "name": "Facebook Graph API9",
@@ -2870,8 +2965,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3232,
-        144
+        2544,
+        -1168
       ],
       "id": "1341e55b-cf0b-4bbf-9265-ad1fad135f6e",
       "name": "Code16"
@@ -2991,8 +3086,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3472,
-        144
+        2784,
+        -1168
       ],
       "id": "140c7a79-2af5-4963-9112-9967a6dc3491",
       "name": "cập nhật trạng thái9",
@@ -3031,8 +3126,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1856,
-        144
+        1168,
+        -1168
       ],
       "id": "3ed74203-70d0-4041-87e8-7f8d9dd586c6",
       "name": "If24"
@@ -3044,8 +3139,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2304,
-        144
+        1616,
+        -1168
       ],
       "id": "268f9d83-70af-47be-a15e-83951a5bbb90",
       "name": "Code17"
@@ -3076,8 +3171,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        2752,
-        320
+        2064,
+        -992
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -3107,8 +3202,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1680,
-        320
+        992,
+        -992
       ],
       "id": "8a78f153-565a-4cdd-84e3-724bc39fd3ea",
       "name": "lấy nội dung23",
@@ -3126,8 +3221,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2096,
-        320
+        1408,
+        -992
       ],
       "id": "b3ca4f4f-5c96-4931-9318-5bcef2da1cfd",
       "name": "Lấy bài viết mới nhất23"
@@ -3142,8 +3237,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        3008,
-        320
+        2320,
+        -992
       ],
       "id": "351cb877-e63d-4b44-910f-715d6b1f1478",
       "name": "Facebook Graph API10",
@@ -3161,8 +3256,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3232,
-        320
+        2544,
+        -992
       ],
       "id": "224c0492-cde1-4114-94ba-4a38597b8f0d",
       "name": "Code18"
@@ -3282,8 +3377,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3472,
-        320
+        2784,
+        -992
       ],
       "id": "b6e44999-7701-4d03-a952-d54700bf77dc",
       "name": "cập nhật trạng thái10",
@@ -3322,8 +3417,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1856,
-        320
+        1168,
+        -992
       ],
       "id": "193d6ac1-e58a-47c6-aae1-917197b071e0",
       "name": "If26"
@@ -3335,8 +3430,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2304,
-        320
+        1616,
+        -992
       ],
       "id": "00dccfd7-0a8e-4e2e-aa94-ce0c75b22766",
       "name": "Code19"
@@ -3348,8 +3443,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2304,
-        704
+        1616,
+        -608
       ],
       "id": "4a75a734-2a5e-46ad-b501-d5eead303388",
       "name": "Tách link ảnh thành item"
@@ -3384,8 +3479,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        2528,
-        704
+        1840,
+        -608
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -3411,8 +3506,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2752,
-        704
+        2064,
+        -608
       ],
       "id": "1c350389-201c-4543-86c2-4bdc4a1b2f81",
       "name": "Edit Fields1"
@@ -3431,8 +3526,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3008,
-        704
+        2320,
+        -608
       ],
       "id": "8cfd3147-2e85-4018-811f-fbfd84a5e4eb",
       "name": "Aggregate9"
@@ -3463,8 +3558,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        3232,
-        704
+        2544,
+        -608
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -3494,8 +3589,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1680,
-        704
+        992,
+        -608
       ],
       "id": "d4cca42f-f500-4e04-ada4-0ffeaeefceae",
       "name": "lấy nội dung25",
@@ -3513,8 +3608,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2096,
-        704
+        1408,
+        -608
       ],
       "id": "99b52560-7ae9-44a9-a132-4e0a588ef045",
       "name": "Lấy bài viết mới nhất25"
@@ -3547,8 +3642,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1856,
-        704
+        1168,
+        -608
       ],
       "id": "747a9b02-aec7-4725-9009-0f8244ca96d6",
       "name": "If28"
@@ -3563,8 +3658,8 @@
       "type": "n8n-nodes-base.facebookGraphApi",
       "typeVersion": 1,
       "position": [
-        3472,
-        704
+        2784,
+        -608
       ],
       "id": "c4175be7-4c54-4c64-8bd2-7f4df383bfea",
       "name": "Facebook Graph API11",
@@ -3582,8 +3677,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3728,
-        704
+        3040,
+        -608
       ],
       "id": "8bf1eb4d-bc31-46da-8c0c-e407c6e0bccf",
       "name": "Code20"
@@ -3703,8 +3798,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3984,
-        704
+        3296,
+        -608
       ],
       "id": "d28e57db-fdf3-4b49-9f76-19ef0016683e",
       "name": "cập nhật trạng thái11",
@@ -3729,8 +3824,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2528,
-        -32
+        1840,
+        -1344
       ],
       "id": "9079d401-a8f4-4cfd-94ec-4f3e033a314d",
       "name": "Aggregate"
@@ -3749,8 +3844,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2528,
-        144
+        1840,
+        -1168
       ],
       "id": "521268c0-9fbe-4372-a1e7-bc1f36365738",
       "name": "Aggregate10"
@@ -3769,8 +3864,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2528,
-        320
+        1840,
+        -992
       ],
       "id": "afd502b9-9066-44aa-a68f-53ae5b1185cd",
       "name": "Aggregate11"
@@ -3784,8 +3879,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        1408,
-        -144
+        720,
+        -1456
       ],
       "typeVersion": 1,
       "id": "08458c77-a40e-46c2-80cf-9da0dd284500",
@@ -3801,8 +3896,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        3728,
-        -32
+        3040,
+        -1344
       ],
       "id": "767862d3-91ae-489b-8f88-915a91f7d217",
       "name": "Zalo Send Message3",
@@ -3823,8 +3918,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        3728,
-        144
+        3040,
+        -1168
       ],
       "id": "e9b5e3c7-1b61-4439-9ca1-7a95adf64cf9",
       "name": "Zalo Send Message4",
@@ -3845,8 +3940,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        3728,
-        320
+        3040,
+        -992
       ],
       "id": "9328de4e-b43b-4362-9f9d-b2e7e3826f80",
       "name": "Zalo Send Message5",
@@ -3867,8 +3962,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        2528,
-        496
+        1840,
+        -816
       ],
       "id": "6a1a8638-d9d4-428d-81ca-577c4278a81e",
       "name": "Zalo Send Message6",
@@ -3889,8 +3984,8 @@
       "type": "n8n-nodes-zalo-tools.zaloSendMessage",
       "typeVersion": 4,
       "position": [
-        4208,
-        704
+        3520,
+        -608
       ],
       "id": "dd06aaeb-1237-4289-b5dc-0c819161ec7d",
       "name": "Zalo Send Message7",
@@ -3961,8 +4056,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        752,
-        -1696
+        656,
+        -2816
       ],
       "id": "5028899e-f2a4-4df3-9093-f0ea5535a75b",
       "name": "Switch"
@@ -4052,11 +4147,622 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        944,
-        -880
+        848,
+        -2000
       ],
       "id": "50edf7e9-c97c-49d0-a71b-63aa2c9d9ead",
       "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=Đơn hàng  {{ $json.id }} đã cập nhật là \"Đang xử lý\".",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2640,
+        272
+      ],
+      "id": "9bbd52e6-8d01-4a08-b130-08dd474d54af",
+      "name": "Gửi tin đang xử lý",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=Đơn hàng  {{ $json.id }} đã cập nhật là \"Xong\".",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2640,
+        96
+      ],
+      "id": "0e315b78-326a-4d1c-ba9b-0f9ebc67f4ac",
+      "name": "Gửi tin hoàn thành1",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Code2').item.json.todo[0] }}",
+        "updateFields": {
+          "status": "processing"
+        },
+        "billingUi": {},
+        "couponLinesUi": {},
+        "feeLinesUi": {},
+        "lineItemsUi": {},
+        "metadataUi": {},
+        "shippingUi": {},
+        "shippingLinesUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        272
+      ],
+      "id": "d08c86d2-b5d9-476d-8f40-c5450086ecd3",
+      "name": "Đang xử lý",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Update",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 12401753,
+          "mode": "list",
+          "cachedResultName": "Thông Tin Đặt hàng",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=12401753"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Trạng thái": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Tr_ng_th_i__using_to_match_', ``, 'string') }}",
+            "Mã đơn hàng": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('M____n_h_ng__using_to_match_', ``, 'string') }}"
+          },
+          "matchingColumns": [
+            "Mã đơn hàng"
+          ],
+          "schema": [
+            {
+              "id": "Sản phẩm",
+              "displayName": "Sản phẩm",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Số lượng",
+              "displayName": "Số lượng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Mã đơn hàng",
+              "displayName": "Mã đơn hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tên khách hàng",
+              "displayName": "Tên khách hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Địa Chỉ",
+              "displayName": "Địa Chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Sđt",
+              "displayName": "Sđt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Tổng tiền",
+              "displayName": "Tổng tiền",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phương thức thanh toán",
+              "displayName": "Phương thức thanh toán",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trạng thái",
+              "displayName": "Trạng thái",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Thời gian đặt",
+              "displayName": "Thời gian đặt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        1792,
+        512
+      ],
+      "id": "43e870ed-ce4e-41dc-9ce7-4ef8cd0d6a64",
+      "name": "Update",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jrdwFmaTBkFLjulZ",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get",
+        "documentId": {
+          "__rl": true,
+          "value": "1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU",
+          "mode": "list",
+          "cachedResultName": "SPA Calla",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 12401753,
+          "mode": "list",
+          "cachedResultName": "Thông Tin Đặt hàng",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1B24vujiYCwEvH75ogxNOHpAiaTuAn9kEo0Mh8jsZOrU/edit#gid=12401753"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        1632,
+        512
+      ],
+      "id": "66da987e-1de8-4482-a3aa-bbd1959f4765",
+      "name": "Get",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "jrdwFmaTBkFLjulZ",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Code2').item.json.done[0] }}",
+        "updateFields": {
+          "status": "completed"
+        },
+        "billingUi": {},
+        "couponLinesUi": {},
+        "feeLinesUi": {},
+        "lineItemsUi": {},
+        "metadataUi": {},
+        "shippingUi": {},
+        "shippingLinesUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        96
+      ],
+      "id": "32348dbc-088d-4ed1-aaa1-11b7a6b6c4f5",
+      "name": "Hoàn thành",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1b6364ed-69cf-4157-90d4-4bc70886e809",
+              "leftValue": "={{ $json.message.data.idTo }}",
+              "rightValue": "1065949318692196563",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "8cb75c4b-18ee-4e60-b471-796e0e1fd89c",
+              "leftValue": "={{ $json.message.data.uidFrom }}",
+              "rightValue": "6668958552947279252",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        864,
+        288
+      ],
+      "id": "e454af3f-e377-406b-aaf5-96c5f8efc543",
+      "name": "Xác định id"
+    },
+    {
+      "parameters": {
+        "jsCode": "const message = $json.message.data.content || '';\nconst lines = message.split('\\n');\n\nconst done = [];\nconst todo = [];\nconst cancel = [];\n\nfor (const line of lines) {\n  const trimmed = line.trim();\n  const parts = trimmed.split(/\\s+/); // tách theo khoảng trắng\n  const orderId = parts[0];\n  const status = parts.slice(1).join(' ').toLowerCase();\n\n  if (status === 'xong') {\n    done.push(orderId);\n  } else if (status === 'đang xử lý') {\n    todo.push(orderId);\n  } else if (status === 'hủy') {\n    cancel.push(orderId);\n  }\n}\n\nreturn [\n  {\n    json: {\n      done,\n      todo,\n      cancel\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1152,
+        272
+      ],
+      "id": "82bc3f4f-11bd-4020-a1f6-cf230811f51f",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Nhận Tin').item.json.message.data.content }}",
+                    "rightValue": "xong",
+                    "operator": {
+                      "type": "string",
+                      "operation": "endsWith"
+                    },
+                    "id": "1c8f63fa-d43b-4249-9f0a-36c025536925"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "xong"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "039b3586-7daa-4d4b-b13b-cdae87a44a7a",
+                    "leftValue": "={{ $('Nhận Tin').item.json.message.data.content }}",
+                    "rightValue": "lý",
+                    "operator": {
+                      "type": "string",
+                      "operation": "endsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Đang xử lý"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "491f194f-0044-47ec-864f-7c4f79560703",
+                    "leftValue": "={{ $('Nhận Tin').item.json.message.data.content }}",
+                    "rightValue": "hủy",
+                    "operator": {
+                      "type": "string",
+                      "operation": "endsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Hủy"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2048,
+        256
+      ],
+      "id": "504073e0-9c85-4302-b1a4-f7a4db331863",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Nhận Tin').item.json.message.data.content }}",
+        "options": {
+          "systemMessage": "=## TỔNG QUAN\n- Bạn là nhân viên kiểm tra trạng thái đơn hàng, bạn có thể thiết lập trạng thái cho đơn hàng.\n\n##Tool\n- Get: dùng để kiểm tra và thông tin\n- Update: dùng để cập nhật trạng thái \"Xong\" hoặc \"Chưa hoàn thành\".\n\n##Rule\n- nếu tin nhắn đến là kiểu \"Mã đơn hàng này xong\" thì cập nhật trạng thái mã đơn hàng đó là \"Xong\", chỉ 1 chữ Xong thôi.\n- nếu tin nhắn đến là kiểu \"Mã đơn hàng đang xử lý\" thì cập nhật trạng thái mã đơn hàng đó là \"Đang xử lý\", chỉ đang xử lý thôi.\n- nếu tin nhắn đến là kiểu \"Mã đơn hàng hủy\" thì cập nhật trạng thái mã đơn hàng đó là \"Hủy\", chỉ 1 chữ Hủy thôi.\n- Kiểm tra đúng mã đơn hàng để cập nhật.\n- Chỉ cập nhật và gửi thông tin đơn hàng yêu cầu thôi.\n\n\n- Current datetime: {{ $now }}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        1536,
+        272
+      ],
+      "id": "59e861b9-8922-497b-b8a7-647269ee3594",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        512
+      ],
+      "id": "544c3c2f-ab79-4afd-a18d-1ee2f1ccc38b",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "jETUIHbao5VpmN6h",
+          "name": "Sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Tách Chữ và số\n",
+        "height": 240
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1088,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "fd6f32be-879c-42d8-8e66-8009b5f9d976",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Phân tích và cập nhật trên google sheet",
+        "height": 496,
+        "width": 464,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1424,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "34d19399-4e18-40a1-97dd-661e93324cac",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## Cập nhật trạng thái trên WooCommerce ",
+        "height": 592,
+        "width": 320
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2256,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "7410af4d-8acd-4749-bff4-21b92c5e28b1",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {
+        "content": "## QUẢN LÝ TRẠNG THÁI ĐƠN HÀNG TRÊN ZALO",
+        "height": 784,
+        "width": 2336,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        704,
+        -32
+      ],
+      "typeVersion": 1,
+      "id": "4f3bc82d-27e2-4880-8008-c8c459b40c2b",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Code2').item.json.cancel[0] }}",
+        "updateFields": {
+          "status": "cancelled"
+        },
+        "billingUi": {},
+        "couponLinesUi": {},
+        "feeLinesUi": {},
+        "lineItemsUi": {},
+        "metadataUi": {},
+        "shippingUi": {},
+        "shippingLinesUi": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        464
+      ],
+      "id": "6c3eed46-77ec-460f-b71b-be971e128db2",
+      "name": "Hủy",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "YeePakWQ7rvYheDB",
+          "name": "WooCommerce sora"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "threadId": "1065949318692196563",
+        "type": 1,
+        "message": "=Đơn hàng  {{ $json.id }} đã cập nhật là \"Đã hủy\".",
+        "quote": {},
+        "mentions": {}
+      },
+      "type": "n8n-nodes-zalo-tools.zaloSendMessage",
+      "typeVersion": 4,
+      "position": [
+        2640,
+        464
+      ],
+      "id": "3e178a05-3146-42ec-9754-7bd27e7f65ff",
+      "name": "Gửi tin đã hủy",
+      "credentials": {
+        "zaloApi": {
+          "id": "Q9ZDuWnqr1DHtDUl",
+          "name": "Zalo API Sora"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -4067,12 +4773,13 @@
     "node:Nhận Tin": {
       "isConnected": true,
       "eventTypes": [
-        0
+        0,
+        1
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-15T23:00:19.663Z",
-  "versionId": "19d42b98-65c2-4167-a76a-769041ec1b14"
+  "updatedAt": "2025-08-16T23:00:51.600Z",
+  "versionId": "25a026e9-e14b-4c62-a319-9cd66f9f9ad3"
 }
