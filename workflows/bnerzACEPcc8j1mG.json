@@ -1744,7 +1744,7 @@
     },
     {
       "parameters": {
-        "threadId": "5536028982519892683",
+        "threadId": "5670576676043221673",
         "message": "=Đã soạn bài xong kiểm tra tại {{ $('Upload post').item.json.link }}  hoặc file docx https://docs.google.com/document/d/{{ $('Update docx').item.json.documentId }} ",
         "quote": {},
         "mentions": {}
@@ -1772,6 +1772,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-14T03:38:50.471Z",
-  "versionId": "91c6c92d-310c-44b5-a729-eb7699abd2f6"
+  "updatedAt": "2025-08-16T07:42:12.718Z",
+  "versionId": "a0a9343c-b686-40fb-9502-ee0e09f38936"
 }
