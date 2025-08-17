@@ -23,26 +23,9 @@
         ]
       ]
     },
-    "Deactivate Quản lý trạng thái đơn hàng": {
-      "main": [
-        [
-          {
-            "node": "Activate Quản lý trạng thái đơn hàng",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Activate ChatbotZalo": {
       "main": [
-        [
-          {
-            "node": "Deactivate Quản lý trạng thái đơn hàng",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     }
   },
@@ -128,58 +111,6 @@
           "name": "n8n account"
         }
       }
-    },
-    {
-      "parameters": {
-        "operation": "deactivate",
-        "workflowId": {
-          "__rl": true,
-          "value": "m0CPYiljbjXCzpdR",
-          "mode": "list",
-          "cachedResultName": "4 - Hồng - Quản lý trạng thái đơn hàng trên Zalo (#m0CPYiljbjXCzpdR)"
-        },
-        "requestOptions": {}
-      },
-      "type": "n8n-nodes-base.n8n",
-      "typeVersion": 1,
-      "position": [
-        288,
-        16
-      ],
-      "id": "2f5d283e-167d-452e-b4a1-5da20aea14bc",
-      "name": "Deactivate Quản lý trạng thái đơn hàng",
-      "credentials": {
-        "n8nApi": {
-          "id": "SXC7EEQNg5HcM3Ac",
-          "name": "n8n account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "activate",
-        "workflowId": {
-          "__rl": true,
-          "value": "m0CPYiljbjXCzpdR",
-          "mode": "list",
-          "cachedResultName": "4 - Hồng - Quản lý trạng thái đơn hàng trên Zalo (#m0CPYiljbjXCzpdR)"
-        },
-        "requestOptions": {}
-      },
-      "type": "n8n-nodes-base.n8n",
-      "typeVersion": 1,
-      "position": [
-        528,
-        16
-      ],
-      "id": "efd2d6d1-2b4a-4b61-9b5b-122219c2d782",
-      "name": "Activate Quản lý trạng thái đơn hàng",
-      "credentials": {
-        "n8nApi": {
-          "id": "SXC7EEQNg5HcM3Ac",
-          "name": "n8n account"
-        }
-      }
     }
   ],
   "pinData": {},
@@ -193,6 +124,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-14T04:57:34.603Z",
-  "versionId": "720c641e-0392-4b6c-bb73-38eddc7ad9da"
+  "updatedAt": "2025-08-16T06:50:00.010Z",
+  "versionId": "c21322bd-3437-4d3e-984c-bc5e0e049f06"
 }
