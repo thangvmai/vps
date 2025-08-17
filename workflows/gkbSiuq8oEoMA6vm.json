@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "If",
+            "node": "Append or update row in sheet",
             "type": "main",
             "index": 0
           }
@@ -76,9 +76,14 @@
             "index": 0
           }
         ],
+        []
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
         [
           {
-            "node": "Append or update row in sheet",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -132,7 +137,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        832,
+        1024,
         80
       ],
       "id": "539f8696-5c43-4724-9f36-b1c24e7a7857",
@@ -246,7 +251,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        816,
+        1008,
         -16
       ],
       "typeVersion": 1,
@@ -317,7 +322,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        528,
+        752,
         96
       ],
       "id": "3b744067-0127-4c49-b4fa-e80713ee25d7",
@@ -391,17 +396,6 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "number",
-              "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -412,8 +406,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        864,
-        368
+        512,
+        96
       ],
       "id": "ef366153-a5eb-44e4-a251-03f4868acdde",
       "name": "Append or update row in sheet",
@@ -432,6 +426,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-09T10:37:48.500Z",
-  "versionId": "d5b1e653-fa63-4a3b-87c2-92bfb8ea8220"
+  "updatedAt": "2025-08-16T08:45:03.984Z",
+  "versionId": "be2f26cf-3732-484d-bd88-fa8806583b99"
 }
