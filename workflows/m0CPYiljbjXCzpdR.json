@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Code": {
       "main": [
@@ -96,17 +96,6 @@
         ]
       ]
     },
-    "Nhận tin": {
-      "main": [
-        [
-          {
-            "node": "Xác định id",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Xác định id": {
       "main": [
         [
@@ -117,13 +106,20 @@
           }
         ]
       ]
+    },
+    "Nhận tin": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2025-08-09T09:47:24.920Z",
   "id": "m0CPYiljbjXCzpdR",
   "isArchived": false,
-  "meta": null,
-  "name": "4 - Hồng - Quản lý trạng thái đơn hàng trên Zalo",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Hồng - Quản lý trạng thái đơn hàng trên Zalo",
   "nodes": [
     {
       "parameters": {
@@ -173,7 +169,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const message = $json.message.data.content || '';\nconst lines = message.split('\\n');\n\nconst done = [];\nconst todo = [];\n\nfor (const line of lines) {\n  const trimmed = line.trim();\n  const parts = trimmed.split(/\\s+/); // tách theo khoảng trắng\n  const orderId = parts[0];\n  const status = parts.slice(1).join(' ').toLowerCase();\n\n  if (status === 'xong') {\n    done.push(orderId);\n  } else if (status === 'đang xử lý') {\n    todo.push(orderId);\n  }\n}\n\nreturn [\n  {\n    json: {\n      done,\n      todo\n    }\n  }\n];\n"
+        "jsCode": "const message = $json.message.data.content || '';\nconst lines = message.split('\\n');\n\nconst done = [];\nconst todo = [];\nconst cancel = [];\n\nfor (const line of lines) {\n  const trimmed = line.trim();\n  const parts = trimmed.split(/\\s+/); // tách theo khoảng trắng\n  const orderId = parts[0];\n  const status = parts.slice(1).join(' ').toLowerCase();\n\n  if (status === 'xong') {\n    done.push(orderId);\n  } else if (status === 'đang xử lý') {\n    todo.push(orderId);\n  } else if (status === 'hủy') {\n    cancel.push(orderId);\n  }\n}\n\nreturn [\n  {\n    json: {\n      done,\n      todo,\n      cancel\n    }\n  }\n];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -555,28 +551,6 @@
     },
     {
       "parameters": {
-        "eventTypes": [
-          1
-        ]
-      },
-      "type": "n8n-nodes-zalo-tools.zaloMessageTrigger",
-      "typeVersion": 1,
-      "position": [
-        -1440,
-        144
-      ],
-      "id": "32af8942-affe-4f0d-a935-479b9cec9dd3",
-      "name": "Nhận tin",
-      "webhookId": "cb62ae82-41ed-48d7-974d-0cd0dfd8db5f",
-      "credentials": {
-        "zaloApi": {
-          "id": "Q9ZDuWnqr1DHtDUl",
-          "name": "Zalo API Sora"
-        }
-      }
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -587,7 +561,7 @@
           "conditions": [
             {
               "id": "1b6364ed-69cf-4157-90d4-4bc70886e809",
-              "leftValue": "={{ $json.message.data.idTo }}",
+              "leftValue": "={{ $json.query }}",
               "rightValue": "1065949318692196563",
               "operator": {
                 "type": "string",
@@ -597,7 +571,7 @@
             },
             {
               "id": "8cb75c4b-18ee-4e60-b471-796e0e1fd89c",
-              "leftValue": "={{ $json.message.data.uidFrom }}",
+              "leftValue": "={{ $json.query }}",
               "rightValue": "6668958552947279252",
               "operator": {
                 "type": "string",
@@ -663,6 +637,29 @@
       "typeVersion": 1,
       "id": "25216a8e-0036-4722-a09e-5e05ac7469c3",
       "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "eventTypes": [
+          0
+        ]
+      },
+      "type": "n8n-nodes-zalo-tools.zaloMessageTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1440,
+        144
+      ],
+      "id": "32af8942-affe-4f0d-a935-479b9cec9dd3",
+      "name": "Nhận tin",
+      "webhookId": "cb62ae82-41ed-48d7-974d-0cd0dfd8db5f",
+      "credentials": {
+        "zaloApi": {
+          "id": "ZNS0TKIAw6GvcqGE",
+          "name": "Zalo API Credentials"
+        }
+      },
+      "disabled": true
     }
   ],
   "pinData": {},
@@ -671,15 +668,10 @@
   },
   "staticData": {
     "node:Zalo Message Trigger": {},
-    "node:Nhận tin": {
-      "isConnected": true,
-      "eventTypes": [
-        1
-      ]
-    }
+    "node:Nhận tin": {}
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-15T23:00:20.058Z",
-  "versionId": "59cfb2b1-67a9-4f69-93ea-9c46b7f2341b"
+  "updatedAt": "2025-08-16T08:11:18.518Z",
+  "versionId": "f25357b8-b911-4929-b700-1e317561ee8f"
 }
